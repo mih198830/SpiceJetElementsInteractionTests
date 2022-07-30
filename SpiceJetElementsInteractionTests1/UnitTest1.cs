@@ -1,14 +1,24 @@
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 using OpenQA.Selenium.Interactions;
 using System.Collections;
+using OpenQA.Selenium.Firefox;
+
+//- Used https://github.com/rosolko/WebDriverManager.Net so Firefox browser is working now (+ Chrome)
+// automatically downloads browser version and keeps updated
+
+
 
 namespace SpiceJetElementsInteractionTests1
 {
     public class Tests
     {
-        private IWebDriver driver;
-        private readonly By _covidLink = By.XPath("//div[text()='COVID-19 Information']");
+        private IWebDriver _webDriver;
+
+        public readonly By _covidLink = By.XPath("//div[text()='COVID-19 Information']");
         private readonly By _roundTripRadioButton = By.XPath("//div[@data-testid='round-trip-radio-button']");
         private readonly By _oneWayTripRadioButton = By.XPath("//div[@data-testid='one-way-radio-button']");
         private readonly By _checkInTab = By.XPath("//div[@data-testid='check-in-horizontal-nav-tabs']");
@@ -39,113 +49,139 @@ namespace SpiceJetElementsInteractionTests1
         [SetUp]
         public void Setup()
         {
-            driver = new OpenQA.Selenium.Chrome.ChromeDriver();
-            driver.Navigate().GoToUrl("https://www.spicejet.com/");
-            driver.Manage().Window.Maximize();
+            //new DriverManager().SetUpDriver(new ChromeConfig());
+            //_webDriver = new ChromeDriver();
+            new DriverManager().SetUpDriver(new FirefoxConfig());
+            _webDriver = new FirefoxDriver();
+            _webDriver.Navigate().GoToUrl("https://www.spicejet.com/");
+            _webDriver.Manage().Window.Maximize();
             
         }
 
         [Test]
         public void RoundTripRadioButtonClick()
         {
+            // open COVID-19 rules link in new tab // retrieve info 
+            _webDriver.FindElement(By.XPath("//div[@data-testid='home-page-flight-cta']")).Click();
+            
+            // switch to first tab
+            ((IJavaScriptExecutor)_webDriver).ExecuteScript("window.open()");
+            List<string> tabs = new List<string>(_webDriver.WindowHandles);
+            _webDriver.SwitchTo().Window(tabs[0]);
 
-            var covidLink = driver.FindElement(_covidLink);
-            covidLink.Click(); // open COVID-19 rules link in new tab
+            //ChromeOptions op = new ChromeOptions();
+            //op.AddArguments("--disable-notifications");
 
-            ((IJavaScriptExecutor)driver).ExecuteScript("window.open()");
-            List<string> tabs = new List<string>(driver.WindowHandles);
-            driver.SwitchTo().Window(tabs[0]); // switch to first tab
+            // checkIn tab click
+            var checkInTab = _webDriver.FindElement(_checkInTab);
+            checkInTab.Click();
 
-            ChromeOptions op = new ChromeOptions();
-            op.AddArguments("--disable-notifications");
-
-            var checkInTab = driver.FindElement(_checkInTab);
-            checkInTab.Click(); // checkIn tab click
-
-            Actions act = new Actions(driver);
+            //add if condition
+            Actions act = new Actions(_webDriver);
             act.SendKeys(OpenQA.Selenium.Keys.Escape).Perform();
 
-            var ticketNumber = driver.FindElement(_ticketNumber);
-            ticketNumber.SendKeys("KVKDIW111"); // send keys (ticket number) CSS
-            Thread.Sleep(400);
-       
-            var ticketEmail = driver.FindElement(_ticketEmail);
-            ticketEmail.SendKeys("john.doe@spicejet.com"); // send keys (ticket email) CSS
+            // send keys (ticket number) CSS // add ticket generator//validation numbers//
+            var ticketNumber = _webDriver.FindElement(_ticketNumber);
+            ticketNumber.SendKeys("KVKDIW111"); 
+            Thread.Sleep(400); // get rid of thread.sleep
 
-            var manageBookingHorizontalNavTab = driver.FindElement(_manageBookingHorizontalNavTab);
-            manageBookingHorizontalNavTab.Click(); // manage booking nav tab click
+            // send keys (ticket email) CSS //
+            var ticketEmail = _webDriver.FindElement(_ticketEmail);
+            ticketEmail.SendKeys("john.doe@spicejet.com");
 
-            var flightsHorizontalTab = driver.FindElement(_flightsHorizontalTab);
-            flightsHorizontalTab.Click(); // flights horizontal tab click
+            // manage booking nav tab click
+            var manageBookingHorizontalNavTab = _webDriver.FindElement(_manageBookingHorizontalNavTab);
+            manageBookingHorizontalNavTab.Click();
 
-            var roundTrip = driver.FindElement(_roundTripRadioButton);
-            roundTrip.Click(); //round trip radio button click
+            // flights horizontal tab click
+            var flightsHorizontalTab = _webDriver.FindElement(_flightsHorizontalTab);
+            flightsHorizontalTab.Click();
 
-            var oneWay = driver.FindElement(_oneWayTripRadioButton);
-            oneWay.Click(); //one way radio button click
+            //round trip radio button click
+            var roundTrip = _webDriver.FindElement(_roundTripRadioButton);
+            roundTrip.Click();
 
-            var fromField = driver.FindElement(_fromField);
-            fromField.Click(); //from field click
+            //one way radio button click
+            var oneWay = _webDriver.FindElement(_oneWayTripRadioButton);
+            oneWay.Click();
 
-            var fromMumbaiAirport = driver.FindElement(_fromMumbaiAirport);
-            fromMumbaiAirport.Click(); //flying from Mumbai airport selection
+            //from field click
+            var fromField = _webDriver.FindElement(_fromField);
+            fromField.Click();
+
+            //flying from Mumbai airport selection
+            var fromMumbaiAirport = _webDriver.FindElement(_fromMumbaiAirport);
+            fromMumbaiAirport.Click(); 
             Thread.Sleep(700);
 
-            var delhiAerport = driver.FindElement(_delhiAerport);
-            delhiAerport.Click(); //flying to Delhi airport selection
+            //flying to Delhi airport selection
+            var delhiAerport = _webDriver.FindElement(_delhiAerport);
+            delhiAerport.Click(); 
             Thread.Sleep(600);
 
-            var flipFromToPlaces = driver.FindElement(_flipFromToPlaces);
-            flipFromToPlaces.Click(); //change from and to destination arrow click
+            //change from and to destination arrow click
+            var flipFromToPlaces = _webDriver.FindElement(_flipFromToPlaces);
+            flipFromToPlaces.Click(); 
             Thread.Sleep(400);
 
-            var toField = driver.FindElement(_toField);
-            toField.Click(); //to field destination click
-            var internationalDestination = driver.FindElement(_internationalDestiantion);
-            internationalDestination.Click();//international destination selection click
+            //to field destination click
+            var toField = _webDriver.FindElement(_toField);
+            toField.Click();
+
+            //international destination selection click
+            var internationalDestination = _webDriver.FindElement(_internationalDestiantion);
+            internationalDestination.Click();
             Thread.Sleep(400);
 
-            var kutaisiAirport = driver.FindElement(_kutaisiAerport);
-            kutaisiAirport.Click();//select Kutaisi airport
+            //select Kutaisi airport
+            var kutaisiAirport = _webDriver.FindElement(_kutaisiAerport);
+            kutaisiAirport.Click();
             Thread.Sleep(2000);
 
-            var augustDate = driver.FindElement(_augustDate);
-            augustDate.Click(); //select 3 of august date USING CSS
+            //select 3 of august date USING CSS
+            var augustDate = _webDriver.FindElement(_augustDate);
+            augustDate.Click(); 
             Thread.Sleep(400);
 
-            var returnDate = driver.FindElement(_returnDate);
-            returnDate.Click();//click return date date picker CSS
+            //click return date date picker CSS
+            var returnDate = _webDriver.FindElement(_returnDate);
+            returnDate.Click();
             Thread.Sleep(400);
 
-            var septemberDate = driver.FindElement(_septemberDate);
+            var septemberDate = _webDriver.FindElement(_septemberDate);
             septemberDate.Click();
             Thread.Sleep(400);
 
-            var numberOfTravellers = driver.FindElement(_numberOfTravellers);
+            var numberOfTravellers = _webDriver.FindElement(_numberOfTravellers);
             numberOfTravellers.Click();
 
-            var numberOfChildren = driver.FindElement(_numberOfChildren);
-            act.DoubleClick(numberOfChildren).Perform();//double click number of children CSS
-            
-            var numberOfAdults = driver.FindElement(_numberOfAdults);
-            numberOfAdults.Click();//one click to add one more adult passenger CSS
+            //double click number of children CSS
+            var numberOfChildren = _webDriver.FindElement(_numberOfChildren);
+            act.DoubleClick(numberOfChildren).Perform();
 
-            var currency = driver.FindElement(_currency);
-            currency.Click(); // currency drop-down click
+            //one click to add one more adult passenger CSS
+            var numberOfAdults = _webDriver.FindElement(_numberOfAdults);
+            numberOfAdults.Click();
 
-            var currencyUSD = driver.FindElement(_currencyUSD);
-            currencyUSD.Click();// currency USD Xpath selector click
+            // currency drop-down click
+            var currency = _webDriver.FindElement(_currency);
+            currency.Click();
+
+            // currency USD Xpath selector click
+            var currencyUSD = _webDriver.FindElement(_currencyUSD);
+            currencyUSD.Click();
             Thread.Sleep(400);
 
-            var studentsRadioBox = driver.FindElement(_studentsRadioBox);
-            studentsRadioBox.Click();//students Radio button css selector click
+            //students Radio button css selector click
+            var studentsRadioBox = _webDriver.FindElement(_studentsRadioBox);
+            studentsRadioBox.Click();
             Thread.Sleep(600);
 
-           
-            var searchFlightButtonClick = driver.FindElement(_searchFlightButtonClick);
-            searchFlightButtonClick.Click();//search Flight button xpath button click
+            //search Flight button xpath button click
+            var searchFlightButtonClick = _webDriver.FindElement(_searchFlightButtonClick);
+            searchFlightButtonClick.Click();
 
-            driver.Quit();
+            _webDriver.Quit();
         }
 
     }
