@@ -1,41 +1,26 @@
-using NUnit.Framework;
 using OpenQA.Selenium;
+using Bogus;
 using OpenQA.Selenium.Chrome;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
-using OpenQA.Selenium.Interactions;
-using System.Collections;
-using OpenQA.Selenium.Firefox;
+
+
 
 //- Used https://github.com/rosolko/WebDriverManager.Net so Firefox browser is working now (+ Chrome)
 // automatically downloads browser version and keeps updated
-
+// - Replaced all Thread.Sleep with one line Implicit Wait timeout
+// - Added Faker library usage for ticket number / Email generation
 
 namespace SpiceJetElementsInteractionTests1
 {
-    public class Tests
+    [TestFixture]
+    public class Tests : BaseClass
     {
-        private IWebDriver _webDriver;
         private readonly By _numberOfChildren = By.CssSelector("div[data-testid='Children-testID-plus-one-cta']");
-
-        [SetUp]
-        public void Setup()
-        {
-
-            _webDriver = new ChromeDriver();
-            new DriverManager().SetUpDriver(new ChromeConfig());
-            new DriverManager().SetUpDriver(new FirefoxConfig());
-            //_webDriver = new FirefoxDriver();
-            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            _webDriver.Navigate().GoToUrl("https://www.spicejet.com/");
-            _webDriver.Manage().Window.Maximize();
-        }
 
         [Test]
         public void RoundTripRadioButtonClick()
         {
             // open COVID-19 rules link in new tab // retrieve info 
-            _webDriver.FindElement(By.XPath("//div[@data-testid='home-page-flight-cta']")).Click();
+            _webDriver.FindElement(By.XPath("//div[text()='COVID-19 Information']")).Click();
             
             // switch to first tab
             ((IJavaScriptExecutor)_webDriver).ExecuteScript("window.open()");
@@ -45,16 +30,13 @@ namespace SpiceJetElementsInteractionTests1
             // checkIn tab click
             _webDriver.FindElement(By.XPath("//div[@data-testid='check-in-horizontal-nav-tabs']")).Click();
 
-            //add if condition
-            Actions act = new Actions(_webDriver);
-            act.SendKeys(Keys.Escape).Perform();
-
             // send keys (ticket number) CSS // add ticket generator//validation numbers//
-            _webDriver.FindElement(By.CssSelector(".css-1cwyjr8.r-homxoj.r-ubezar.r-1eimq0t.r-1e081e0.r-xfkzu9.r-lnhwgy")).SendKeys("KVKDIW111"); ;
-            Thread.Sleep(400); // get rid of thread.sleep
+            string ticketNumber = Faker.Phone.Number().Replace("+", "").Replace("(", "").Replace(")", "").Replace("-", "");
+            _webDriver.FindElement(By.CssSelector(".css-1cwyjr8.r-homxoj.r-ubezar.r-1eimq0t.r-1e081e0.r-xfkzu9.r-lnhwgy")).SendKeys(ticketNumber);
 
-            // send keys (ticket email) CSS //
-            _webDriver.FindElement(By.XPath("//input[@placeholder='john.doe@spicejet.com']")).SendKeys("john.doe@spicejet.com");
+            // Generate random email using Faker API //
+            string email = Faker.Internet.Email();
+            _webDriver.FindElement(By.XPath("//input[@placeholder='john.doe@spicejet.com']")).SendKeys(email);
 
             // manage booking nav tab click
             _webDriver.FindElement(By.XPath("//div[@data-testid='manage booking-horizontal-nav-tabs']")).Click();
@@ -73,10 +55,9 @@ namespace SpiceJetElementsInteractionTests1
 
             //flying from Mumbai airport selection
             _webDriver.FindElement(By.XPath("//div[text()='Chhatrapati Shivaji International Airport']")).Click();
-            Thread.Sleep(800);
 
-            //flying to Delhi airport selection
-            _webDriver.FindElement(By.XPath("//div[text()='Indira Gandhi International Airport']")).Click();
+            //flying to Agra airport selection
+            _webDriver.FindElement(By.XPath("//div[text()='Pandit Deen Dayal Upadhyay Airport']")).Click();
 
             //change from and to destination arrow click
             _webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-flip-arrow']")).Click();
@@ -86,28 +67,23 @@ namespace SpiceJetElementsInteractionTests1
 
             //international destination selection click
             _webDriver.FindElement(By.XPath("//div[text()='International']")).Click();
-            Thread.Sleep(400);
 
-            //select Kutaisi airport
-            _webDriver.FindElement(By.XPath("//div[text()='Kutaisi Airport']")).Click();
-            Thread.Sleep(2000);
+            //select Bangkok airport
+            _webDriver.FindElement(By.XPath("//div[text()='Suvarnabhumi Airport']")).Click();
 
-            //select 3 of august date USING CSS
-            _webDriver.FindElement(By.CssSelector("div[data-testid='undefined-month-August-2022'] [data-testid='undefined-calendar-day-3']")).Click();
-            Thread.Sleep(400);
+            //select FROM date USING CSS
+            _webDriver.FindElement(By.CssSelector("div[data-testid='undefined-month-August-2022'] [data-testid='undefined-calendar-day-31']")).Click();
 
             //click return date date picker CSS
             _webDriver.FindElement(By.CssSelector("div[data-testid='return-date-dropdown-label-test-id']")).Click();
-            Thread.Sleep(400);
 
-            _webDriver.FindElement(By.CssSelector("div[data-testid='undefined-month-September-2022'] [data-testid='undefined-calendar-day-22']")).Click();
-            Thread.Sleep(400);
+            _webDriver.FindElement(By.CssSelector("div[data-testid='undefined-month-September-2022'] [data-testid='undefined-calendar-day-30']")).Click();
 
             _webDriver.FindElement(By.CssSelector("div[data-testid='home-page-travellers']")).Click();
  
             //double click number of children CSS
             var numberOfChildren = _webDriver.FindElement(_numberOfChildren);
-            act.DoubleClick(numberOfChildren).Perform();
+            numberOfChildren.Click();
 
             //one click to add one more adult passenger CSS
             _webDriver.FindElement(By.CssSelector("div[data-testid='Adult-testID-plus-one-cta']")).Click();
@@ -117,16 +93,12 @@ namespace SpiceJetElementsInteractionTests1
 
             // currency USD Xpath selector click
             _webDriver.FindElement(By.XPath("//div[text()='USD']")).Click();
-            Thread.Sleep(400);
 
             //students Radio button css selector click
             _webDriver.FindElement(By.XPath("//div[text()='Students']")).Click();
-            Thread.Sleep(600);
 
             //search Flight button xpath button click
             _webDriver.FindElement(By.XPath("//div[@data-testid='home-page-flight-cta']")).Click();
-
-            _webDriver.Quit();
         }
     }
 }
