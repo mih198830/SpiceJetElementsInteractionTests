@@ -20,9 +20,10 @@ namespace SpiceJetElementsInteractionTests1
         {
             _webDriver = new ChromeDriver();
             new DriverManager().SetUpDriver(new ChromeConfig());
-            
             //new DriverManager().SetUpDriver(new FirefoxConfig());
             //_webDriver = new FirefoxDriver();
+           
+
         }
 
         [TearDown]
