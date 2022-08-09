@@ -100,15 +100,14 @@ namespace SpiceJetElementsInteractionTests1
             // currency USD Xpath selector click
             _webDriver.FindElement(By.XPath("//div[text()='USD']")).Click();
 
-            String Currency = _webDriver.FindElement(By.XPath("//div[text()='Currency']")).Text;
-            Assert.AreEqual("USD", Currency);
+            String CurrencyUSD = _webDriver.FindElement(By.XPath("//div[text()='USD']")).Text;
+            Assert.AreEqual("USD", CurrencyUSD);
             
 
             //students Radio button css selector click
             //Assert for selection added
             _webDriver.FindElement(By.XPath("//div[text()='Students']")).Click();
             String ChoosedRadioButton =_webDriver.FindElement(By.XPath("//div[text()='Students']")).Text;
-            Console.WriteLine(ChoosedRadioButton);
             Assert.AreEqual(ChoosedRadioButton, "Students");
 
             //search Flight button xpath button click
