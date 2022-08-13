@@ -4,13 +4,19 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
 
-
+//August 2022 changelog
 //- Used https://github.com/rosolko/WebDriverManager.Net so Firefox browser is working now (+ Chrome)
-// automatically downloads browser version and keeps updated
+//automatically downloads browser version and keeps updated
 // - Replaced all Thread.Sleep with one line Implicit Wait timeout
 // - Added FOR loop for 6 adults selection
 // - Added Faker library usage for ticket number / Email generation
 // - Updated Airports selectors to 3 letters (find by text)
+
+// - OpenQA.Selenium - namespace with classes, interfaces, methods for different browsers (Chrome, Firefox, etc)
+// https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/package-summary.html
+// - Added title test
+// - radio-button assert added one-way trip
+
 
 namespace SpiceJetElementsInteractionTests1
 {
@@ -18,10 +24,17 @@ namespace SpiceJetElementsInteractionTests1
     public class Tests : BaseClass
     {
         private readonly By _numberOfChildren = By.CssSelector("div[data-testid='Children-testID-plus-one-cta']");
+        private readonly By _oneWayTripRadioButton = By.XPath("//div[@data-testid='one-way-radio-button']");
 
         [Test]
         public void RoundTripRadioButtonClick()
         {
+
+            String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
+            String title = _webDriver.Title;
+            Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching");
+
+
             // open COVID-19 rules link in new tab // retrieve info 
             _webDriver.FindElement(By.XPath("//div[text()='COVID-19 Information']")).Click();
             
@@ -51,7 +64,9 @@ namespace SpiceJetElementsInteractionTests1
             _webDriver.FindElement(By.XPath("//div[@data-testid='round-trip-radio-button']")).Click();
 
             //one way radio button click
-            _webDriver.FindElement(By.XPath("//div[@data-testid='one-way-radio-button']")).Click();
+            var oneWayRadioButton = _webDriver.FindElement(_oneWayTripRadioButton);
+            oneWayRadioButton.Click();
+            Assert.That(oneWayRadioButton.Selected, Is.EqualTo(false));
 
             //from field click
             _webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-origin']")).Click();
@@ -108,7 +123,7 @@ namespace SpiceJetElementsInteractionTests1
             //Assert for selection added
             _webDriver.FindElement(By.XPath("//div[text()='Students']")).Click();
             String ChoosedRadioButton =_webDriver.FindElement(By.XPath("//div[text()='Students']")).Text;
-            Assert.AreEqual(ChoosedRadioButton, "Students");
+            Assert.That("Students", Is.EqualTo(ChoosedRadioButton));
 
             //search Flight button xpath button click
             _webDriver.FindElement(By.XPath("//div[@data-testid='home-page-flight-cta']")).Click();

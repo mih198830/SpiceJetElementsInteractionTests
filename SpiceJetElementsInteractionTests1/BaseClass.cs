@@ -22,8 +22,6 @@ namespace SpiceJetElementsInteractionTests1
             new DriverManager().SetUpDriver(new ChromeConfig());
             //new DriverManager().SetUpDriver(new FirefoxConfig());
             //_webDriver = new FirefoxDriver();
-           
-
         }
 
         [TearDown]
@@ -38,8 +36,6 @@ namespace SpiceJetElementsInteractionTests1
             _webDriver.Navigate().GoToUrl("https://www.spicejet.com/");
             _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             _webDriver.Manage().Window.Maximize();
-            ChromeOptions p = new ChromeOptions();
-            p.AddArguments("--disable-notifications");
         }
     }
 }
