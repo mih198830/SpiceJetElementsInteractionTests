@@ -2,6 +2,7 @@ using OpenQA.Selenium;
 using Bogus;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using System.Linq;
 
 
 //August 2022 changelog
@@ -16,6 +17,8 @@ using OpenQA.Selenium.Support.UI;
 // https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/package-summary.html
 // - Added title test
 // - radio-button assert added one-way trip
+// - CTRL+K, CRTL+F - code formatting short-key
+// - airports From Array created
 
 
 namespace SpiceJetElementsInteractionTests1
@@ -27,7 +30,7 @@ namespace SpiceJetElementsInteractionTests1
         private readonly By _oneWayTripRadioButton = By.XPath("//div[@data-testid='one-way-radio-button']");
 
         [Test]
-        public void RoundTripRadioButtonClick()
+        public void MainPageElementsCheck()
         {
 
             String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
@@ -69,10 +72,29 @@ namespace SpiceJetElementsInteractionTests1
             Assert.That(oneWayRadioButton.Selected, Is.EqualTo(false));
 
             //from field click
-            _webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-origin']")).Click();
+            //_webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-origin']")).Click();
+
+            
+            string[] airportsIndia = { "AGR", "AMD", "KHQ", "ATQ", "IXB", "IXG", "BLR", "BHU", "BHO", "IHC", "MAA", "CJB", "DBR" };
+            IList<IWebElement> airportsFromInd = _webDriver.FindElements(By.CssSelector("div.css-1dbjc4n.r-1awozwy"));
+
+            for (int i = 0; i < airportsIndia.Count(); i++)
+            {
+                _webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-origin']")).Click();
+
+                string nameOfAirport = airportsFromInd[i].Text;
+                List<string> AirportFromList = airportsIndia.ToList();
+
+                if (AirportFromList.Contains(nameOfAirport))
+                {
+                    _webDriver.FindElements(By.CssSelector("div.css-1dbjc4n.r-1awozwy"))[i].Click();
+                }
+            
+            }
+
 
             //flying from Mumbai airport selection
-            _webDriver.FindElement(By.XPath("//div[text()='BOM']")).Click();
+            //_webDriver.FindElement(By.XPath("//div[text()='BOM']")).Click();
 
             //flying to Agra airport selection
             _webDriver.FindElement(By.XPath("//div[text()='AGR']")).Click();
