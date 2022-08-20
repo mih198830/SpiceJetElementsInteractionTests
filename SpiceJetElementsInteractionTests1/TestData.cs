@@ -36,9 +36,5 @@ namespace SpiceJetElementsInteractionTests1
         private readonly By _currencyUSD = By.XPath("//div[text()='USD']");
         private readonly By _studentsRadioBox = By.XPath("//div[text()='Students']");
         private readonly By _searchFlightButtonClick = By.XPath("//div[@data-testid='home-page-flight-cta']");
-
-
-
-        String randomFromAirport = RandomUtilsBase.randomSubjectFromArr();
     }
 }

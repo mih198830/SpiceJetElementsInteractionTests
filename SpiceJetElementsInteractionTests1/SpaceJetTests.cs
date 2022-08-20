@@ -1,8 +1,4 @@
 using OpenQA.Selenium;
-using Bogus;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using System.Linq;
 
 
 //August 2022 changelog
@@ -32,7 +28,6 @@ namespace SpiceJetElementsInteractionTests1
         [Test]
         public void MainPageElementsCheck()
         {
-
             String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
             String title = _webDriver.Title;
             Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching");
@@ -40,7 +35,7 @@ namespace SpiceJetElementsInteractionTests1
 
             // open COVID-19 rules link in new tab // retrieve info 
             _webDriver.FindElement(By.XPath("//div[text()='COVID-19 Information']")).Click();
-            
+
             // switch to first tab
             ((IJavaScriptExecutor)_webDriver).ExecuteScript("window.open()");
             List<string> tabs = new List<string>(_webDriver.WindowHandles);
@@ -49,13 +44,15 @@ namespace SpiceJetElementsInteractionTests1
             // checkIn tab click
             _webDriver.FindElement(By.XPath("//div[@data-testid='check-in-horizontal-nav-tabs']")).Click();
 
-            // send keys (ticket number) CSS // add ticket generator//validation numbers//
+            //add ticket generator//validation numbers//
             string ticketNumber = Faker.Phone.Number().Replace("+", "").Replace("(", "").Replace(")", "").Replace("-", "");
             _webDriver.FindElement(By.CssSelector(".css-1cwyjr8.r-homxoj.r-ubezar.r-1eimq0t.r-1e081e0.r-xfkzu9.r-lnhwgy")).SendKeys(ticketNumber);
 
             // Generate random email using Faker API //
             string email = Faker.Internet.Email();
-            _webDriver.FindElement(By.XPath("//input[@placeholder='john.doe@spicejet.com']")).SendKeys(email);
+            IWebElement emailField = _webDriver.FindElement(By.XPath("//input[@placeholder='john.doe@spicejet.com']"));
+            emailField.SendKeys(email);
+            emailField.Clear();
 
             // manage booking nav tab click
             _webDriver.FindElement(By.XPath("//div[@data-testid='manage booking-horizontal-nav-tabs']")).Click();
@@ -72,29 +69,30 @@ namespace SpiceJetElementsInteractionTests1
             Assert.That(oneWayRadioButton.Selected, Is.EqualTo(false));
 
             //from field click
-            //_webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-origin']")).Click();
+            _webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-origin']")).Click();
 
-            
-            string[] airportsIndia = { "AGR", "AMD", "KHQ", "ATQ", "IXB", "IXG", "BLR", "BHU", "BHO", "IHC", "MAA", "CJB", "DBR" };
-            IList<IWebElement> airportsFromInd = _webDriver.FindElements(By.CssSelector("div.css-1dbjc4n.r-1awozwy"));
 
-            for (int i = 0; i < airportsIndia.Count(); i++)
-            {
-                _webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-origin']")).Click();
+            //string[] airportsIndia = { "AGR", "AMD", "KHQ", "ATQ", "IXB", "IXG", "BLR", "BHU", "BHO", "IHC", "MAA", "CJB", "DBR" };
+            //IList<IWebElement> airportsFromInd = _webDriver.FindElements(By.CssSelector(".css-76zvg2.r-1xedbs3.r-ubezar"));
 
-                string nameOfAirport = airportsFromInd[i].Text;
-                List<string> AirportFromList = airportsIndia.ToList();
 
-                if (AirportFromList.Contains(nameOfAirport))
-                {
-                    _webDriver.FindElements(By.CssSelector("div.css-1dbjc4n.r-1awozwy"))[i].Click();
-                }
-            
-            }
+            //for (int i = 0; i < airportsIndia.Length; i++)
+            //{
+            //    //_webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-origin']")).Click();
+
+            //    string nameOfAirport = airportsFromInd[i].Text;
+            //    List<string> AirportFromList = airportsIndia.ToList();
+
+            //    if (AirportFromList.Contains(nameOfAirport))
+            //    {
+            //        _webDriver.FindElements(By.CssSelector("div.css-1dbjc4n.r-1awozwy"))[i].Click();
+            //    }
+                
+            //}
 
 
             //flying from Mumbai airport selection
-            //_webDriver.FindElement(By.XPath("//div[text()='BOM']")).Click();
+            _webDriver.FindElement(By.XPath("//div[text()='BOM']")).Click();
 
             //flying to Agra airport selection
             _webDriver.FindElement(By.XPath("//div[text()='AGR']")).Click();
