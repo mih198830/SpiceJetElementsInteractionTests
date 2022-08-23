@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using OpenQA.Selenium;
 
 
@@ -41,7 +42,6 @@ namespace SpiceJetElementsInteractionTests1
             List<string> tabs = new List<string>(_webDriver.WindowHandles);
             _webDriver.SwitchTo().Window(tabs[0]);
 
-            // checkIn tab click
             _webDriver.FindElement(By.XPath("//div[@data-testid='check-in-horizontal-nav-tabs']")).Click();
 
             //add ticket generator//validation numbers//
@@ -54,31 +54,26 @@ namespace SpiceJetElementsInteractionTests1
             emailField.SendKeys(email);
             emailField.Clear();
 
-            // manage booking nav tab click
             _webDriver.FindElement(By.XPath("//div[@data-testid='manage booking-horizontal-nav-tabs']")).Click();
 
-            // flights horizontal tab click
             _webDriver.FindElement(By.XPath("//div[@data-testid='Flights-horizontal-nav-tabs']")).Click();
 
-            //round trip radio button click
             _webDriver.FindElement(By.XPath("//div[@data-testid='round-trip-radio-button']")).Click();
 
-            //one way radio button click
             var oneWayRadioButton = _webDriver.FindElement(_oneWayTripRadioButton);
             oneWayRadioButton.Click();
             Assert.That(oneWayRadioButton.Selected, Is.EqualTo(false));
 
-            //from field click
             _webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-origin']")).Click();
 
 
-            //string[] airportsIndia = { "AGR", "AMD", "KHQ", "ATQ", "IXB", "IXG", "BLR", "BHU", "BHO", "IHC", "MAA", "CJB", "DBR" };
-            //IList<IWebElement> airportsFromInd = _webDriver.FindElements(By.CssSelector(".css-76zvg2.r-1xedbs3.r-ubezar"));
+            string[] airportsIndia = { "AGR", "AMD", "KHQ", "ATQ", "IXB", "IXG", "BLR", "BHU", "BHO", "IHC", "MAA", "CJB", "DBR" };
+            IList<IWebElement> airportsFromInd = _webDriver.FindElements(By.CssSelector(".css-76zvg2.r-1xedbs3.r-ubezar"));
 
 
             //for (int i = 0; i < airportsIndia.Length; i++)
             //{
-            //    //_webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-origin']")).Click();
+            //    _webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-origin']")).Click();
 
             //    string nameOfAirport = airportsFromInd[i].Text;
             //    List<string> AirportFromList = airportsIndia.ToList();
@@ -87,32 +82,23 @@ namespace SpiceJetElementsInteractionTests1
             //    {
             //        _webDriver.FindElements(By.CssSelector("div.css-1dbjc4n.r-1awozwy"))[i].Click();
             //    }
-                
             //}
 
 
-            //flying from Mumbai airport selection
             _webDriver.FindElement(By.XPath("//div[text()='BOM']")).Click();
 
-            //flying to Agra airport selection
             _webDriver.FindElement(By.XPath("//div[text()='AGR']")).Click();
 
-            //change from and to destination arrow click
             _webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-flip-arrow']")).Click();
 
-            //to field destination click
             _webDriver.FindElement(By.XPath("//div[@data-testid='to-testID-destination']")).Click();
 
-            //international destination selection click
             _webDriver.FindElement(By.XPath("//div[text()='International']")).Click();
 
-            //select Bangkok airport
             _webDriver.FindElement(By.XPath("//div[text()='BKK']")).Click();
 
-            //select FROM date USING CSS
             _webDriver.FindElement(By.CssSelector("div[data-testid='undefined-month-August-2022'] [data-testid='undefined-calendar-day-31']")).Click();
 
-            //click return date date picker CSS
             _webDriver.FindElement(By.CssSelector("div[data-testid='return-date-dropdown-label-test-id']")).Click();
 
             _webDriver.FindElement(By.CssSelector("div[data-testid='undefined-month-September-2022'] [data-testid='undefined-calendar-day-30']")).Click();
@@ -129,24 +115,18 @@ namespace SpiceJetElementsInteractionTests1
                 _webDriver.FindElement(By.CssSelector("div[data-testid='Adult-testID-plus-one-cta']")).Click();
             }
 
-            // currency drop-down click
             _webDriver.FindElement(By.XPath("//div[text()='Currency']")).Click();
 
-            // currency USD Xpath selector click
             _webDriver.FindElement(By.XPath("//div[text()='USD']")).Click();
 
             String CurrencyUSD = _webDriver.FindElement(By.XPath("//div[text()='USD']")).Text;
             Assert.AreEqual("USD", CurrencyUSD);
             
 
-            //students Radio button css selector click
             //Assert for selection added
-            _webDriver.FindElement(By.XPath("//div[text()='Students']")).Click();
-            String ChoosedRadioButton =_webDriver.FindElement(By.XPath("//div[text()='Students']")).Text;
-            Assert.That("Students", Is.EqualTo(ChoosedRadioButton));
-
-            //search Flight button xpath button click
-            _webDriver.FindElement(By.XPath("//div[@data-testid='home-page-flight-cta']")).Click();
+            _webDriver.FindElement(By.XPath("//div[text()='Senior Citizen']")).Click();
+            String ChoosedRadioButton =_webDriver.FindElement(By.XPath("//div[text()='Senior Citizen']")).Text;
+            Assert.That("Senior Citizen", Is.EqualTo(ChoosedRadioButton));
         }
     }
 }
