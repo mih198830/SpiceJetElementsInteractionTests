@@ -27,9 +27,9 @@ namespace SpiceJetElementsInteractionTests1
         private readonly By _internationalDestiantion = By.XPath("//div[text()='International']");
         private readonly By _departureDate = By.XPath("//div[@data-testid='departure-date-dropdown-label-test-id']");
         private readonly By _rightArrowCalendarPicker = By.XPath("//div[@class='css-1dbjc4n r-1loqt21 r-u8s1d r-11xbo3g r-1v2oles r-1otgn73 r-16zfatd r-eafdt9 r-1i6wzkk r-lrvibr r-184en5c']");
-        private readonly By _augustDate = By.CssSelector("div[data-testid='undefined-month-August-2022'] [data-testid='undefined-calendar-day-3']");
+        private readonly By _septemberDate = By.CssSelector("div[data-testid='undefined-month-September-2022'] [data-testid='undefined-calendar-day-25']");
         private readonly By _returnDate = By.CssSelector("div[data-testid='return-date-dropdown-label-test-id']");
-        private readonly By _septemberDate = By.CssSelector("div[data-testid='undefined-month-September-2022'] [data-testid='undefined-calendar-day-22']");
+        private readonly By _septembeRDateDeparture = By.CssSelector("div[data-testid='undefined-month-September-2022'] [data-testid='undefined-calendar-day-22']");
         private readonly By _numberOfTravellers = By.CssSelector("div[data-testid='home-page-travellers']");
         private readonly By _numberOfAdults = By.CssSelector("div[data-testid='Adult-testID-plus-one-cta']");
         private readonly By _currency = By.XPath("//div[text()='Currency']");
