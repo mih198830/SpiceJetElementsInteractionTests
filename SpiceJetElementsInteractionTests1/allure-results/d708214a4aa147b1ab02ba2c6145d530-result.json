@@ -1,0 +1,75 @@
+{
+  "uuid": "4d590c5e-911a-45f6-b79f-1cdb8b91b83d-tr-0-1002",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.FlightsPageElementsCheck",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.FlightsPageElementsCheck",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "CMDB-134970"
+    },
+    {
+      "name": "package",
+      "value": "SpiceJetElementsInteractionTests1"
+    },
+    {
+      "name": "testMethod",
+      "value": "FlightsPageElementsCheck"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests"
+    },
+    {
+      "name": "owner",
+      "value": "unickq"
+    }
+  ],
+  "links": [
+    {
+      "name": "https://github.com/unickq/allure-nunit",
+      "url": "https://github.com/unickq/allure-nunit",
+      "type": "link"
+    }
+  ],
+  "name": "FlightsPageElementsCheck",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "FlightsPageElementsCheck"
+  },
+  "stage": "finished",
+  "description": "Examples\n",
+  "steps": [
+    {
+      "name": "FlightsPageElementsCheck",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "2b5ddf52f0734e56a5cdbb02a1376c9a-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1662271153243,
+      "stop": 1662271177283
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1662271153241,
+  "stop": 1662271177291
+}

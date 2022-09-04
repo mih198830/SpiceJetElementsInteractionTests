@@ -3,6 +3,8 @@ using OpenQA.Selenium.Chrome;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using NUnit.Framework;
+using Allure.Commons;
+using OpenQA.Selenium.Firefox;
 
 namespace SpiceJetElementsInteractionTests1
 {
@@ -13,10 +15,12 @@ namespace SpiceJetElementsInteractionTests1
         [OneTimeSetUp]
         protected void DoBeforeAllTests()
         {
-            _webDriver = new ChromeDriver();
-            new DriverManager().SetUpDriver(new ChromeConfig());
-            //new DriverManager().SetUpDriver(new FirefoxConfig());
-            //_webDriver = new FirefoxDriver();
+            //_webDriver = new ChromeDriver();
+            _webDriver = new FirefoxDriver();
+            //new DriverManager().SetUpDriver(new ChromeConfig());
+            new DriverManager().SetUpDriver(new FirefoxConfig());
+            Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
+            AllureLifecycle.Instance.CleanupResultDirectory();
         }
 
         [TearDown]

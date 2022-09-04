@@ -1,0 +1,112 @@
+{
+  "uuid": "942297c2-671c-4447-b730-79f5d33e4e5c-tr-0-1001",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.CheckPageTitleValue",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.CheckPageTitleValue",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "CMDB-134970"
+    },
+    {
+      "name": "package",
+      "value": "SpiceJetElementsInteractionTests1"
+    },
+    {
+      "name": "testMethod",
+      "value": "CheckPageTitleValue"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests"
+    },
+    {
+      "name": "owner",
+      "value": "unickq"
+    },
+    {
+      "name": "tag",
+      "value": "NUnit"
+    },
+    {
+      "name": "tag",
+      "value": "Debug"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "feature",
+      "value": "Core"
+    }
+  ],
+  "links": [
+    {
+      "name": "GitHub#1",
+      "url": "https://github.com/unickq/allure-nunit",
+      "type": "issue"
+    },
+    {
+      "name": "https://github.com/unickq/allure-nunit",
+      "url": "https://github.com/unickq/allure-nunit",
+      "type": "link"
+    }
+  ],
+  "name": "CheckPageTitleValue",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "CheckPageTitleValue"
+  },
+  "stage": "finished",
+  "description": "Examples\n",
+  "steps": [
+    {
+      "name": "CheckPageTitleValue",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "This method is just saying hello",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1662228235914,
+          "stop": 1662228235956
+        }
+      ],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "022501ca33b04bd6b8a46b6a613e60d2-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1662228226196,
+      "stop": 1662228237988
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1662228226195,
+  "stop": 1662228238002
+}
