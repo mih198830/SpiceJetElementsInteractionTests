@@ -1,8 +1,8 @@
 {
-  "uuid": "5656a9e7-b75f-456b-82c9-bc8bc0d7bb6f-tc-0-1000",
-  "name": "SpiceJetElementsInteractionTests1.Tests.FlightsPageElementsCheck",
+  "uuid": "a5cc73bf-4652-4acf-a00f-afd4b7a6fa89-tc-0-1000",
+  "name": "SpiceJetElementsInteractionTests1.Tests.ManageBookingTabCheck",
   "children": [
-    "4d590c5e-911a-45f6-b79f-1cdb8b91b83d-tr-0-1002"
+    "3187c9aa-cf9b-472d-bc11-9b6dbad6b124-tr-0-1001"
   ],
   "befores": [
     {
@@ -17,8 +17,8 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1662271177277,
-      "stop": 1662271177277
+      "start": 1662314796252,
+      "stop": 1662314796252
     },
     {
       "name": "Setup",
@@ -32,8 +32,8 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1662271177278,
-      "stop": 1662271177278
+      "start": 1662314796252,
+      "stop": 1662314796252
     }
   ],
   "afters": [
@@ -49,11 +49,11 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1662271177278,
-      "stop": 1662271177278
+      "start": 1662314796252,
+      "stop": 1662314796252
     }
   ],
   "links": [],
-  "start": 1662271153238,
-  "stop": 1662271177332
+  "start": 1662314764216,
+  "stop": 1662314796258
 }

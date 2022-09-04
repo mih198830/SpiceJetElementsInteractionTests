@@ -6,64 +6,61 @@ using OpenQA.Selenium;
 using SpiceJetElementsInteractionTests1.PageObject;
 
 
-//August 2022 changelog
-//- Used https://github.com/rosolko/WebDriverManager.Net so Firefox browser is working now (+ Chrome)
-//  automatically downloads browser version and keeps updated
-// - Replaced all Thread.Sleep with one line Implicit Wait timeout
-// - Added FOR loop for 6 adults selection
-// - Added Faker library usage for ticket number / Email generation
-// - Updated Airports selectors to 3 letters (find by text)
-
-// - OpenQA.Selenium - namespace with classes, interfaces, methods for different browsers (Chrome, Firefox, etc)
-// https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/package-summary.html
-// - Added title test
-// - radio-button assert added one-way trip
-// - CTRL+K, CRTL+F - code formatting short-key
-
-
 namespace SpiceJetElementsInteractionTests1
 {
-    [TestFixture(Author = "Mikhail Matskevich", Description = "Flight service tests")]
+    [TestFixture(Author = "Mikhail Matskevich", Description = "Flight service SpiceJet.com tests")]
     [AllureNUnit]
-    [AllureLink("https://github.com/unickq/allure-nunit")]
+    [AllureLink("https://github.com/mih198830/SpiceJetElementsInteractionTests")]
+    [AllureLink("https://www.spicejet.com/")]
     public class Tests : BaseClass
     {
 
-        [Test]
-        [AllureStep("This method is just saying hello")]
-        [AllureTag("NUnit", "Debug", "Title")]
-        [AllureIssue("GitHub#1", "https://github.com/unickq/allure-nunit")]
-        [AllureSeverity(SeverityLevel.critical)]
+        
+        [AllureTag("SpiceJet", "Title")]
+        [AllureSeverity(SeverityLevel.normal)]
         [AllureFeature("Core")]
         public void CheckPageTitleValue()
         {
             String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
             String title = _webDriver.Title;
-            Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching");
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching");
+            }, "Check that page title is matching expected text");
         }
 
+
         [Test]
+        [AllureTag("SpiceJet", "Manage Booking Tab")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureFeature("Core")]
+        public void ManageBookingTabCheck()
+        {
+            var manageBookingTab = new ManageBookingPageObject(_webDriver);
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                manageBookingTab.ManageBookingLinkClick();
+            }, "Open Manage Bookin Tab");
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            {
+                manageBookingTab.ViewChangeAssistButtonAssertIsNotNull();
+            }, "Assert that button 'View Change Assist is visible");
+        }
+
+        
         public void FlightsPageElementsCheck()
         {
             var checkInTab = new CheckInPageObject(_webDriver);
             var flightsTab = new FlightsTabPageObject(_webDriver);
-            var manageBookingTab = new ManageBookingPageObject(_webDriver);
-
  
             // switch to first tab
-            ((IJavaScriptExecutor)_webDriver).ExecuteScript("window.open()");
-            List<string> tabs = new List<string>(_webDriver.WindowHandles);
-            _webDriver.SwitchTo().Window(tabs[0]);
+            //((IJavaScriptExecutor)_webDriver).ExecuteScript("window.open()");
+            //List<string> tabs = new List<string>(_webDriver.WindowHandles);
+            //_webDriver.SwitchTo().Window(tabs[0]);
 
-
-            flightsTab
-                .CheckInTabClick()
-                .TicketNumberSendKeys()
-                .SendRandomEmail()
-                .ClearEmailField();
-
-            manageBookingTab
-                .ManageBookingLinkClick();
+            
 
             flightsTab
                 .FlightsTabClick()
@@ -81,6 +78,18 @@ namespace SpiceJetElementsInteractionTests1
                 .NumberOfAdultsUptToSevenClick()
                 .CurrencyClick()
                 .UsdCurrencyClickAndAssert();
+        }
+
+        [Test]
+        public void CheckInTabFieldsCheck()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+
+            flightsTab
+                .CheckInTabClick()
+                .TicketNumberSendKeys()
+                .SendRandomEmail()
+                .ClearEmailField();
         }
     }
 }

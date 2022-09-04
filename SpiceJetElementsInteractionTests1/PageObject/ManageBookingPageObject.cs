@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
     {
         private IWebDriver _webdriver;
         public readonly By _manageBooking = By.XPath("//div[@data-testid='Flights-horizontal-nav-tabs']");
+        public readonly By _viewChangeAssistButton = By.XPath("//div[text()='View Change Assist']");
 
         public ManageBookingPageObject(IWebDriver webdriver)
         {
@@ -20,6 +22,12 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         {
             _webdriver.FindElement(_manageBooking).Click();
             return new ManageBookingPageObject(_webdriver);
+        }
+
+        public ManageBookingPageObject ViewChangeAssistButtonAssertIsNotNull()
+        {
+            Assert.That(_viewChangeAssistButton, Is.Not.Null);
+            return new ManageBookingPageObject (_webdriver);
         }
     }
 }
