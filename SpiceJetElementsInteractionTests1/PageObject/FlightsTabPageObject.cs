@@ -26,8 +26,8 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _returnDate = By.CssSelector("div[data-testid='return-date-dropdown-label-test-id']");
         private readonly By _departureDate = By.XPath("//div[@data-testid='departure-date-dropdown-label-test-id']");
         private readonly By _internationalDestiantion = By.XPath("//div[text()='International']");
-        private readonly By _septemberDate = By.CssSelector("div[data-testid='undefined-month-September-2022'] [data-testid='undefined-calendar-day-25']");
-        private readonly By _septemberDateTo = By.CssSelector("div[data-testid='undefined-month-September-2022'] [data-testid='undefined-calendar-day-29']");
+        private readonly By _octoberDate = By.CssSelector("div[data-testid='undefined-month-October-2022'] [data-testid='undefined-calendar-day-25']");
+        private readonly By _octoberDateTo = By.CssSelector("div[data-testid='undefined-month-October-2022'] [data-testid='undefined-calendar-day-29']");
         private readonly By _numberOfTravellers = By.CssSelector("div[data-testid='home-page-travellers']");
         private readonly By _numberOfChildren = By.CssSelector("div[data-testid='Children-testID-plus-one-cta']");
         private readonly By _numberOfAdults = By.CssSelector("div[data-testid='Adult-testID-plus-one-cta']");
@@ -124,13 +124,13 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         public FlightsTabPageObject FromDateSelect()
         {
-            _webdriver.FindElement(_septemberDate).Click();
+            _webdriver.FindElement(_octoberDate).Click();
             return new FlightsTabPageObject(_webdriver);
         }
 
         public FlightsTabPageObject ToDateSelect()
         {
-            _webdriver.FindElement(_septemberDateTo).Click();
+            _webdriver.FindElement(_octoberDateTo).Click();
             return new FlightsTabPageObject(_webdriver);
         }
 
