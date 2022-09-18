@@ -1,0 +1,46 @@
+{
+  "uuid": "d15982a8-0102-44d7-ae4a-c6f8bb1b4e06-tc-0-1000",
+  "name": "SpiceJetElementsInteractionTests1.Tests.ManageBookingTabCheck",
+  "children": [
+    "0c174307-4318-4ebb-8212-1554c1f4abfc-tr-0-1002"
+  ],
+  "befores": [
+    {
+      "name": "Setup",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1663179777580,
+      "stop": 1663179777580
+    }
+  ],
+  "afters": [
+    {
+      "name": "OneTimeAfter",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "TearDown : System.IO.FileNotFoundException : Could not find file 'C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\bin\\Debug\\net6.0\\expected.png'.",
+        "trace": "--TearDown\r\n   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)\r\n   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.File.ReadAllBytes(String path)\r\n   at Allure.Commons.AllureLifecycle.AddAttachment(String name, String type, String path)\r\n   at Allure.Commons.AllureLifecycle.AddAttachment(String path, String name)\r\n   at Allure.Commons.AllureLifecycle.AddScreenDiff(String testCaseUuid, String expectedPng, String actualPng, String diffPng)\r\n   at NUnit.Allure.Core.AllureExtensions.AddScreenDiff(AllureLifecycle lifecycle, String expected, String actual, String diff)\r\n   at SpiceJetElementsInteractionTests1.BaseClass.OneTimeAfter() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\BaseClass.cs:line 32"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1663179777580,
+      "stop": 1663179777580
+    }
+  ],
+  "links": [],
+  "start": 1663179756718,
+  "stop": 1663179777582
+}

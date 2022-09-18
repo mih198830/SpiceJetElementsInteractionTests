@@ -1,5 +1,5 @@
 {
-  "uuid": "3187c9aa-cf9b-472d-bc11-9b6dbad6b124-tr-0-1001",
+  "uuid": "10e0753d-84a1-4a9a-878e-62a37b1757d9-tr-0-1002",
   "historyId": "SpiceJetElementsInteractionTests1.Tests.ManageBookingTabCheck",
   "fullName": "SpiceJetElementsInteractionTests1.Tests.ManageBookingTabCheck",
   "labels": [
@@ -89,8 +89,8 @@
           "steps": [],
           "attachments": [],
           "parameters": [],
-          "start": 1662314795270,
-          "stop": 1662314795504
+          "start": 1662315210420,
+          "stop": 1662315210664
         },
         {
           "name": "Assert that button 'View Change Assist is visible",
@@ -104,24 +104,24 @@
           "steps": [],
           "attachments": [],
           "parameters": [],
-          "start": 1662314795504,
-          "stop": 1662314795510
+          "start": 1662315210664,
+          "stop": 1662315210671
         }
       ],
       "attachments": [
         {
           "name": "Console Output",
-          "source": "740dfb451b9f4d34b3be08b743a29f5d-attachment.txt",
+          "source": "00963ddb5e4940f69de5ae2000506c7e-attachment.txt",
           "type": "text/plain"
         }
       ],
       "parameters": [],
-      "start": 1662314764216,
-      "stop": 1662314796253
+      "start": 1662315198297,
+      "stop": 1662315211392
     }
   ],
   "attachments": [],
   "parameters": [],
-  "start": 1662314764216,
-  "stop": 1662314796255
+  "start": 1662315198297,
+  "stop": 1662315211393
 }

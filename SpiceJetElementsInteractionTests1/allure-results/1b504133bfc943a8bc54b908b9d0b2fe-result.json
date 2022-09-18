@@ -1,0 +1,108 @@
+{
+  "uuid": "4aada482-4912-49a9-a104-7a48d7278316-tr-0-1005",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.SendBookingWithEmptyData",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.SendBookingWithEmptyData",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "CMDB-134970"
+    },
+    {
+      "name": "package",
+      "value": "SpiceJetElementsInteractionTests1"
+    },
+    {
+      "name": "testMethod",
+      "value": "SendBookingWithEmptyData"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests"
+    },
+    {
+      "name": "owner",
+      "value": "Mikhail Matskevich"
+    },
+    {
+      "name": "tag",
+      "value": "SpiceJet"
+    },
+    {
+      "name": "tag",
+      "value": "Check In Tab"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "feature",
+      "value": "Core"
+    }
+  ],
+  "links": [
+    {
+      "name": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "url": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "type": "link"
+    },
+    {
+      "name": "https://www.spicejet.com/",
+      "url": "https://www.spicejet.com/",
+      "type": "link"
+    }
+  ],
+  "name": "SendBookingWithEmptyData",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "System.InvalidCastException : Unable to cast object of type 'OpenQA.Selenium.By' to type 'OpenQA.Selenium.IWebElement'.",
+    "trace": "   at SpiceJetElementsInteractionTests1.PageObject.CheckInPageObject.SearchBookingCLick() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\PageObject\\CheckInPageObject.cs:line 59\r\n   at SpiceJetElementsInteractionTests1.Tests.<>c__DisplayClass4_0.<SendBookingWithEmptyData>b__1() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\SpaceJetTests.cs:line 191\r\n   at NUnit.Allure.Core.AllureExtensions.WrapInStep(AllureLifecycle lifecycle, Action action, String stepName, String callerName)\r\n   at SpiceJetElementsInteractionTests1.Tests.SendBookingWithEmptyData() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\SpaceJetTests.cs:line 189"
+  },
+  "stage": "finished",
+  "description": "Flight service SpiceJet.com tests\n",
+  "steps": [
+    {
+      "name": "Open 'Check-in' Tab",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1663055466093,
+      "stop": 1663055466389
+    },
+    {
+      "name": "Click 'Search Booking' button",
+      "status": "broken",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "Unable to cast object of type 'OpenQA.Selenium.By' to type 'OpenQA.Selenium.IWebElement'.",
+        "trace": "   at SpiceJetElementsInteractionTests1.PageObject.CheckInPageObject.SearchBookingCLick() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\PageObject\\CheckInPageObject.cs:line 59\r\n   at SpiceJetElementsInteractionTests1.Tests.<>c__DisplayClass4_0.<SendBookingWithEmptyData>b__1() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\SpaceJetTests.cs:line 191\r\n   at NUnit.Allure.Core.AllureExtensions.WrapInStep(AllureLifecycle lifecycle, Action action, String stepName, String callerName)"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1663055466389,
+      "stop": 1663055466441
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1663055450676,
+  "stop": 1663055467938
+}

@@ -1,0 +1,121 @@
+{
+  "uuid": "c31803d1-177a-4c46-89dc-9a44855625ec-tr-0-1004",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.CheckInTabFieldsCheck",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.CheckInTabFieldsCheck",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "CMDB-134970"
+    },
+    {
+      "name": "package",
+      "value": "SpiceJetElementsInteractionTests1"
+    },
+    {
+      "name": "testMethod",
+      "value": "CheckInTabFieldsCheck"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests"
+    },
+    {
+      "name": "owner",
+      "value": "Mikhail Matskevich"
+    },
+    {
+      "name": "tag",
+      "value": "SpiceJet"
+    },
+    {
+      "name": "tag",
+      "value": "Check In Tab"
+    },
+    {
+      "name": "severity",
+      "value": "normal"
+    },
+    {
+      "name": "feature",
+      "value": "Core"
+    }
+  ],
+  "links": [
+    {
+      "name": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "url": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "type": "link"
+    },
+    {
+      "name": "https://www.spicejet.com/",
+      "url": "https://www.spicejet.com/",
+      "type": "link"
+    }
+  ],
+  "name": "CheckInTabFieldsCheck",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "TearDown : System.IO.FileNotFoundException : Could not find file 'C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\bin\\Debug\\net6.0\\expected.png'.",
+    "trace": "--TearDown\r\n   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)\r\n   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.File.ReadAllBytes(String path)\r\n   at Allure.Commons.AllureLifecycle.AddAttachment(String name, String type, String path)\r\n   at Allure.Commons.AllureLifecycle.AddAttachment(String path, String name)\r\n   at Allure.Commons.AllureLifecycle.AddScreenDiff(String testCaseUuid, String expectedPng, String actualPng, String diffPng)\r\n   at NUnit.Allure.Core.AllureExtensions.AddScreenDiff(AllureLifecycle lifecycle, String expected, String actual, String diff)\r\n   at SpiceJetElementsInteractionTests1.BaseClass.OneTimeAfter() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\BaseClass.cs:line 32"
+  },
+  "stage": "finished",
+  "description": "\nOneTimeAfter TearDown method failed\nFlight service SpiceJet.com tests\n",
+  "steps": [
+    {
+      "name": "Click Check In Tab field",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1663179678845,
+      "stop": 1663179679184
+    },
+    {
+      "name": "Fill in Email field with random email data",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1663179679184,
+      "stop": 1663179679652
+    },
+    {
+      "name": "Clear email printed email in field",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1663179679652,
+      "stop": 1663179679679
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1663179659584,
+  "stop": 1663179682270
+}

@@ -1,0 +1,135 @@
+{
+  "uuid": "1cbc4b69-2ba1-42c1-a3d3-ebd223e18fae-tr-0-1002",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.ManageBookingTabCheck",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.ManageBookingTabCheck",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "CMDB-134970"
+    },
+    {
+      "name": "package",
+      "value": "SpiceJetElementsInteractionTests1"
+    },
+    {
+      "name": "testMethod",
+      "value": "ManageBookingTabCheck"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests"
+    },
+    {
+      "name": "owner",
+      "value": "Mikhail Matskevich"
+    },
+    {
+      "name": "tag",
+      "value": "SpiceJet"
+    },
+    {
+      "name": "tag",
+      "value": "Manage Booking Tab"
+    },
+    {
+      "name": "severity",
+      "value": "normal"
+    },
+    {
+      "name": "feature",
+      "value": "Core"
+    }
+  ],
+  "links": [
+    {
+      "name": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "url": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "type": "link"
+    },
+    {
+      "name": "https://www.spicejet.com/",
+      "url": "https://www.spicejet.com/",
+      "type": "link"
+    }
+  ],
+  "name": "ManageBookingTabCheck",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "TearDown : System.IO.FileNotFoundException : Could not find file 'C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\bin\\Debug\\net6.0\\expected.png'.",
+    "trace": "--TearDown\r\n   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)\r\n   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.File.ReadAllBytes(String path)\r\n   at Allure.Commons.AllureLifecycle.AddAttachment(String name, String type, String path)\r\n   at Allure.Commons.AllureLifecycle.AddAttachment(String path, String name)\r\n   at Allure.Commons.AllureLifecycle.AddScreenDiff(String testCaseUuid, String expectedPng, String actualPng, String diffPng)\r\n   at NUnit.Allure.Core.AllureExtensions.AddScreenDiff(AllureLifecycle lifecycle, String expected, String actual, String diff)\r\n   at SpiceJetElementsInteractionTests1.BaseClass.Attachment() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\BaseClass.cs:line 40"
+  },
+  "stage": "finished",
+  "description": "\nAttachment TearDown method failed\nFlight service SpiceJet.com tests\n",
+  "steps": [
+    {
+      "name": "ManageBookingTabCheck",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "TearDown : System.IO.FileNotFoundException : Could not find file 'C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\bin\\Debug\\net6.0\\expected.png'.",
+        "trace": "--TearDown\r\n   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)\r\n   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)\r\n   at System.IO.File.ReadAllBytes(String path)\r\n   at Allure.Commons.AllureLifecycle.AddAttachment(String name, String type, String path)\r\n   at Allure.Commons.AllureLifecycle.AddAttachment(String path, String name)\r\n   at Allure.Commons.AllureLifecycle.AddScreenDiff(String testCaseUuid, String expectedPng, String actualPng, String diffPng)\r\n   at NUnit.Allure.Core.AllureExtensions.AddScreenDiff(AllureLifecycle lifecycle, String expected, String actual, String diff)\r\n   at SpiceJetElementsInteractionTests1.BaseClass.Attachment() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\BaseClass.cs:line 40"
+      },
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Open Manage Bookin Tab",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1662393645467,
+          "stop": 1662393645738
+        },
+        {
+          "name": "Assert that button 'View Change Assist is visible",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1662393645738,
+          "stop": 1662393645743
+        }
+      ],
+      "attachments": [
+        {
+          "name": "AllureConfig.json",
+          "source": "fdc14b22f8ce4abe85b85fbac7ab11e9-attachment.json",
+          "type": "application/json"
+        },
+        {
+          "name": "Console Output",
+          "source": "ea20b576317f41459ba124b446931494-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1662393631862,
+      "stop": 1662393645789
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1662393631861,
+  "stop": 1662393645797
+}

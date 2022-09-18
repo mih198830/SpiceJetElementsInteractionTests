@@ -20,9 +20,8 @@ namespace SpiceJetElementsInteractionTests1
             //new DriverManager().SetUpDriver(new ChromeConfig());
             new DriverManager().SetUpDriver(new FirefoxConfig());
             Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
-            AllureLifecycle.Instance.CleanupResultDirectory();
             _webDriver.Navigate().GoToUrl("https://www.spicejet.com/");
-            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(12);
             _webDriver.Manage().Window.Maximize();
         }
 

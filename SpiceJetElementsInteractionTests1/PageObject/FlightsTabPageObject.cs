@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _covidInformationLink = By.XPath("//div[text()='COVID-19 Information']");
         private readonly By _checkInTab = By.XPath("//div[@data-testid='check-in-horizontal-nav-tabs']");
         private readonly By _roundTripRadioButton = By.XPath("//div[@data-testid='round-trip-radio-button']");
-        private readonly By _fromField = By.XPath("//div[@data-testid='to-testID-origin']");
+        private readonly By _fromField = By.XPath("//*[@data-testid='to-testID-origin']");
         private readonly By _fromBom = By.XPath("//div[text()='BOM']");
         private readonly By _toAgr = By.XPath("//div[text()='AGR']");
         private readonly By _flightsTab = By.XPath("//div[@data-testid='Flights-horizontal-nav-tabs']");
@@ -39,12 +40,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             _webdriver = webdriver;
         }
 
-        public CovidRestrictionsPageObject CovidLinkClick()
-        {
-            _webdriver.FindElement(_covidInformationLink).Click();
-            return new CovidRestrictionsPageObject(_webdriver);
-        }
-
         public CheckInPageObject CheckInTabClick()
         {
             _webdriver.FindElement(_checkInTab).Click();
@@ -60,6 +55,14 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         public FlightsTabPageObject FromFieldClick()
         {
             _webdriver.FindElement(_fromField).Click();
+            return new FlightsTabPageObject(_webdriver);
+        }
+
+        public FlightsTabPageObject FromFieldSendRandomNumbers()
+        {
+            string randomNumbers = Faker.Phone.Number();
+
+            _webdriver.FindElement(_fromField).SendKeys(Keys.Enter);
             return new FlightsTabPageObject(_webdriver);
         }
 
