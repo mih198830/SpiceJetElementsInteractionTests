@@ -12,6 +12,7 @@ namespace SpiceJetElementsInteractionTests1
     public class BaseClass
     {
         protected IWebDriver _webDriver;
+        String url = "https://www.spicejet.com/";
 
         [SetUp]
         protected void Setup() {
@@ -20,8 +21,8 @@ namespace SpiceJetElementsInteractionTests1
             //new DriverManager().SetUpDriver(new ChromeConfig());
             new DriverManager().SetUpDriver(new FirefoxConfig());
             Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
-            _webDriver.Navigate().GoToUrl("https://www.spicejet.com/");
-            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(12);
+            _webDriver.Navigate().GoToUrl(url);
+            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
             _webDriver.Manage().Window.Maximize();
         }
 

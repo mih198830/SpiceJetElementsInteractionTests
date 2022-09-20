@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Akka.Actor.Dsl;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -34,6 +35,8 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _currency = By.XPath("//div[text()='Currency']");
         private readonly By _usd = By.XPath("//div[text()='USD']");
         private readonly By _seniorCitizen = By.XPath("//div[text()='Senior Citizen']");
+        private readonly By _searchButton = By.XPath("//div[@data-testid='home-page-flight-cta']");
+        private readonly By _errorMessage = By.XPath("//div[text()='DISMISS']");
 
         public FlightsTabPageObject(IWebDriver webdriver)
         {
@@ -179,5 +182,17 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             return new FlightsTabPageObject(_webdriver);
         }
 
+        public FlightsTabPageObject SearchButtonClick()
+        {
+            _webdriver.FindElement(_searchButton).Click();
+            return new FlightsTabPageObject(_webdriver);
+        }
+
+        public FlightsTabPageObject DismisButtonPresent()
+        {
+            String errorText = _webdriver.FindElement(_errorMessage).Text;
+            Assert.AreEqual("DISMISS", errorText);
+            return new FlightsTabPageObject(_webdriver);
+        }
     }
 }

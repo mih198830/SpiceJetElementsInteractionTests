@@ -9,7 +9,7 @@ using System.ComponentModel;
 namespace SpiceJetElementsInteractionTests1
 {
     [TestFixture(Author = "Mikhail Matskevich", Description = "Flight service SpiceJet.com tests")]
-    [AllureNUnit(false)]
+    [AllureNUnit(true)]
     [AllureLink("https://github.com/mih198830/SpiceJetElementsInteractionTests")]
     [AllureLink("https://www.spicejet.com/")]
     [AllureFeature("Core")]
@@ -49,9 +49,26 @@ namespace SpiceJetElementsInteractionTests1
 
 
         [Test]
+        [AllureTag("SpiceJet", "Search flight")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [DisplayName("Check search flight process for newly loaded page ")]
+        public void SearchDefaultValues()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+                flightsTab.SearchButtonClick()
+            , "Click Search button from Flights Tab Page");
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+                flightsTab.DismisButtonPresent()
+            , "Check that Error message with expected text is present as an error");
+        }
+
+        [Test]
         [AllureTag("SpiceJet", "Flights Tab")]
         [AllureSeverity(SeverityLevel.critical)]
-        
+
         [DisplayName("Ñheck all elements on Flights Tab are interactable")]
         public void FlightsPageElementsCheck()
         {
@@ -115,7 +132,7 @@ namespace SpiceJetElementsInteractionTests1
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.CurrencyClick()
             , "Currency drop-down menu click");
-            
+
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.UsdCurrencyClickAndAssert()
             , "Assert that currency USD is checked");
@@ -125,10 +142,10 @@ namespace SpiceJetElementsInteractionTests1
         [AllureTag("SpiceJet", "Check In Tab")]
         [AllureSeverity(SeverityLevel.normal)]
         [DisplayName("Check In Tab field fill in with random data")]
-        
+
         public void CheckInTabFieldsCheck()
         {
-            
+
             var flightsTab = new FlightsTabPageObject(_webDriver);
             var checkInTab = new CheckInPageObject(_webDriver);
 
