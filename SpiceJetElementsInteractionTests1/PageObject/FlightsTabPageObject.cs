@@ -37,6 +37,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _seniorCitizen = By.XPath("//div[text()='Senior Citizen']");
         private readonly By _searchButton = By.XPath("//div[@data-testid='home-page-flight-cta']");
         private readonly By _errorMessage = By.XPath("//div[text()='DISMISS']");
+        private readonly By _signUp = By.XPath("//div[text()='Signup']");
 
         public FlightsTabPageObject(IWebDriver webdriver)
         {
@@ -192,6 +193,12 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         {
             String errorText = _webdriver.FindElement(_errorMessage).Text;
             Assert.AreEqual("DISMISS", errorText);
+            return new FlightsTabPageObject(_webdriver);
+        }
+
+        public FlightsTabPageObject SignUpClick()
+        {
+            _webdriver.FindElement(_signUp).Click();
             return new FlightsTabPageObject(_webdriver);
         }
     }

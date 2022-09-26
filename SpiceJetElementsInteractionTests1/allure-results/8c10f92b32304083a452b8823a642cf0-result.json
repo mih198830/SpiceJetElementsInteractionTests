@@ -1,7 +1,7 @@
 {
-  "uuid": "126a7494-f460-44eb-aabc-c8a6ea1a629a-tr-0-1003",
-  "historyId": "SpiceJetElementsInteractionTests1.Tests.SearchDefaultValues",
-  "fullName": "SpiceJetElementsInteractionTests1.Tests.SearchDefaultValues",
+  "uuid": "8e9549d5-b94b-49f4-9ca3-9f9dceaf1ad5-tr-0-1007",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.RegistrationPageOpens",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.RegistrationPageOpens",
   "labels": [
     {
       "name": "thread",
@@ -17,7 +17,7 @@
     },
     {
       "name": "testMethod",
-      "value": "SearchDefaultValues"
+      "value": "RegistrationPageOpens"
     },
     {
       "name": "testClass",
@@ -33,7 +33,7 @@
     },
     {
       "name": "tag",
-      "value": "Search flight"
+      "value": "Registration"
     },
     {
       "name": "severity",
@@ -56,29 +56,32 @@
       "type": "link"
     }
   ],
-  "name": "SearchDefaultValues",
-  "status": "passed",
+  "name": "RegistrationPageOpens",
+  "status": "failed",
   "statusDetails": {
     "known": false,
     "muted": false,
     "flaky": false,
-    "message": "SearchDefaultValues"
+    "message": "System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')",
+    "trace": "   at System.Collections.Generic.List`1.get_Item(Int32 index)\r\n   at SpiceJetElementsInteractionTests1.Tests.RegistrationPageOpens() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\SpaceJetTests.cs:line 197"
   },
   "stage": "finished",
   "description": "Flight service SpiceJet.com tests\n",
   "steps": [
     {
-      "name": "SearchDefaultValues",
-      "status": "passed",
+      "name": "RegistrationPageOpens",
+      "status": "failed",
       "statusDetails": {
         "known": false,
         "muted": false,
-        "flaky": false
+        "flaky": false,
+        "message": "System.ArgumentOutOfRangeException : Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')",
+        "trace": "   at System.Collections.Generic.List`1.get_Item(Int32 index)\r\n   at SpiceJetElementsInteractionTests1.Tests.RegistrationPageOpens() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\SpaceJetTests.cs:line 197"
       },
       "stage": "finished",
       "steps": [
         {
-          "name": "Check that page title is matching expected text",
+          "name": "Click SignUp button from main page",
           "status": "passed",
           "statusDetails": {
             "known": false,
@@ -89,24 +92,24 @@
           "steps": [],
           "attachments": [],
           "parameters": [],
-          "start": 1663609970723,
-          "stop": 1663609971011
+          "start": 1664171908890,
+          "stop": 1664171909160
         }
       ],
       "attachments": [
         {
           "name": "Console Output",
-          "source": "1f134e7a101b4afc9d23645d96519bf3-attachment.txt",
+          "source": "dbf3c7ebe745480ca1dfe4ee05fd545c-attachment.txt",
           "type": "text/plain"
         }
       ],
       "parameters": [],
-      "start": 1663609947835,
-      "stop": 1663609972760
+      "start": 1664171895112,
+      "stop": 1664171909974
     }
   ],
   "attachments": [],
   "parameters": [],
-  "start": 1663609947834,
-  "stop": 1663609972765
+  "start": 1664171895112,
+  "stop": 1664171909981
 }

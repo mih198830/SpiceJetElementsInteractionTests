@@ -1,8 +1,8 @@
 {
-  "uuid": "d7c8407c-141f-490b-b678-2008fe6dddf4-tc-0-1000",
-  "name": "SpiceJetElementsInteractionTests1.Tests.FlightsPageElementsCheck",
+  "uuid": "d2fd68bf-c5e3-4367-8150-d5e689224736-tc-0-1000",
+  "name": "SpiceJetElementsInteractionTests1.Tests.RegistrationPageOpens",
   "children": [
-    "6d00b799-88dc-4d98-be3d-d7f972160145-tr-0-1003"
+    "b5279c89-aa95-4168-ba21-64371c828c9e-tr-0-1007"
   ],
   "befores": [
     {
@@ -17,8 +17,8 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1663609418048,
-      "stop": 1663609418048
+      "start": 1664172059588,
+      "stop": 1664172059588
     }
   ],
   "afters": [
@@ -34,11 +34,11 @@
       "steps": [],
       "attachments": [],
       "parameters": [],
-      "start": 1663609418048,
-      "stop": 1663609418048
+      "start": 1664172059589,
+      "stop": 1664172059589
     }
   ],
   "links": [],
-  "start": 1663609385142,
-  "stop": 1663609418050
+  "start": 1664172045985,
+  "stop": 1664172059617
 }

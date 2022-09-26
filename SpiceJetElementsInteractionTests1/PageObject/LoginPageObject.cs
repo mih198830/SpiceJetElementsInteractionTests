@@ -24,6 +24,10 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             _webdriver = webdriver;
         }
 
+        public LoginPageObject()
+        {
+        }
+
         public LoginPageObject LoginButtonFromMainPageClick()
         {
             _webdriver.FindElement(_loginButtonFromMainPage).Click();

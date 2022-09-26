@@ -1,7 +1,7 @@
 {
-  "uuid": "e5f61024-501a-4ebd-a5e5-da34260d482a-tr-0-1005",
-  "historyId": "SpiceJetElementsInteractionTests1.Tests.LoginWithEmptyData",
-  "fullName": "SpiceJetElementsInteractionTests1.Tests.LoginWithEmptyData",
+  "uuid": "33a770d7-16a3-43b2-9ec1-06eaa1ef720b-tr-0-1007",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.RegistrationPageOpens",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.RegistrationPageOpens",
   "labels": [
     {
       "name": "thread",
@@ -17,7 +17,7 @@
     },
     {
       "name": "testMethod",
-      "value": "LoginWithEmptyData"
+      "value": "RegistrationPageOpens"
     },
     {
       "name": "testClass",
@@ -33,7 +33,7 @@
     },
     {
       "name": "tag",
-      "value": "Login"
+      "value": "Registration"
     },
     {
       "name": "severity",
@@ -56,19 +56,19 @@
       "type": "link"
     }
   ],
-  "name": "LoginWithEmptyData",
+  "name": "RegistrationPageOpens",
   "status": "passed",
   "statusDetails": {
     "known": false,
     "muted": false,
     "flaky": false,
-    "message": "LoginWithEmptyData"
+    "message": "RegistrationPageOpens"
   },
   "stage": "finished",
   "description": "Flight service SpiceJet.com tests\n",
   "steps": [
     {
-      "name": "Click Login button from main page",
+      "name": "RegistrationPageOpens",
       "status": "passed",
       "statusDetails": {
         "known": false,
@@ -76,30 +76,37 @@
         "flaky": false
       },
       "stage": "finished",
-      "steps": [],
-      "attachments": [],
+      "steps": [
+        {
+          "name": "Click SignUp button from main page",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664172108314,
+          "stop": 1664172108738
+        }
+      ],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "e1e8aa01d44d462fb2dfb13a021a521d-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
       "parameters": [],
-      "start": 1663609436989,
-      "stop": 1663609437499
-    },
-    {
-      "name": "Send Random Phone Number and Assert that error text is present",
-      "status": "passed",
-      "statusDetails": {
-        "known": false,
-        "muted": false,
-        "flaky": false
-      },
-      "stage": "finished",
-      "steps": [],
-      "attachments": [],
-      "parameters": [],
-      "start": 1663609437499,
-      "stop": 1663609438028
+      "start": 1664172097806,
+      "stop": 1664172111394
     }
   ],
   "attachments": [],
   "parameters": [],
-  "start": 1663609418052,
-  "stop": 1663609439733
+  "start": 1664172097805,
+  "stop": 1664172111398
 }

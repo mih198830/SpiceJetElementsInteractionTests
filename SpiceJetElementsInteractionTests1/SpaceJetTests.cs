@@ -43,7 +43,7 @@ namespace SpiceJetElementsInteractionTests1
             , "Open Manage Bookin Tab");
 
             AllureLifecycle.Instance.WrapInStep(() =>
-                manageBookingTab.ViewChangeAssistButtonAssertIsNotNull()
+            manageBookingTab.ViewChangeAssistButtonAssertIsNotNull()
             , "Assert that button 'View Change Assist is visible");
         }
 
@@ -51,7 +51,7 @@ namespace SpiceJetElementsInteractionTests1
         [Test]
         [AllureTag("SpiceJet", "Search flight")]
         [AllureSeverity(SeverityLevel.critical)]
-        [DisplayName("Check search flight process for newly loaded page ")]
+        [DisplayName("Check search flight process for newly loaded page")]
         public void SearchDefaultValues()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
@@ -178,6 +178,29 @@ namespace SpiceJetElementsInteractionTests1
             AllureLifecycle.Instance.WrapInStep(() =>
             loginTab.LoginMenuRandomPhoneNumber()
             , "Send Random Phone Number and Assert that error text is present");
+        }
+
+        [Test]
+        [AllureTag("SpiceJet", "Registration")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [DisplayName("Registration page opens in a new window")]
+
+        public void RegistrationPageOpens()
+        {
+            var signUp = new FlightsTabPageObject(_webDriver);
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            signUp.SignUpClick()
+            , "Click SignUp button from main page");
+
+
+
+            var browserTabs = _webDriver.WindowHandles;
+            _webDriver.SwitchTo().Window(browserTabs[1]);
+            Thread.Sleep(2000);
+            String CurrentUrl = _webDriver.Url;
+            Console.WriteLine(CurrentUrl);
+            Assert.That(CurrentUrl, Is.EqualTo("https://spiceclub.spicejet.com/signup"));
         }
     }
 }

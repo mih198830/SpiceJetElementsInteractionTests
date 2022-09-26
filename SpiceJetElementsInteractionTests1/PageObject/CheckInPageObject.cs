@@ -26,6 +26,10 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             _webDriver = webDriver;
         }
 
+        public CheckInPageObject()
+        {
+        }
+
         public CheckInPageObject TicketNumberSendKeys()
         {
             string ticketNumber = Faker.Phone.Number().Replace("+", "").Replace("(", "").Replace(")", "").Replace("-", "");
