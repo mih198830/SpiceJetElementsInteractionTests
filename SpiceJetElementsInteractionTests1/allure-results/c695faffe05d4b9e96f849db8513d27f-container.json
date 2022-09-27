@@ -1,0 +1,44 @@
+{
+  "uuid": "103585e0-d9ed-4489-a158-19f9bed6a604-tc-0-1000",
+  "name": "SpiceJetElementsInteractionTests1.Tests.FlightsPageElementsCheck",
+  "children": [
+    "20de25f2-2f4c-4c80-b533-f5ad5aeff223-tr-0-1004"
+  ],
+  "befores": [
+    {
+      "name": "Setup",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1664269076815,
+      "stop": 1664269076815
+    }
+  ],
+  "afters": [
+    {
+      "name": "OneTimeAfter",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1664269076815,
+      "stop": 1664269076815
+    }
+  ],
+  "links": [],
+  "start": 1664269057101,
+  "stop": 1664269076850
+}

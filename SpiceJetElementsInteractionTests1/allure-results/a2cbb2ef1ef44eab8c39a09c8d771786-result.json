@@ -1,0 +1,142 @@
+{
+  "uuid": "76c7cb5f-b174-48d1-a388-d748c085da8e-tr-0-1005",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.CheckInTabFieldsCheck",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.CheckInTabFieldsCheck",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "CMDB-134970"
+    },
+    {
+      "name": "package",
+      "value": "SpiceJetElementsInteractionTests1"
+    },
+    {
+      "name": "testMethod",
+      "value": "CheckInTabFieldsCheck"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests"
+    },
+    {
+      "name": "owner",
+      "value": "Mikhail Matskevich"
+    },
+    {
+      "name": "tag",
+      "value": "SpiceJet"
+    },
+    {
+      "name": "tag",
+      "value": "Check In Tab"
+    },
+    {
+      "name": "severity",
+      "value": "normal"
+    },
+    {
+      "name": "feature",
+      "value": "Core"
+    }
+  ],
+  "links": [
+    {
+      "name": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "url": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "type": "link"
+    },
+    {
+      "name": "https://www.spicejet.com/",
+      "url": "https://www.spicejet.com/",
+      "type": "link"
+    }
+  ],
+  "name": "CheckInTabFieldsCheck",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "CheckInTabFieldsCheck"
+  },
+  "stage": "finished",
+  "description": "Flight service SpiceJet.com tests\n",
+  "steps": [
+    {
+      "name": "CheckInTabFieldsCheck",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Click Check In Tab field",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664189238585,
+          "stop": 1664189238904
+        },
+        {
+          "name": "Fill in Email field with random email data",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664189238904,
+          "stop": 1664189239574
+        },
+        {
+          "name": "Clear email printed email in field",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664189239574,
+          "stop": 1664189239606
+        }
+      ],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "16e363a937584e9b805b9b0efd62b297-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1664189220751,
+      "stop": 1664189241457
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1664189220750,
+  "stop": 1664189241481
+}

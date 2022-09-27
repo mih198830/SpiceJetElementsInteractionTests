@@ -1,19 +1,14 @@
-﻿using Akka.Actor.Dsl;
+﻿using Bogus;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WebDriverManager;
 
 namespace SpiceJetElementsInteractionTests1.PageObject
 {
     class FlightsTabPageObject
     {
         private IWebDriver _webdriver;
-
+        
         private readonly By _covidInformationLink = By.XPath("//div[text()='COVID-19 Information']");
         private readonly By _checkInTab = By.XPath("//div[@data-testid='check-in-horizontal-nav-tabs']");
         private readonly By _roundTripRadioButton = By.XPath("//div[@data-testid='round-trip-radio-button']");
@@ -27,6 +22,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _returnDate = By.CssSelector("div[data-testid='return-date-dropdown-label-test-id']");
         private readonly By _departureDate = By.XPath("//div[@data-testid='departure-date-dropdown-label-test-id']");
         private readonly By _internationalDestiantion = By.XPath("//div[text()='International']");
+        
         private readonly By _octoberDate = By.CssSelector("div[data-testid='undefined-month-October-2022'] [data-testid='undefined-calendar-day-25']");
         private readonly By _octoberDateTo = By.CssSelector("div[data-testid='undefined-month-October-2022'] [data-testid='undefined-calendar-day-29']");
         private readonly By _numberOfTravellers = By.CssSelector("div[data-testid='home-page-travellers']");
@@ -38,6 +34,9 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _searchButton = By.XPath("//div[@data-testid='home-page-flight-cta']");
         private readonly By _errorMessage = By.XPath("//div[text()='DISMISS']");
         private readonly By _signUp = By.XPath("//div[text()='Signup']");
+        private readonly By _btnSearchFlightCta = By.XPath("//div[@data-testid='home-page-flight-cta']");
+        private readonly By _calendarRow = By.CssSelector(".css-1dbjc4n.r-6koalj.r-18u37iz.r-d0pm55");
+       
 
         public FlightsTabPageObject(IWebDriver webdriver)
         {
@@ -50,9 +49,24 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             return new CheckInPageObject(_webdriver);
         }
 
+        public CheckInPageObject CalendarRowClick()
+        {
+            _webdriver.FindElement(_calendarRow);
+            return new CheckInPageObject(_webdriver);
+        }
+
         public FlightsTabPageObject RoundTripRadioButtonClick()
         {
             _webdriver.FindElement(_roundTripRadioButton).Click();
+            return new FlightsTabPageObject(_webdriver);
+        }
+
+        public FlightsTabPageObject RandomDateSelect()
+        {
+            Random r = new Random();
+            int day = r.Next(2, 5);
+            String ranDate = day.ToString();
+            _webdriver.FindElement(By.XPath("//div[@class='css-76zvg2 r-homxoj r-ubezar r-16dba41'][normalize-space()='']);" + ranDate));
             return new FlightsTabPageObject(_webdriver);
         }
 
@@ -128,6 +142,13 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         public FlightsTabPageObject FromDateSelect()
         {
+            Random r = new Random();
+            int rInt = r.Next(1, 28);
+            String number = rInt.ToString();
+            //List<WebElement> dates = _webdriver.FindElements(By.XPath("//div[@data-testid='undefined-calendar-day-']"));
+            _webdriver.FindElement(By.XPath("//div[@data-testid='undefined-calendar-day-']" + rInt)).Click();
+            
+
             _webdriver.FindElement(_octoberDate).Click();
             return new FlightsTabPageObject(_webdriver);
         }
@@ -199,6 +220,12 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         public FlightsTabPageObject SignUpClick()
         {
             _webdriver.FindElement(_signUp).Click();
+            return new FlightsTabPageObject(_webdriver);
+        }
+
+        public FlightsTabPageObject SearchFlightClick()
+        {
+            _webdriver.FindElement(_btnSearchFlightCta).Click();
             return new FlightsTabPageObject(_webdriver);
         }
     }

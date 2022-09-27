@@ -1,0 +1,207 @@
+{
+  "uuid": "a307c905-2532-4643-a512-31f1ca39c74f-tr-0-1004",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.FlightsPageElementsCheck",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.FlightsPageElementsCheck",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "CMDB-134970"
+    },
+    {
+      "name": "package",
+      "value": "SpiceJetElementsInteractionTests1"
+    },
+    {
+      "name": "testMethod",
+      "value": "FlightsPageElementsCheck"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests"
+    },
+    {
+      "name": "owner",
+      "value": "Mikhail Matskevich"
+    },
+    {
+      "name": "tag",
+      "value": "SpiceJet"
+    },
+    {
+      "name": "tag",
+      "value": "Flights Tab"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "feature",
+      "value": "Core"
+    }
+  ],
+  "links": [
+    {
+      "name": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "url": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "type": "link"
+    },
+    {
+      "name": "https://www.spicejet.com/",
+      "url": "https://www.spicejet.com/",
+      "type": "link"
+    }
+  ],
+  "name": "FlightsPageElementsCheck",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "OpenQA.Selenium.InvalidSelectorException : Given css selector expression \"data-testid='undefined-calendar-day-'2\" is invalid: InvalidSelectorError: Document.querySelector: 'data-testid='undefined-calendar-day-'2' is not a valid selector: \"data-testid='undefined-calendar-day-'2\"",
+    "trace": "   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.WebDriver.FindElement(String mechanism, String value)\r\n   at OpenQA.Selenium.By.<.ctor>b__11_0(ISearchContext context)\r\n   at OpenQA.Selenium.By.FindElement(ISearchContext context)\r\n   at OpenQA.Selenium.WebDriver.FindElement(By by)\r\n   at SpiceJetElementsInteractionTests1.PageObject.FlightsTabPageObject.RandomDateSelect() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\PageObject\\FlightsTabPageObject.cs:line 69\r\n   at SpiceJetElementsInteractionTests1.Tests.<>c__DisplayClass3_0.<FlightsPageElementsCheck>b__6() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\SpaceJetTests.cs:line 117\r\n   at NUnit.Allure.Core.AllureExtensions.WrapInStep[T](AllureLifecycle lifecycle, Func`1 func, String stepName, String callerName)\r\n   at SpiceJetElementsInteractionTests1.Tests.FlightsPageElementsCheck() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\SpaceJetTests.cs:line 116"
+  },
+  "stage": "finished",
+  "description": "Flight service SpiceJet.com tests\n",
+  "steps": [
+    {
+      "name": "FlightsPageElementsCheck",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "OpenQA.Selenium.InvalidSelectorException : Given css selector expression \"data-testid='undefined-calendar-day-'2\" is invalid: InvalidSelectorError: Document.querySelector: 'data-testid='undefined-calendar-day-'2' is not a valid selector: \"data-testid='undefined-calendar-day-'2\"",
+        "trace": "   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.WebDriver.FindElement(String mechanism, String value)\r\n   at OpenQA.Selenium.By.<.ctor>b__11_0(ISearchContext context)\r\n   at OpenQA.Selenium.By.FindElement(ISearchContext context)\r\n   at OpenQA.Selenium.WebDriver.FindElement(By by)\r\n   at SpiceJetElementsInteractionTests1.PageObject.FlightsTabPageObject.RandomDateSelect() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\PageObject\\FlightsTabPageObject.cs:line 69\r\n   at SpiceJetElementsInteractionTests1.Tests.<>c__DisplayClass3_0.<FlightsPageElementsCheck>b__6() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\SpaceJetTests.cs:line 117\r\n   at NUnit.Allure.Core.AllureExtensions.WrapInStep[T](AllureLifecycle lifecycle, Func`1 func, String stepName, String callerName)\r\n   at SpiceJetElementsInteractionTests1.Tests.FlightsPageElementsCheck() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\SpaceJetTests.cs:line 116"
+      },
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Click to Flights tab menu",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664268881139,
+          "stop": 1664268881381
+        },
+        {
+          "name": "Assert that One Way radio-button is clicked",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664268881381,
+          "stop": 1664268881849
+        },
+        {
+          "name": "Click Round Trip radio-button",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664268881849,
+          "stop": 1664268882158
+        },
+        {
+          "name": "Click Flying From field",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664268882158,
+          "stop": 1664268882450
+        },
+        {
+          "name": "Select Airport Mumbai as a flying from place",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664268882450,
+          "stop": 1664268883165
+        },
+        {
+          "name": "Select Flying to AGRA as destination place",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664268883165,
+          "stop": 1664268883891
+        },
+        {
+          "name": "Select From Date",
+          "status": "broken",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false,
+            "message": "Given css selector expression \"data-testid='undefined-calendar-day-'2\" is invalid: InvalidSelectorError: Document.querySelector: 'data-testid='undefined-calendar-day-'2' is not a valid selector: \"data-testid='undefined-calendar-day-'2\"",
+            "trace": "   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.WebDriver.FindElement(String mechanism, String value)\r\n   at OpenQA.Selenium.By.<.ctor>b__11_0(ISearchContext context)\r\n   at OpenQA.Selenium.By.FindElement(ISearchContext context)\r\n   at OpenQA.Selenium.WebDriver.FindElement(By by)\r\n   at SpiceJetElementsInteractionTests1.PageObject.FlightsTabPageObject.RandomDateSelect() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\PageObject\\FlightsTabPageObject.cs:line 69\r\n   at SpiceJetElementsInteractionTests1.Tests.<>c__DisplayClass3_0.<FlightsPageElementsCheck>b__6() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\SpaceJetTests.cs:line 117\r\n   at NUnit.Allure.Core.AllureExtensions.WrapInStep[T](AllureLifecycle lifecycle, Func`1 func, String stepName, String callerName)"
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664268883891,
+          "stop": 1664268883945
+        }
+      ],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "2f9ffbcc77c4436a94901b94fa14ef81-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1664268869201,
+      "stop": 1664268884735
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1664268869201,
+  "stop": 1664268884742
+}

@@ -24,7 +24,7 @@ namespace SpiceJetElementsInteractionTests1
             new DriverManager().SetUpDriver(new FirefoxConfig());
             Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
             _webDriver.Navigate().GoToUrl(url);
-            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             _webDriver.Manage().Window.Maximize();
         }
 

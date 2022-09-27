@@ -3,6 +3,7 @@ using NUnit.Allure.Attributes;
 using NUnit.Allure.Core;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using SpiceJetElementsInteractionTests1.PageObject;
 using System.ComponentModel;
 
@@ -79,6 +80,7 @@ namespace SpiceJetElementsInteractionTests1
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.FlightsTabClick()
             , "Click to Flights tab menu");
+            Console.WriteLine("Click to Flights tab menu");
 
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.OneWayButtonClickAssert()
@@ -96,26 +98,30 @@ namespace SpiceJetElementsInteractionTests1
             flightsTab.FromBomSelection()
             , "Select Airport Mumbai as a flying from place");
 
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.FlipArrowClick()
-            , "Click Flip Arrow icon and make Mumbai as Flying To place");
-
 
             AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.ToFieldClick()
-            , "Click Flying To field");
+            flightsTab.ToAgrSelection()
+            , "Select Flying to AGRA as destination place");
 
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.DepartureDateClick()
-            , "Click to Departure date field to trigger date-picker");
+            Random r = new Random();
+            int day = r.Next(1, 5);
+            String rDay = day.ToString();
 
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.FromDateSelect()
-            , "Select From Date");
+            IList<IWebElement> dates = _webDriver.FindElements(By.XPath("//div[@data-testid='undefined-calendar-day-']"));
+            int count = dates.Count();
+            for (int i = 0; i < count; i++)
+            {
+                String text = dates[0].Text;
+                if (text.Equals("6"))
+                {
+                    dates[i].Click();
+                    break;
+                }
+            }
+            //String[] allText = new String[dates.Count];
 
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.ToDateSelect()
-            , "Select To Date");
+            flightsTab.FromDateSelect();
+            flightsTab.ToDateSelect();
 
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.NumberOfTravellersDropDownClick()
@@ -136,6 +142,9 @@ namespace SpiceJetElementsInteractionTests1
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.UsdCurrencyClickAndAssert()
             , "Assert that currency USD is checked");
+
+            flightsTab.SearchFlightClick();
+            Thread.Sleep(3000);
         }
 
         [Test]
@@ -192,7 +201,6 @@ namespace SpiceJetElementsInteractionTests1
             AllureLifecycle.Instance.WrapInStep(() =>
             signUp.SignUpClick()
             , "Click SignUp button from main page");
-
 
 
             var browserTabs = _webDriver.WindowHandles;
