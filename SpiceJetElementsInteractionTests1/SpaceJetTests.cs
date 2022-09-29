@@ -67,6 +67,22 @@ namespace SpiceJetElementsInteractionTests1
         }
 
         [Test]
+        [AllureTag("SpiceJet", "Link Click")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [DisplayName("Corporate page elements checks")]
+        public void ClickLink()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            var corporatePage = new CorporatePageObject(_webDriver);
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+                flightsTab.CovidLinkClick()
+            , "Click Covid-19 link from main page");
+
+        }
+
+
+        [Test]
         [AllureTag("SpiceJet", "Flights Tab")]
         [AllureSeverity(SeverityLevel.critical)]
 
@@ -75,6 +91,7 @@ namespace SpiceJetElementsInteractionTests1
         {
             var checkInTab = new CheckInPageObject(_webDriver);
             var flightsTab = new FlightsTabPageObject(_webDriver);
+            var flightSearchTab = new FlightSearchPageObject(_webDriver);
 
 
             AllureLifecycle.Instance.WrapInStep(() =>
@@ -95,33 +112,36 @@ namespace SpiceJetElementsInteractionTests1
             , "Click Flying From field");
 
             AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.FromBomSelection()
-            , "Select Airport Mumbai as a flying from place");
+            flightsTab.randomAirportFromArr()
+            , "Select random airport as flying from place");
 
 
             AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.ToAgrSelection()
-            , "Select Flying to AGRA as destination place");
+            flightsTab.randomAirportToArr()
+            , "Select random airport as flying to place");
 
-            Random r = new Random();
-            int day = r.Next(1, 5);
-            String rDay = day.ToString();
+            //Random r = new Random();
+            //int rInt = r.Next(17, 28);
+            //String number = rInt.ToString();
+            //IList<IWebElement> dates = _webDriver.FindElements(By.XPath($"//div[@data-testid='undefined-calendar-day-{number}']"));
+            //int count = dates.Count();
+            //for (int i = 0; i < count; i++)
+            //{
+            //    String text = dates[0].Text;
+            //    if (text.Equals("26"))
+            //    {
+            //        dates[i].Click();
+            //        break;
+            //    }
+            //}
 
-            IList<IWebElement> dates = _webDriver.FindElements(By.XPath("//div[@data-testid='undefined-calendar-day-']"));
-            int count = dates.Count();
-            for (int i = 0; i < count; i++)
-            {
-                String text = dates[0].Text;
-                if (text.Equals("6"))
-                {
-                    dates[i].Click();
-                    break;
-                }
-            }
-            //String[] allText = new String[dates.Count];
+            AllureLifecycle.Instance.WrapInStep(() =>
+            flightsTab.FromDateSelect()
+            , "Select random date From");
 
-            flightsTab.FromDateSelect();
-            flightsTab.ToDateSelect();
+            AllureLifecycle.Instance.WrapInStep(() =>
+            flightsTab.ToDateSelect()
+            , "Select random date To");
 
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.NumberOfTravellersDropDownClick()
@@ -143,8 +163,15 @@ namespace SpiceJetElementsInteractionTests1
             flightsTab.UsdCurrencyClickAndAssert()
             , "Assert that currency USD is checked");
 
-            flightsTab.SearchFlightClick();
-            Thread.Sleep(3000);
+            AllureLifecycle.Instance.WrapInStep(() =>
+            flightsTab.SearchFlightClick()
+            , "Click Search flight button");
+
+
+            Thread.Sleep(4000);
+            flightSearchTab.ModifySearchButtonClick();
+
+            flightSearchTab.SearchFlightAgainButtonClick();
         }
 
         [Test]

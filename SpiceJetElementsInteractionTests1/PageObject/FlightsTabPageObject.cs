@@ -1,6 +1,12 @@
-﻿using Bogus;
+﻿using Akka.Util;
+using Bogus;
+using Bogus.DataSets;
+using Microsoft.VisualBasic;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 using OpenQA.Selenium;
+using System;
+using System.Globalization;
 using WebDriverManager;
 
 namespace SpiceJetElementsInteractionTests1.PageObject
@@ -8,13 +14,11 @@ namespace SpiceJetElementsInteractionTests1.PageObject
     class FlightsTabPageObject
     {
         private IWebDriver _webdriver;
-        
+
         private readonly By _covidInformationLink = By.XPath("//div[text()='COVID-19 Information']");
         private readonly By _checkInTab = By.XPath("//div[@data-testid='check-in-horizontal-nav-tabs']");
         private readonly By _roundTripRadioButton = By.XPath("//div[@data-testid='round-trip-radio-button']");
         private readonly By _fromField = By.XPath("//*[@data-testid='to-testID-origin']");
-        private readonly By _fromBom = By.XPath("//div[text()='BOM']");
-        private readonly By _toAgr = By.XPath("//div[text()='AGR']");
         private readonly By _flightsTab = By.XPath("//div[@data-testid='Flights-horizontal-nav-tabs']");
         private readonly By _oneWayTripRadioButton = By.XPath("//div[@data-testid='one-way-radio-button']");
         private readonly By _flipFromToPlaces = By.XPath("//div[@data-testid='to-testID-flip-arrow']");
@@ -22,9 +26,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _returnDate = By.CssSelector("div[data-testid='return-date-dropdown-label-test-id']");
         private readonly By _departureDate = By.XPath("//div[@data-testid='departure-date-dropdown-label-test-id']");
         private readonly By _internationalDestiantion = By.XPath("//div[text()='International']");
-        
-        private readonly By _octoberDate = By.CssSelector("div[data-testid='undefined-month-October-2022'] [data-testid='undefined-calendar-day-25']");
-        private readonly By _octoberDateTo = By.CssSelector("div[data-testid='undefined-month-October-2022'] [data-testid='undefined-calendar-day-29']");
         private readonly By _numberOfTravellers = By.CssSelector("div[data-testid='home-page-travellers']");
         private readonly By _numberOfChildren = By.CssSelector("div[data-testid='Children-testID-plus-one-cta']");
         private readonly By _numberOfAdults = By.CssSelector("div[data-testid='Adult-testID-plus-one-cta']");
@@ -36,11 +37,31 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _signUp = By.XPath("//div[text()='Signup']");
         private readonly By _btnSearchFlightCta = By.XPath("//div[@data-testid='home-page-flight-cta']");
         private readonly By _calendarRow = By.CssSelector(".css-1dbjc4n.r-6koalj.r-18u37iz.r-d0pm55");
-       
+
 
         public FlightsTabPageObject(IWebDriver webdriver)
         {
             _webdriver = webdriver;
+        }
+
+        public FlightsTabPageObject randomAirportFromArr()
+        {
+            String[] airportsNames = { "AGR", "AMD", "KQH", "ATQ", "IXB", "IXG", "BLR", "BHU", "BHO", "IXC", "MAA", "CJB", "DBR" };
+            Random rnd = new Random();
+            int randAirportIdx = rnd.Next(airportsNames.Length);
+            String randomAirportFromElem = airportsNames[randAirportIdx];
+            _webdriver.FindElement(By.XPath($"//div[text()='{randomAirportFromElem}']")).Click();
+            return new FlightsTabPageObject(_webdriver);
+        }
+
+        public FlightsTabPageObject randomAirportToArr()
+        {
+            String[] airportsNames = { "DED", "DEL", "DHM", "RDP", "GOI", "GOP", "GAU", "GWL", "HYD", "JLR", "JAI", "JSA", "AIP" };
+            Random rnd = new Random();
+            int randAirportIdx = rnd.Next(airportsNames.Length);
+            String randomAirportToElem = airportsNames[randAirportIdx];
+            _webdriver.FindElement(By.XPath($"//div[text()='{randomAirportToElem}']")).Click();
+            return new FlightsTabPageObject(_webdriver);
         }
 
         public CheckInPageObject CheckInTabClick()
@@ -61,14 +82,12 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             return new FlightsTabPageObject(_webdriver);
         }
 
-        public FlightsTabPageObject RandomDateSelect()
+        public FlightsTabPageObject CovidLinkClick()
         {
-            Random r = new Random();
-            int day = r.Next(2, 5);
-            String ranDate = day.ToString();
-            _webdriver.FindElement(By.XPath("//div[@class='css-76zvg2 r-homxoj r-ubezar r-16dba41'][normalize-space()='']);" + ranDate));
+            _webdriver.FindElement(_covidInformationLink).Click();
             return new FlightsTabPageObject(_webdriver);
         }
+
 
         public FlightsTabPageObject FromFieldClick()
         {
@@ -81,18 +100,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             string randomNumbers = Faker.Phone.Number();
 
             _webdriver.FindElement(_fromField).SendKeys(Keys.Enter);
-            return new FlightsTabPageObject(_webdriver);
-        }
-
-        public FlightsTabPageObject FromBomSelection()
-        {
-            _webdriver.FindElement(_fromBom).Click();
-            return new FlightsTabPageObject(_webdriver);
-        }
-
-        public FlightsTabPageObject ToAgrSelection()
-        {
-            _webdriver.FindElement(_toAgr).Click();
             return new FlightsTabPageObject(_webdriver);
         }
 
@@ -142,20 +149,33 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         public FlightsTabPageObject FromDateSelect()
         {
-            Random r = new Random();
-            int rInt = r.Next(1, 28);
-            String number = rInt.ToString();
-            //List<WebElement> dates = _webdriver.FindElements(By.XPath("//div[@data-testid='undefined-calendar-day-']"));
-            _webdriver.FindElement(By.XPath("//div[@data-testid='undefined-calendar-day-']" + rInt)).Click();
-            
+            //Random r = new Random();
+            //int rInt = r.Next(1, 15);
+            //String number = rInt.ToString();
 
-            _webdriver.FindElement(_octoberDate).Click();
+            DateTime dateForMonthSelection = DateTime.Now.AddDays(3);
+            DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(1);
+            string monthName = dateForMonthSelection.ToString("MMMM");
+            string dateFrom = dateForDateSelectionFrom.ToString("%d");
+            Console.WriteLine(monthName);
+            Console.WriteLine(dateFrom);
+            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthName}-2022']//div[@data-testid='undefined-calendar-day-{dateFrom}']")).Click();
             return new FlightsTabPageObject(_webdriver);
         }
 
         public FlightsTabPageObject ToDateSelect()
         {
-            _webdriver.FindElement(_octoberDateTo).Click();
+            //Random r = new Random();
+            //int rInt = r.Next(17, 28);
+            //String number = rInt.ToString();
+
+            DateTime dateForMonthSelectionTo = DateTime.Now.AddDays(35);
+            DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(7);
+            string monthNameTo = dateForMonthSelectionTo.ToString("MMMM");
+            string dateTo = dateForDateSelectionFrom.ToString("%d");
+            Console.WriteLine(monthNameTo);
+            Console.WriteLine(dateTo);
+            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthNameTo}-2022']//div[@data-testid='undefined-calendar-day-{dateTo}']")).Click();
             return new FlightsTabPageObject(_webdriver);
         }
 
@@ -164,6 +184,8 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             _webdriver.FindElement(_numberOfTravellers).Click();
             return new FlightsTabPageObject(_webdriver);
         }
+
+      
 
         public FlightsTabPageObject NumberOfAdultsAddOne()
         {
@@ -198,7 +220,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         public FlightsTabPageObject SeniorCitizenClickAndAssert()
         {
             _webdriver.FindElement(_seniorCitizen).Click();
-            
+
             String ChoosedRadioButton = _webdriver.FindElement(_seniorCitizen).Text;
             Assert.That("Senior Citizen", Is.EqualTo(ChoosedRadioButton));
             return new FlightsTabPageObject(_webdriver);
@@ -230,3 +252,4 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         }
     }
 }
+
