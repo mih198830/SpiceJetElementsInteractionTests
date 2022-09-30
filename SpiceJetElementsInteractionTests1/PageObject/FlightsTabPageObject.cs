@@ -183,8 +183,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             return new FlightsTabPageObject(_webdriver);
         }
 
-      
-
         public FlightsTabPageObject NumberOfAdultsAddOne()
         {
             _webdriver.FindElement(_numberOfAdults).Click();

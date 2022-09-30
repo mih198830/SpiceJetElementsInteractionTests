@@ -17,12 +17,13 @@ namespace SpiceJetElementsInteractionTests1
 
         [SetUp]
         protected void Setup() {
-            //_webDriver = new ChromeDriver();
-            _webDriver = new FirefoxDriver();
-            //new DriverManager().SetUpDriver(new ChromeConfig());
-            new DriverManager().SetUpDriver(new FirefoxConfig());
+            _webDriver = new ChromeDriver();
+            //_webDriver = new FirefoxDriver();
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            //new DriverManager().SetUpDriver(new FirefoxConfig());
             Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
             _webDriver.Navigate().GoToUrl(url);
+            _webDriver.Manage().Cookies.DeleteAllCookies();
             _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             _webDriver.Manage().Window.Maximize();
         }
