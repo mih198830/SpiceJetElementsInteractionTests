@@ -30,58 +30,6 @@ namespace SpiceJetElementsInteractionTests1
             , "Check that page title is matching expected text");
         }
 
-
-        [Test]
-        [AllureTag("SpiceJet", "Manage Booking Tab")]
-        [AllureSeverity(SeverityLevel.normal)]
-        [DisplayName("Check if Manage Booking Tab is opened")]
-        public void ManageBookingTabCheck()
-        {
-            var manageBookingTab = new ManageBookingPageObject(_webDriver);
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            manageBookingTab.ManageBookingLinkClick()
-            , "Open Manage Bookin Tab");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            manageBookingTab.ViewChangeAssistButtonAssertIsNotNull()
-            , "Assert that button 'View Change Assist is visible");
-        }
-
-
-        [Test]
-        [AllureTag("SpiceJet", "Search flight")]
-        [AllureSeverity(SeverityLevel.critical)]
-        [DisplayName("Check search flight process for newly loaded page")]
-        public void SearchDefaultValues()
-        {
-            var flightsTab = new FlightsTabPageObject(_webDriver);
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-                flightsTab.SearchButtonClick()
-            , "Click Search button from Flights Tab Page");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-                flightsTab.DismisButtonPresent()
-            , "Check that Error message with expected text is present as an error");
-        }
-
-        [Test]
-        [AllureTag("SpiceJet", "Link Click")]
-        [AllureSeverity(SeverityLevel.critical)]
-        [DisplayName("Corporate page elements checks")]
-        public void ClickLink()
-        {
-            var flightsTab = new FlightsTabPageObject(_webDriver);
-            var corporatePage = new CorporatePageObject(_webDriver);
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-                flightsTab.CovidLinkClick()
-            , "Click Covid-19 link from main page");
-
-        }
-
-
         [Test]
         [AllureTag("SpiceJet", "Flights Tab")]
         [AllureSeverity(SeverityLevel.critical)]
@@ -92,12 +40,11 @@ namespace SpiceJetElementsInteractionTests1
             var checkInTab = new CheckInPageObject(_webDriver);
             var flightsTab = new FlightsTabPageObject(_webDriver);
             var flightSearchTab = new FlightSearchPageObject(_webDriver);
-
+            var signUpLink = new SightUpPageObject(_webDriver);
 
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.FlightsTabClick()
             , "Click to Flights tab menu");
-            Console.WriteLine("Click to Flights tab menu");
 
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.OneWayButtonClickAssert()
@@ -167,12 +114,70 @@ namespace SpiceJetElementsInteractionTests1
             flightsTab.SearchFlightClick()
             , "Click Search flight button");
 
+            AllureLifecycle.Instance.WrapInStep(() =>
+            flightSearchTab.SignUpButtonClick()
+            , "Click Sign Up button");
 
-            Thread.Sleep(4000);
-            flightSearchTab.ModifySearchButtonClick();
+            var browserTabs = _webDriver.WindowHandles;
+            _webDriver.SwitchTo().Window(browserTabs[1]);
+            signUpLink.FlightsLiClick();
 
-            flightSearchTab.SearchFlightAgainButtonClick();
+            AllureLifecycle.Instance.WrapInStep(() =>
+            signUpLink.PartnersLinkClick()
+            , "Click Partners button");
+            
         }
+
+        [Test]
+        [AllureTag("SpiceJet", "Manage Booking Tab")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [DisplayName("Check if Manage Booking Tab is opened")]
+        public void ManageBookingTabCheck()
+        {
+            var manageBookingTab = new ManageBookingPageObject(_webDriver);
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            manageBookingTab.ManageBookingLinkClick()
+            , "Open Manage Bookin Tab");
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            manageBookingTab.ViewChangeAssistButtonAssertIsNotNull()
+            , "Assert that button 'View Change Assist is visible");
+        }
+
+
+        [Test]
+        [AllureTag("SpiceJet", "Search flight")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [DisplayName("Check search flight process for newly loaded page")]
+        public void SearchDefaultValues()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+                flightsTab.SearchButtonClick()
+            , "Click Search button from Flights Tab Page");
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+                flightsTab.DismisButtonPresent()
+            , "Check that Error message with expected text is present as an error");
+        }
+
+        [Test]
+        [AllureTag("SpiceJet", "Link Click")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [DisplayName("Corporate page elements checks")]
+        public void ClickLink()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            var corporatePage = new CorporatePageObject(_webDriver);
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+                flightsTab.CovidLinkClick()
+            , "Click Covid-19 link from main page");
+
+        }
+
 
         [Test]
         [AllureTag("SpiceJet", "Check In Tab")]

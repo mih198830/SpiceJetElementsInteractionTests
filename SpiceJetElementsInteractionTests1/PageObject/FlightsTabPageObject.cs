@@ -64,6 +64,35 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             return new FlightsTabPageObject(_webdriver);
         }
 
+        public FlightsTabPageObject FromDateSelect()
+        {
+            //Random r = new Random();
+            //int rInt = r.Next(1, 15);
+            //String number = rInt.ToString();
+
+            DateTime dateForMonthSelection = DateTime.Now.AddDays(3);
+            DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(1);
+            string monthName = dateForMonthSelection.ToString("MMMM");
+            string dateFrom = dateForDateSelectionFrom.ToString("%d");
+            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthName}-2022']//div[@data-testid='undefined-calendar-day-{dateFrom}']")).Click();
+            return new FlightsTabPageObject(_webdriver);
+        }
+
+        public FlightsTabPageObject ToDateSelect()
+        {
+            //Random r = new Random();
+            //int rInt = r.Next(17, 28);
+            //String number = rInt.ToString();
+
+            DateTime dateForMonthSelectionTo = DateTime.Now.AddDays(35);
+            DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(7);
+            string monthNameTo = dateForMonthSelectionTo.ToString("MMMM");
+            string dateTo = dateForDateSelectionFrom.ToString("%d");
+            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthNameTo}-2022']//div[@data-testid='undefined-calendar-day-{dateTo}']")).Click();
+            return new FlightsTabPageObject(_webdriver);
+        }
+
+
         public CheckInPageObject CheckInTabClick()
         {
             _webdriver.FindElement(_checkInTab).Click();
@@ -147,37 +176,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             return new FlightsTabPageObject(_webdriver);
         }
 
-        public FlightsTabPageObject FromDateSelect()
-        {
-            //Random r = new Random();
-            //int rInt = r.Next(1, 15);
-            //String number = rInt.ToString();
-
-            DateTime dateForMonthSelection = DateTime.Now.AddDays(3);
-            DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(1);
-            string monthName = dateForMonthSelection.ToString("MMMM");
-            string dateFrom = dateForDateSelectionFrom.ToString("%d");
-            Console.WriteLine(monthName);
-            Console.WriteLine(dateFrom);
-            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthName}-2022']//div[@data-testid='undefined-calendar-day-{dateFrom}']")).Click();
-            return new FlightsTabPageObject(_webdriver);
-        }
-
-        public FlightsTabPageObject ToDateSelect()
-        {
-            //Random r = new Random();
-            //int rInt = r.Next(17, 28);
-            //String number = rInt.ToString();
-
-            DateTime dateForMonthSelectionTo = DateTime.Now.AddDays(35);
-            DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(7);
-            string monthNameTo = dateForMonthSelectionTo.ToString("MMMM");
-            string dateTo = dateForDateSelectionFrom.ToString("%d");
-            Console.WriteLine(monthNameTo);
-            Console.WriteLine(dateTo);
-            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthNameTo}-2022']//div[@data-testid='undefined-calendar-day-{dateTo}']")).Click();
-            return new FlightsTabPageObject(_webdriver);
-        }
 
         public FlightsTabPageObject NumberOfTravellersDropDownClick()
         {

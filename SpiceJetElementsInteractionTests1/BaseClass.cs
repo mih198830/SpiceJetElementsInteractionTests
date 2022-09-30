@@ -14,7 +14,6 @@ namespace SpiceJetElementsInteractionTests1
     {
         protected IWebDriver _webDriver;
         String url = "https://www.spicejet.com/";
-        LoginPageObject loginPageObject = new LoginPageObject();
 
         [SetUp]
         protected void Setup() {
@@ -24,7 +23,7 @@ namespace SpiceJetElementsInteractionTests1
             new DriverManager().SetUpDriver(new FirefoxConfig());
             Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
             _webDriver.Navigate().GoToUrl(url);
-            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             _webDriver.Manage().Window.Maximize();
         }
 

@@ -10,15 +10,12 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _loginButtonFromLoginMenu = By.XPath("//div[@data-testid='login-cta']");
         private readonly By _loginMenuPhoneNumber = By.XPath("//input[@data-testid='user-mobileno-input-box']");
         private readonly By _validationPhoneMessage = By.XPath("//div[text()='Please enter a valid mobile number']");
-        
+
+
 
         public LoginPageObject(IWebDriver webdriver)
         {
             _webdriver = webdriver;
-        }
-
-        public LoginPageObject()
-        {
         }
 
         public LoginPageObject LoginButtonFromMainPageClick()
