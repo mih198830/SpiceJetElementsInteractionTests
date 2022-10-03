@@ -191,8 +191,9 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         public FlightsTabPageObject NumberOfAdultsUptToSevenClick()
         {
-            //Five clicks to add 6 more adult passengers CSS
-            for (int i = 1; i < 6; i++)
+            Random r = new Random();
+            int rInt = r.Next(1, 7);
+            for (int i = 1; i < rInt; i++)
             {
                 _webdriver.FindElement(_numberOfAdults).Click();
             }
