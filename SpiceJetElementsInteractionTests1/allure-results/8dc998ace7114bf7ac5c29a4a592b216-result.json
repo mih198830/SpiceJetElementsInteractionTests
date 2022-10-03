@@ -1,0 +1,115 @@
+{
+  "uuid": "2f39cf0e-e70f-4437-8997-bc135342fab2-tr-0-1008",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.RegistrationPageOpens",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.RegistrationPageOpens",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "CMDB-134970"
+    },
+    {
+      "name": "package",
+      "value": "SpiceJetElementsInteractionTests1"
+    },
+    {
+      "name": "testMethod",
+      "value": "RegistrationPageOpens"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests"
+    },
+    {
+      "name": "owner",
+      "value": "Mikhail Matskevich"
+    },
+    {
+      "name": "tag",
+      "value": "SpiceJet"
+    },
+    {
+      "name": "tag",
+      "value": "Registration"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "feature",
+      "value": "Core"
+    }
+  ],
+  "links": [
+    {
+      "name": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "url": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "type": "link"
+    },
+    {
+      "name": "https://www.spicejet.com/",
+      "url": "https://www.spicejet.com/",
+      "type": "link"
+    }
+  ],
+  "name": "RegistrationPageOpens",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "  Expected string length 37 but was 11. Strings differ at index 0.\r\n  Expected: \"https://spiceclub.spicejet.com/signup\"\r\n  But was:  \"about:blank\"\r\n  -----------^\r\n",
+    "trace": "   at SpiceJetElementsInteractionTests1.Tests.RegistrationPageOpens() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\SpaceJetTests.cs:line 241\r\n"
+  },
+  "stage": "finished",
+  "description": "Flight service SpiceJet.com tests\n",
+  "steps": [
+    {
+      "name": "RegistrationPageOpens",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "  Expected string length 37 but was 11. Strings differ at index 0.\r\n  Expected: \"https://spiceclub.spicejet.com/signup\"\r\n  But was:  \"about:blank\"\r\n  -----------^\r\n",
+        "trace": "   at SpiceJetElementsInteractionTests1.Tests.RegistrationPageOpens() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\SpaceJetTests.cs:line 241\r\n"
+      },
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Click SignUp button from main page",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664534174204,
+          "stop": 1664534174549
+        }
+      ],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "090dcc5951414ccfbc0fea1739cab6af-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1664534155970,
+      "stop": 1664534175634
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1664534155970,
+  "stop": 1664534175644
+}

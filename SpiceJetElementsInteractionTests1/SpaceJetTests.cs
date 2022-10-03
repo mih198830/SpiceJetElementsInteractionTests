@@ -33,7 +33,6 @@ namespace SpiceJetElementsInteractionTests1
         [Test]
         [AllureTag("SpiceJet", "Flights Tab")]
         [AllureSeverity(SeverityLevel.critical)]
-
         [DisplayName("Ñheck all elements on Flights Tab are interactable")]
         public void FlightsPageElementsCheck()
         {
@@ -125,7 +124,10 @@ namespace SpiceJetElementsInteractionTests1
             AllureLifecycle.Instance.WrapInStep(() =>
             signUpLink.PartnersLinkClick()
             , "Click Partners button");
-            
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            signUpLink.CreditCardsLinkClick()
+            , "Click Credit Cards button");
         }
 
         [Test]
@@ -170,12 +172,10 @@ namespace SpiceJetElementsInteractionTests1
         public void ClickLink()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
-            var corporatePage = new CorporatePageObject(_webDriver);
 
             AllureLifecycle.Instance.WrapInStep(() =>
                 flightsTab.CovidLinkClick()
             , "Click Covid-19 link from main page");
-
         }
 
 
@@ -239,7 +239,6 @@ namespace SpiceJetElementsInteractionTests1
             _webDriver.SwitchTo().Window(browserTabs[1]);
             Thread.Sleep(2000);
             String CurrentUrl = _webDriver.Url;
-            Console.WriteLine(CurrentUrl);
             Assert.That(CurrentUrl, Is.EqualTo("https://spiceclub.spicejet.com/signup"));
         }
     }

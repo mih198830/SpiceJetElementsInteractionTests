@@ -1,0 +1,127 @@
+{
+  "uuid": "9b9b4732-428f-4959-8363-8f93d3075ae7-tr-0-1004",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.SearchDefaultValues",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.SearchDefaultValues",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "CMDB-134970"
+    },
+    {
+      "name": "package",
+      "value": "SpiceJetElementsInteractionTests1"
+    },
+    {
+      "name": "testMethod",
+      "value": "SearchDefaultValues"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests"
+    },
+    {
+      "name": "owner",
+      "value": "Mikhail Matskevich"
+    },
+    {
+      "name": "tag",
+      "value": "SpiceJet"
+    },
+    {
+      "name": "tag",
+      "value": "Search flight"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "feature",
+      "value": "Core"
+    }
+  ],
+  "links": [
+    {
+      "name": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "url": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "type": "link"
+    },
+    {
+      "name": "https://www.spicejet.com/",
+      "url": "https://www.spicejet.com/",
+      "type": "link"
+    }
+  ],
+  "name": "SearchDefaultValues",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "SearchDefaultValues"
+  },
+  "stage": "finished",
+  "description": "Flight service SpiceJet.com tests\n",
+  "steps": [
+    {
+      "name": "SearchDefaultValues",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Click Search button from Flights Tab Page",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664538258664,
+          "stop": 1664538258942
+        },
+        {
+          "name": "Check that Error message with expected text is present as an error",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664538258942,
+          "stop": 1664538259630
+        }
+      ],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "5b59dcc19c1245388050336f4dace317-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1664538226601,
+      "stop": 1664538261402
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1664538226601,
+  "stop": 1664538261402
+}

@@ -1,0 +1,352 @@
+{
+  "uuid": "84294657-1383-424c-b802-3d321c8f2617-tr-0-1002",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.FlightsPageElementsCheck",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.FlightsPageElementsCheck",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "CMDB-134970"
+    },
+    {
+      "name": "package",
+      "value": "SpiceJetElementsInteractionTests1"
+    },
+    {
+      "name": "testMethod",
+      "value": "FlightsPageElementsCheck"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests"
+    },
+    {
+      "name": "owner",
+      "value": "Mikhail Matskevich"
+    },
+    {
+      "name": "tag",
+      "value": "SpiceJet"
+    },
+    {
+      "name": "tag",
+      "value": "Flights Tab"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "feature",
+      "value": "Core"
+    }
+  ],
+  "links": [
+    {
+      "name": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "url": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "type": "link"
+    },
+    {
+      "name": "https://www.spicejet.com/",
+      "url": "https://www.spicejet.com/",
+      "type": "link"
+    }
+  ],
+  "name": "FlightsPageElementsCheck",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "FlightsPageElementsCheck"
+  },
+  "stage": "finished",
+  "description": "Flight service SpiceJet.com tests\n",
+  "steps": [
+    {
+      "name": "FlightsPageElementsCheck",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Click to Flights tab menu",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541374939,
+          "stop": 1664541374985
+        },
+        {
+          "name": "Assert that One Way radio-button is clicked",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541374985,
+          "stop": 1664541375051
+        },
+        {
+          "name": "Click Round Trip radio-button",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541375051,
+          "stop": 1664541375146
+        },
+        {
+          "name": "Click Flying From field",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541375146,
+          "stop": 1664541375254
+        },
+        {
+          "name": "Select random airport as flying from place",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541375254,
+          "stop": 1664541375481
+        },
+        {
+          "name": "Select random airport as flying to place",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541375481,
+          "stop": 1664541375985
+        },
+        {
+          "name": "Select random date From",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541375985,
+          "stop": 1664541376329
+        },
+        {
+          "name": "Select random date To",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541376329,
+          "stop": 1664541376524
+        },
+        {
+          "name": "Number of Travellers drop-down menu click",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541376524,
+          "stop": 1664541376587
+        },
+        {
+          "name": "Number of Adults add one click",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541376587,
+          "stop": 1664541376709
+        },
+        {
+          "name": "Number of Adults add 6 more",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541376709,
+          "stop": 1664541377179
+        },
+        {
+          "name": "Currency drop-down menu click",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541377179,
+          "stop": 1664541377238
+        },
+        {
+          "name": "Assert that currency USD is checked",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541377238,
+          "stop": 1664541377369
+        },
+        {
+          "name": "Click Search flight button",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541377369,
+          "stop": 1664541377414
+        },
+        {
+          "name": "Click Sign Up button",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541377414,
+          "stop": 1664541377489
+        },
+        {
+          "name": "Click Partners button",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541382621,
+          "stop": 1664541384545
+        },
+        {
+          "name": "Click Credit Cards button",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664541384545,
+          "stop": 1664541385972
+        }
+      ],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "904e9a074ab14a05a2091f760090914c-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1664541370080,
+      "stop": 1664541386152
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1664541370079,
+  "stop": 1664541386157
+}

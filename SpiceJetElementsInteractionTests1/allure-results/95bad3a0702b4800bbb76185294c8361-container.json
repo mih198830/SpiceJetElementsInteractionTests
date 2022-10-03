@@ -1,0 +1,48 @@
+{
+  "uuid": "232270bd-ed58-4014-b27f-27753de137f6-tc-0-1000",
+  "name": "SpiceJetElementsInteractionTests1.Tests.ClickLink",
+  "children": [
+    "330467c6-d623-4499-bcb1-f7b0d8814ab1-tr-0-1005"
+  ],
+  "befores": [
+    {
+      "name": "Setup",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "System.InvalidOperationException : session not created: This version of ChromeDriver only supports Chrome version 106\nCurrent browser version is 105.0.5195.127 with binary path C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe (SessionNotCreated)\r\nTearDown : System.NullReferenceException : Object reference not set to an instance of an object.",
+        "trace": "   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)\r\n   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)\r\n   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)\r\n   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)\r\n   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeDriverService service, ChromeOptions options, TimeSpan commandTimeout)\r\n   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeOptions options)\r\n   at OpenQA.Selenium.Chrome.ChromeDriver..ctor()\r\n   at SpiceJetElementsInteractionTests1.BaseClass.Setup() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\BaseClass.cs:line 20\r\n--TearDown\r\n   at SpiceJetElementsInteractionTests1.BaseClass.OneTimeAfter() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\BaseClass.cs:line 33"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1664540635927,
+      "stop": 1664540635927
+    }
+  ],
+  "afters": [
+    {
+      "name": "OneTimeAfter",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "System.InvalidOperationException : session not created: This version of ChromeDriver only supports Chrome version 106\nCurrent browser version is 105.0.5195.127 with binary path C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe (SessionNotCreated)\r\nTearDown : System.NullReferenceException : Object reference not set to an instance of an object.",
+        "trace": "   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)\r\n   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities desiredCapabilities)\r\n   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)\r\n   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)\r\n   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeDriverService service, ChromeOptions options, TimeSpan commandTimeout)\r\n   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeOptions options)\r\n   at OpenQA.Selenium.Chrome.ChromeDriver..ctor()\r\n   at SpiceJetElementsInteractionTests1.BaseClass.Setup() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\BaseClass.cs:line 20\r\n--TearDown\r\n   at SpiceJetElementsInteractionTests1.BaseClass.OneTimeAfter() in C:\\Users\\m.matskevich\\source\\repos\\SpiceJetElementsInteractionTests1\\SpiceJetElementsInteractionTests1\\BaseClass.cs:line 33"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1664540635927,
+      "stop": 1664540635927
+    }
+  ],
+  "links": [],
+  "start": 1664540635240,
+  "stop": 1664540635954
+}

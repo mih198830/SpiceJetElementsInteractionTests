@@ -1,0 +1,112 @@
+{
+  "uuid": "7de50c6e-f71a-40a6-8063-7e04f83314dd-tr-0-1005",
+  "historyId": "SpiceJetElementsInteractionTests1.Tests.ClickLink",
+  "fullName": "SpiceJetElementsInteractionTests1.Tests.ClickLink",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "CMDB-134970"
+    },
+    {
+      "name": "package",
+      "value": "SpiceJetElementsInteractionTests1"
+    },
+    {
+      "name": "testMethod",
+      "value": "ClickLink"
+    },
+    {
+      "name": "testClass",
+      "value": "Tests"
+    },
+    {
+      "name": "owner",
+      "value": "Mikhail Matskevich"
+    },
+    {
+      "name": "tag",
+      "value": "SpiceJet"
+    },
+    {
+      "name": "tag",
+      "value": "Link Click"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "feature",
+      "value": "Core"
+    }
+  ],
+  "links": [
+    {
+      "name": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "url": "https://github.com/mih198830/SpiceJetElementsInteractionTests",
+      "type": "link"
+    },
+    {
+      "name": "https://www.spicejet.com/",
+      "url": "https://www.spicejet.com/",
+      "type": "link"
+    }
+  ],
+  "name": "ClickLink",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "ClickLink"
+  },
+  "stage": "finished",
+  "description": "Flight service SpiceJet.com tests\n",
+  "steps": [
+    {
+      "name": "ClickLink",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [
+        {
+          "name": "Click Covid-19 link from main page",
+          "status": "passed",
+          "statusDetails": {
+            "known": false,
+            "muted": false,
+            "flaky": false
+          },
+          "stage": "finished",
+          "steps": [],
+          "attachments": [],
+          "parameters": [],
+          "start": 1664539881174,
+          "stop": 1664539881435
+        }
+      ],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "3d6d56a1c4a54848ac3821e75776947c-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1664539869933,
+      "stop": 1664539882161
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1664539869933,
+  "stop": 1664539882165
+}
