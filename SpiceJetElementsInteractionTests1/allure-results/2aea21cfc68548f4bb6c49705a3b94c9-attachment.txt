@@ -1,2 +1,0 @@
-Click to Flights tab menu
-//div[@data-testid='undefined-calendar-day-27']

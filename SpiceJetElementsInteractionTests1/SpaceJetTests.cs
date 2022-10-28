@@ -2,10 +2,13 @@ using Allure.Commons;
 using NUnit.Allure.Attributes;
 using NUnit.Allure.Core;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+using NUnit.Framework.Internal;
 using SpiceJetElementsInteractionTests1.PageObject;
 using System.ComponentModel;
+
+//Scenarios on the flight app https://www.spicejet.com/
+//Could you automate dates - Valid, in valid, same date with different time
+//From : Delhi, To: Chennai - Select a flight that starts post 12pm with cheapest fare from today until the next 3 days.
 
 namespace SpiceJetElementsInteractionTests1
 {
@@ -31,9 +34,24 @@ namespace SpiceJetElementsInteractionTests1
         }
 
         [Test]
+        [AllureTag("SpiceJet", "From Delhi to Chennai")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [DisplayName("Select a flight that starts post 12pm with cheapest fare from today until the next 3 days")]
+        public void CheapestFareFromTodayUntilNextThreeDays()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            flightsTab.FlightsTabClick()
+            , "Click to Flights tab menu");
+
+
+        }
+
+        [Test]
         [AllureTag("SpiceJet", "Flights Tab")]
         [AllureSeverity(SeverityLevel.critical)]
-        [DisplayName("Ñheck all elements on Flights Tab are interactable")]
+        [DisplayName("Check all elements on Flights Tab are interactable")]
         public void FlightsPageElementsCheck()
         {
             var checkInTab = new CheckInPageObject(_webDriver);
@@ -65,21 +83,6 @@ namespace SpiceJetElementsInteractionTests1
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.randomAirportToArr()
             , "Select random airport as flying to place");
-
-            //Random r = new Random();
-            //int rInt = r.Next(17, 28);
-            //String number = rInt.ToString();
-            //IList<IWebElement> dates = _webDriver.FindElements(By.XPath($"//div[@data-testid='undefined-calendar-day-{number}']"));
-            //int count = dates.Count();
-            //for (int i = 0; i < count; i++)
-            //{
-            //    String text = dates[0].Text;
-            //    if (text.Equals("26"))
-            //    {
-            //        dates[i].Click();
-            //        break;
-            //    }
-            //}
 
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.FromDateSelect()
