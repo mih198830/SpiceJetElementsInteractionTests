@@ -37,7 +37,8 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _signUp = By.XPath("//div[text()='Signup']");
         private readonly By _btnSearchFlightCta = By.XPath("//div[@data-testid='home-page-flight-cta']");
         private readonly By _calendarRow = By.CssSelector(".css-1dbjc4n.r-6koalj.r-18u37iz.r-d0pm55");
-
+        private readonly By _delhiAirport = By.XPath("//div[text()='DEL']");
+        private readonly By _chennaiAirport = By.XPath("//div[text()='MAA']");
 
         public FlightsTabPageObject(IWebDriver webdriver)
         {
@@ -92,6 +93,37 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             return new FlightsTabPageObject(_webdriver);
         }
 
+        public FlightsTabPageObject FromDatePlusOneDay()
+        {
+            DateTime dateForMonthSelection = DateTime.Now.AddDays(0);
+            DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(1);
+            string monthName = dateForMonthSelection.ToString("MMMM");
+            string dateFrom = dateForDateSelectionFrom.ToString("%d");
+            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthName}-2022']//div[@data-testid='undefined-calendar-day-{dateFrom}']")).Click();
+            return new FlightsTabPageObject(_webdriver);
+        }
+
+        public FlightsTabPageObject ToDatePlusOneDay()
+        {
+            DateTime dateForMonthSelectionTo = DateTime.Now.AddDays(0);
+            DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(1);
+            string monthNameTo = dateForMonthSelectionTo.ToString("MMMM");
+            string dateTo = dateForDateSelectionFrom.ToString("%d");
+            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthNameTo}-2022']//div[@data-testid='undefined-calendar-day-{dateTo}']")).Click();
+            return new FlightsTabPageObject(_webdriver);
+        }
+
+        public FlightsTabPageObject DelhiAirportClick()
+        {
+            _webdriver.FindElement(_delhiAirport).Click();
+            return new FlightsTabPageObject(_webdriver);
+        }
+
+        public FlightsTabPageObject ChennaiAirportClick()
+        {
+            _webdriver.FindElement(_chennaiAirport).Click();
+            return new FlightsTabPageObject(_webdriver);
+        }
 
         public CheckInPageObject CheckInTabClick()
         {

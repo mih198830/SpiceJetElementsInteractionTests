@@ -3,6 +3,7 @@ using NUnit.Allure.Attributes;
 using NUnit.Allure.Core;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
+using OpenQA.Selenium;
 using SpiceJetElementsInteractionTests1.PageObject;
 using System.ComponentModel;
 
@@ -45,8 +46,30 @@ namespace SpiceJetElementsInteractionTests1
             flightsTab.FlightsTabClick()
             , "Click to Flights tab menu");
 
+            AllureLifecycle.Instance.WrapInStep(() =>
+            flightsTab.FromFieldClick()
+            , "Click airport selection From");
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            flightsTab.DelhiAirportClick()
+            , "Click Delhi as an airport flying From");
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            flightsTab.ChennaiAirportClick()
+            , "Click Chennai as an airport flying To");
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            flightsTab.FromDatePlusOneDay()
+            , "Select From date as tomorrow");
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            flightsTab.SearchFlightClick()
+            , "Search flight button click");
+
 
         }
+
+
 
         [Test]
         [AllureTag("SpiceJet", "Flights Tab")]
