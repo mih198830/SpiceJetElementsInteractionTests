@@ -8,11 +8,10 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _modifySearchButton = By.XPath("//span[@dir='auto']//div[@data-focusable='true']");
         private readonly By _searchAgainButton = By.XPath("//*[@data-testid='home-page-flight-cta']");
         private readonly By _signUpButton = By.XPath("//div[text()='Signup']");
-        //private readonly By _spiceSavePriceFlights = By.XPath("//div[contains(@data-testid,'spicesaver-flight')]//following::div[2]");
-        public List<IWebElement> _spiceSavePriceFlights => _webdriver.FindElements(By.XPath("//div[contains(@data-testid,'spicesaver-flight')]//following::div[2]"));
+        public IList<IWebElement> _spiceSavePriceFlights => _webdriver.FindElements(By.XPath("//div[contains(@data-testid,'spicesaver-flight')]//following::div[2]"));
+        
 
-        private readonly By _lowfareCalendar = By.XPath("/div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'03 Nov')]");
-            
+
 
         public FlightSearchPageObject(IWebDriver webdriver)
         {
@@ -21,17 +20,30 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         public FlightSearchPageObject SpiceSaverLowestPriceSelect()
         {
-            _webdriver.FindElement(_lowfareCalendar).Click();
-            IList<string> all = new List<string>();
-            List<long> spiceSavePrices = new List<long>();
+            DateTime dateForMonthSelection = DateTime.Now.AddDays(0);
+            DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(1);
+            string monthName = dateForMonthSelection.ToString("MMM");
+            string dateFrom = dateForDateSelectionFrom.ToString("dd");
+            _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//following::div[1]//div[2]")).Text();
 
-            //spiceSavePrices.Add(_spiceSavePriceFlights.Texts());
-            spiceSavePrices.Add(_spiceSavePriceFlights.GetAttribute("textContent").Trim().ToList());
-            
-            long min_price = spiceSavePrices.AsQueryable().Min();
+
+            IList<string> all = new List<string>();
+            List<string> spiceSavePrices = _spiceSavePriceFlights.Select(el => el.GetAttribute("textContent").Trim()).ToList();
+            List<long> getPrices = spiceSavePrices.ConvertAll(long.Parse);
+            long min_price = getPrices.AsQueryable().Min();
             return new FlightSearchPageObject(_webdriver);
         }
-           
+
+        public FlightSearchPageObject _lowfareCalendarPlusDays()
+        {
+            DateTime dateForMonthSelection = DateTime.Now.AddDays(0);
+            DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(1);
+            string monthName = dateForMonthSelection.ToString("MMM");
+            string dateFrom = dateForDateSelectionFrom.ToString("%d");
+            _webdriver.FindElement(By.XPath($"/div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]"));
+            return new FlightSearchPageObject(_webdriver);
+        }
+
 
         public FlightSearchPageObject ModifySearchButtonClick()
         {

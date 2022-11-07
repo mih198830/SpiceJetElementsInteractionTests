@@ -39,6 +39,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _calendarRow = By.CssSelector(".css-1dbjc4n.r-6koalj.r-18u37iz.r-d0pm55");
         private readonly By _delhiAirport = By.XPath("//div[text()='DEL']");
         private readonly By _chennaiAirport = By.XPath("//div[text()='MAA']");
+        private readonly By _destinationCityPopUp = By.XPath("//div[text()='Destination city cannot be empty']");
 
         public FlightsTabPageObject(IWebDriver webdriver)
         {
@@ -67,10 +68,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         public FlightsTabPageObject FromDateSelect()
         {
-            //Random r = new Random();
-            //int rInt = r.Next(1, 15);
-            //String number = rInt.ToString();
-
             DateTime dateForMonthSelection = DateTime.Now.AddDays(3);
             DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(1);
             string monthName = dateForMonthSelection.ToString("MMMM");
@@ -81,10 +78,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         public FlightsTabPageObject ToDateSelect()
         {
-            //Random r = new Random();
-            //int rInt = r.Next(17, 28);
-            //String number = rInt.ToString();
-
             DateTime dateForMonthSelectionTo = DateTime.Now.AddDays(35);
             DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(7);
             string monthNameTo = dateForMonthSelectionTo.ToString("MMMM");
@@ -113,9 +106,16 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             return new FlightsTabPageObject(_webdriver);
         }
 
+
         public FlightsTabPageObject DelhiAirportClick()
         {
             _webdriver.FindElement(_delhiAirport).Click();
+            return new FlightsTabPageObject(_webdriver);
+        }
+
+        public FlightsTabPageObject DestinationCityPopUpDisplayed()
+        {
+            Boolean elemSelected = _webdriver.FindElement(_destinationCityPopUp).Displayed;
             return new FlightsTabPageObject(_webdriver);
         }
 

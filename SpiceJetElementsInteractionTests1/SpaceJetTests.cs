@@ -35,12 +35,33 @@ namespace SpiceJetElementsInteractionTests1
         }
 
         [Test]
+        [AllureTag("SpiceJet")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [DisplayName("Search flight for blank empty destination field")]
+        public void CheckEmptyDestinationField()
+        {
+            String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
+            String title = _webDriver.Title;
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            flightsTab.SearchFlightClick()
+            , "Click Search Flight Button");
+
+            AllureLifecycle.Instance.WrapInStep(() =>
+            flightsTab.DestinationCityPopUpDisplayed()
+            , "");
+
+        }
+
+        [Test]
         [AllureTag("SpiceJet", "From Delhi to Chennai")]
         [AllureSeverity(SeverityLevel.normal)]
         [DisplayName("Select a flight that starts post 12pm with cheapest fare from today until the next 3 days")]
         public void CheapestFareFromTodayUntilNextThreeDays()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
+            var flightSearchTab = new FlightSearchPageObject(_webDriver);
 
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.FlightsTabClick()
@@ -65,6 +86,9 @@ namespace SpiceJetElementsInteractionTests1
             AllureLifecycle.Instance.WrapInStep(() =>
             flightsTab.SearchFlightClick()
             , "Search flight button click");
+
+            flightSearchTab.SpiceSaverLowestPriceSelect();
+            flightSearchTab._lowfareCalendarPlusDays();
 
 
         }
