@@ -87,8 +87,39 @@ namespace SpiceJetElementsInteractionTests1
             flightsTab.SearchFlightClick()
             , "Search flight button click");
 
-            flightSearchTab.SpiceSaverLowestPriceSelect();
-            flightSearchTab._lowfareCalendarPlusDays();
+            double numberOne, numberTwo, numberThree;
+
+            var firstPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 1);
+            bool isTrue = double.TryParse(firstPrice, out numberOne);
+ 
+            string secondPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 2);
+            bool isTrueTwo = double.TryParse(secondPrice, out numberTwo);
+
+            string thirdPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 3);
+            bool isTrueThree = double.TryParse(thirdPrice, out numberThree);
+
+            //public static int Smallest(int numberOne, int numberTwo, int numberThree)
+
+            //{
+            //    if ((numberThree < numberTwo) && (numberThree < numberOne))
+            //    {
+            //        return numberThree;
+            //    }
+
+            //    else if ((numberTwo < numberOne) && (numberTwo < numberThree))
+
+            //    {
+            //        return numberTwo;
+            //    }
+
+            //    else
+
+            //    {
+            //        return numberOne;
+            //    }
+
+            //}
+
 
 
         }
