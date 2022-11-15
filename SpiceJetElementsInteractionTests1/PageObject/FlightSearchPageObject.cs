@@ -32,6 +32,22 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         }
 
+        public int smallestPriceFromThreeDays(int numberOne, int numberTwo, int numberThree)
+        {
+            if ((numberThree < numberTwo) && (numberThree < numberOne))
+            {
+                return numberThree;
+            }
+            else if ((numberTwo < numberOne) && (numberTwo < numberThree))
+            {
+                return numberTwo;
+            }
+            else
+            {
+                return numberOne;
+            }
+        }
+
         public FlightSearchPageObject _lowfareCalendarPlusDays()
         {
             DateTime dateForMonthSelection = DateTime.Now.AddDays(0);
