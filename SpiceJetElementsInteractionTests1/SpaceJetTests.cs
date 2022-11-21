@@ -87,7 +87,7 @@ namespace SpiceJetElementsInteractionTests1
             flightsTab.SearchFlightClick()
             , "Search flight button click");
 
-            int numberOne, numberTwo, numberThree;
+            //int numberOne, numberTwo, numberThree;
 
             var firstPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 1);
             string secondPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 2);

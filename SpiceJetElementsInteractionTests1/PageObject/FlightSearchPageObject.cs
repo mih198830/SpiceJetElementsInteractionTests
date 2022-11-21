@@ -1,26 +1,20 @@
 ﻿using OpenQA.Selenium;
 using System.Dynamic;
-
 namespace SpiceJetElementsInteractionTests1.PageObject
 {
     class FlightSearchPageObject
     {
-        
         private IWebDriver _webdriver;
         private readonly By _modifySearchButton = By.XPath("//span[@dir='auto']//div[@data-focusable='true']");
         private readonly By _searchAgainButton = By.XPath("//*[@data-testid='home-page-flight-cta']");
         private readonly By _signUpButton = By.XPath("//div[text()='Signup']");
-        private readonly By _clickContinueButton = By.XPath("//*[@data-testid='continue-search-page-cta']");
+        private readonly By _continueButton = By.XPath("//*[@data-testid='continue-search-page-cta']");
         private IWebElement getAmount(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//following::div[1]//div[2]"));
         private IWebElement ClickFlight(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//ancestor::div[@data-testid='lowfare-calendar-dateId']"));
-
-
-
         public FlightSearchPageObject(IWebDriver webdriver)
         {
             _webdriver = webdriver;
         }
-
         public string threeDaysLowestPriceSelect(int monthsFromToday, int daysFromToday)
         {
             DateTime dateForMonthSelection = DateTime.Now.AddDays(monthsFromToday);
@@ -32,43 +26,41 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             var saveDate = dateFrom + "-" + monthName;
             return amountText + " " + saveDate;
         }
-
-
-        public string[] getSplitString(string text)
+        public string getAmountAlone(string text)
         {
-            var getText = text.Split(" ");
-            return getText;
+            var getAmountText = text.Split(" ")[0];
+            return getAmountText.Replace(",", "");
+        }
+        public string getDateAlone(string text)
+        {
+            var getDateText = text.Split(" ")[1];
+            return getDateText;
         }
         public string smallestPriceFromThreeDays(string numberOne, string numberTwo, string numberThree)
         {
-            var splitNumberOne = getSplitString(numberOne);
-            var splitNumberTwo = getSplitString(numberTwo);
-            var splitNumberThree = getSplitString(numberThree);
-            var getNumberOne = int.Parse(splitNumberOne[0]);
-            var getNumberTwo = int.Parse(splitNumberTwo[0]);
-            var getNumberThree = int.Parse(splitNumberThree[0]);
+            var getNumberOne = int.Parse(getAmountAlone(numberOne));
+            var getNumberTwo = int.Parse(getAmountAlone(numberTwo));
+            var getNumberThree = int.Parse(getAmountAlone(numberThree));
             if ((getNumberThree < getNumberTwo) && (getNumberThree < getNumberOne))
             {
-                return getNumberThree + " " + splitNumberThree[1];
+                return getNumberThree + " " + getDateAlone(numberThree);
             }
             else if ((getNumberTwo < getNumberOne) && (getNumberTwo < getNumberThree))
             {
-                return getNumberTwo + " " + splitNumberTwo[1];
+                return getNumberTwo + " " + getDateAlone(numberTwo);
             }
             else
             {
-                return getNumberOne + " " + splitNumberOne[1];
+                return getNumberOne + " " + getDateAlone(numberOne);
             }
         }
-
         public void SelectLowFlight(string priceWithDate)
         {
             var getDateAlone = priceWithDate.Split(" ");
             var splitMonthDate = getDateAlone[1].Split("-");
             ClickFlight(splitMonthDate[0], splitMonthDate[1]).Click();
-            _webdriver.FindElement(_clickContinueButton).Click();
+            _webdriver.FindElement(_continueButton).Click();
         }
-
         public FlightSearchPageObject _lowfareCalendarPlusDays()
         {
             DateTime dateForMonthSelection = DateTime.Now.AddDays(0);
@@ -78,20 +70,16 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             _webdriver.FindElement(By.XPath($"/div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]"));
             return new FlightSearchPageObject(_webdriver);
         }
-
-
         public FlightSearchPageObject ModifySearchButtonClick()
         {
             _webdriver.FindElement(_modifySearchButton).Click();
             return new FlightSearchPageObject(_webdriver);
         }
-
         public FlightSearchPageObject SignUpButtonClick()
         {
             _webdriver.FindElement(_signUpButton).Click();
             return new FlightSearchPageObject(_webdriver);
         }
-
         public FlightSearchPageObject SearchFlightAgainButtonClick()
         {
             _webdriver.FindElement(_searchAgainButton).Click();
@@ -99,3 +87,4 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         }
     }
 }
+
