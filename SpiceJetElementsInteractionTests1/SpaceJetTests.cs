@@ -90,17 +90,12 @@ namespace SpiceJetElementsInteractionTests1
             int numberOne, numberTwo, numberThree;
 
             var firstPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 1);
-            bool isTrue = int.TryParse(firstPrice, out numberOne);
- 
             string secondPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 2);
-            bool isTrueTwo = int.TryParse(secondPrice, out numberTwo);
-
             string thirdPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 3);
-            bool isTrueThree = int.TryParse(thirdPrice, out numberThree);
+            var getLowestPriceWithDate = flightSearchTab.smallestPriceFromThreeDays(firstPrice, secondPrice, thirdPrice);
 
-            flightSearchTab.smallestPriceFromThreeDays(numberOne, numberTwo, numberThree);
+            flightSearchTab.SelectLowFlight(getLowestPriceWithDate);
 
-        
         }
 
 

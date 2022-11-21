@@ -10,9 +10,10 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _modifySearchButton = By.XPath("//span[@dir='auto']//div[@data-focusable='true']");
         private readonly By _searchAgainButton = By.XPath("//*[@data-testid='home-page-flight-cta']");
         private readonly By _signUpButton = By.XPath("//div[text()='Signup']");
-        //public IList<IWebElement> _spiceSavePriceFlights => _webdriver.FindElements(By.XPath("//div[contains(@data-testid,'spicesaver-flight')]//following::div[2]"));
+        private readonly By _clickContinueButton = By.XPath("//*[@data-testid='continue-search-page-cta']");
         private IWebElement getAmount(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//following::div[1]//div[2]"));
-        
+        private IWebElement ClickFlight(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//ancestor::div[@data-testid='lowfare-calendar-dateId']"));
+
 
 
         public FlightSearchPageObject(IWebDriver webdriver)
@@ -28,24 +29,44 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             string dateFrom = dateForDateSelectionFrom.ToString("dd");
             var amount = getAmount(dateFrom, monthName);
             var amountText = amount.Text;
-            return amountText;
-
+            var saveDate = dateFrom + "-" + monthName;
+            return amountText + " " + saveDate;
         }
 
-        public int smallestPriceFromThreeDays(int numberOne, int numberTwo, int numberThree)
+
+        public string[] getSplitString(string text)
         {
-            if ((numberThree < numberTwo) && (numberThree < numberOne))
+            var getText = text.Split(" ");
+            return getText;
+        }
+        public string smallestPriceFromThreeDays(string numberOne, string numberTwo, string numberThree)
+        {
+            var splitNumberOne = getSplitString(numberOne);
+            var splitNumberTwo = getSplitString(numberTwo);
+            var splitNumberThree = getSplitString(numberThree);
+            var getNumberOne = int.Parse(splitNumberOne[0]);
+            var getNumberTwo = int.Parse(splitNumberTwo[0]);
+            var getNumberThree = int.Parse(splitNumberThree[0]);
+            if ((getNumberThree < getNumberTwo) && (getNumberThree < getNumberOne))
             {
-                return numberThree;
+                return getNumberThree + " " + splitNumberThree[1];
             }
-            else if ((numberTwo < numberOne) && (numberTwo < numberThree))
+            else if ((getNumberTwo < getNumberOne) && (getNumberTwo < getNumberThree))
             {
-                return numberTwo;
+                return getNumberTwo + " " + splitNumberTwo[1];
             }
             else
             {
-                return numberOne;
+                return getNumberOne + " " + splitNumberOne[1];
             }
+        }
+
+        public void SelectLowFlight(string priceWithDate)
+        {
+            var getDateAlone = priceWithDate.Split(" ");
+            var splitMonthDate = getDateAlone[1].Split("-");
+            ClickFlight(splitMonthDate[0], splitMonthDate[1]).Click();
+            _webdriver.FindElement(_clickContinueButton).Click();
         }
 
         public FlightSearchPageObject _lowfareCalendarPlusDays()
