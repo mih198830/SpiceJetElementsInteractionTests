@@ -8,10 +8,11 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _modifySearchButton = By.XPath("//span[@dir='auto']//div[@data-focusable='true']");
         private readonly By _searchAgainButton = By.XPath("//*[@data-testid='home-page-flight-cta']");
         private readonly By _signUpButton = By.XPath("//div[text()='Signup']");
+        //private readonly By _continueButton = By.Id("button");
         private readonly By _continueButton = By.XPath("//div[@data-testid='continue-search-page-cta'][@id='button']");
         private IWebElement getAmount(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//following::div[1]//div[2]"));
 
-        //private IWebElement ClickFlight(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//ancestor::div[@data-testid='lowfare-calendar-dateId']"));
+        private IWebElement ClickFlight(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//ancestor::div[@data-testid='lowfare-calendar-dateId']"));
         public FlightSearchPageObject(IWebDriver webdriver)
         {
             _webdriver = webdriver;
