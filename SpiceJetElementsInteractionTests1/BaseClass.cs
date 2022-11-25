@@ -13,7 +13,7 @@ namespace SpiceJetElementsInteractionTests1
     public class BaseClass
     {
         protected IWebDriver _webDriver;
-        String url = "https://www.spicejet.com/";
+        string url = "https://www.spicejet.com/";
 
         [SetUp]
         protected void Setup() {
