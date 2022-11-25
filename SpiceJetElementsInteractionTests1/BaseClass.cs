@@ -24,7 +24,7 @@ namespace SpiceJetElementsInteractionTests1
             Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
             _webDriver.Navigate().GoToUrl(url);
             _webDriver.Manage().Cookies.DeleteAllCookies();
-            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(40);
             _webDriver.Manage().Window.Maximize();
         }
 
