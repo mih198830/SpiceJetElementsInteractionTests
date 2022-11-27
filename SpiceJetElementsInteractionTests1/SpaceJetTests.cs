@@ -32,6 +32,21 @@ namespace SpiceJetElementsInteractionTests1
             AllureLifecycle.Instance.WrapInStep(() =>
                 Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching")
             , "Check that page title is matching expected text");
+
+        }
+
+        [Test]
+        [AllureTag("SpiceJet", "Image")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [DisplayName("Check if image contains text")]
+        public void CheckImageAndText()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+
+            flightsTab.MakeMainPageScreenshot();
+            flightsTab.GetTextFromPickture();
+
+    
         }
 
         [Test]
@@ -93,7 +108,6 @@ namespace SpiceJetElementsInteractionTests1
             string thirdPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 3);
             var getLowestPriceWithDate = flightSearchTab.smallestPriceFromThreeDays(firstPrice, secondPrice, thirdPrice);
             flightSearchTab.SelectLowFlight(getLowestPriceWithDate);
-
         }
 
 

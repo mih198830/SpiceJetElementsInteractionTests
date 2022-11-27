@@ -1,6 +1,8 @@
-﻿using Akka.Util;
+﻿using Akka.IO;
+using Akka.Util;
 using Bogus;
 using Bogus.DataSets;
+using IronOcr;
 using Microsoft.VisualBasic;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
@@ -14,7 +16,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
     class FlightsTabPageObject
     {
         private IWebDriver _webdriver;
-
+        private IWebElement MainPageBackGroundPickture => _webdriver.FindElement(By.XPath("//img[@src='https://d3pvfs0dgh4r2q.cloudfront.net/Desktop/FestiveGiftbanner.jpg']"));
         private readonly By _covidInformationLink = By.XPath("//div[text()='COVID-19 Information']");
         private readonly By _checkInTab = By.XPath("//div[@data-testid='check-in-horizontal-nav-tabs']");
         private readonly By _roundTripRadioButton = By.XPath("//div[@data-testid='round-trip-radio-button']");
@@ -44,6 +46,31 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         public FlightsTabPageObject(IWebDriver webdriver)
         {
             _webdriver = webdriver;
+        }
+
+        //public void GetTextFromPickture()
+        //{
+        //var Result = new IronTesseract().Read(@"Image.png");
+        //Console.WriteLine(Result.Text);
+        //}
+
+        public void MakeMainPageScreenshot()
+        {
+            Screenshot screen = ((ITakesScreenshot)_webdriver).GetScreenshot();
+            screen.SaveAsFile("C://Users//m.matskevich//source//repos//mih198830//SpiceJetElementsInteractionTests//SpiceJetElementsInteractionTests1//bin//Debug//net6.0//Image.png",
+            ScreenshotImageFormat.Png);
+        }
+
+
+        public void GetTextFromPickture()
+        {
+            var Ocr = new IronTesseract();
+            using (var Input = new OcrInput(@"Image.png"))
+            {
+                Input.Deskew(); // removes rotation and perspective
+                var Result = Ocr.Read(Input);
+                Console.WriteLine(Result.Text);
+            }
         }
 
         public FlightsTabPageObject randomAirportFromArr()

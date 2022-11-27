@@ -1,5 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System.Dynamic;
+using IronOcr;
+
 namespace SpiceJetElementsInteractionTests1.PageObject
 {
     class FlightSearchPageObject
@@ -13,10 +15,15 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private IWebElement getAmount(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//following::div[1]//div[2]"));
 
         private IWebElement ClickFlight(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//ancestor::div[@data-testid='lowfare-calendar-dateId']"));
+
+
+        
+
         public FlightSearchPageObject(IWebDriver webdriver)
         {
             _webdriver = webdriver;
-        }
+        }        
+
         public string threeDaysLowestPriceSelect(int monthsFromToday, int daysFromToday)
         {
             DateTime dateForMonthSelection = DateTime.Now.AddDays(monthsFromToday);
@@ -63,7 +70,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             Thread.Sleep(2000);
             ClickFlight(splitMonthDate[0], splitMonthDate[1]).Click();
            _continueButton.Click();
-            
         }
         public FlightSearchPageObject _lowfareCalendarPlusDays()
         {

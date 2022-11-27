@@ -9,7 +9,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _addonsLi = By.XPath("(//a[normalize-space()='Add-ons'])[2]");
         private readonly By _partnersLink = By.CssSelector("a[href='/partnersOverview']");
         private readonly By _creditCardLink = By.XPath("//a[normalize-space()='Credit Cards']");
-        //a[normalize-space()='Credit Cards']
 
         public SightUpPageObject(IWebDriver webDriver)
         {
