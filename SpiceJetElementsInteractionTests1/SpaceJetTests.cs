@@ -44,7 +44,7 @@ namespace SpiceJetElementsInteractionTests1
             var flightsTab = new FlightsTabPageObject(_webDriver);
 
             flightsTab.MakeMainPageScreenshot();
-            flightsTab.GetTextFromPickture();
+            flightsTab.GetTextFromScreenshot();
 
     
         }

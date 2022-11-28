@@ -48,11 +48,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             _webdriver = webdriver;
         }
 
-        //public void GetTextFromPickture()
-        //{
-        //var Result = new IronTesseract().Read(@"Image.png");
-        //Console.WriteLine(Result.Text);
-        //}
 
         public void MakeMainPageScreenshot()
         {
@@ -62,12 +57,13 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         }
 
 
-        public void GetTextFromPickture()
+        public void GetTextFromScreenshot()
         {
             var Ocr = new IronTesseract();
-            using (var Input = new OcrInput(@"Image.png"))
+            using (var Input = new OcrInput())
             {
-                Input.Deskew(); // removes rotation and perspective
+                var ContentArea = new CropRectangle(x: 1000 , y: 400, height: 180, width: 230);
+                Input.AddImage("Image.png", ContentArea);
                 var Result = Ocr.Read(Input);
                 Console.WriteLine(Result.Text);
             }
