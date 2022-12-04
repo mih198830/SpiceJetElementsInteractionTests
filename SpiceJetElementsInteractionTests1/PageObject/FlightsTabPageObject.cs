@@ -48,7 +48,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             _webdriver = webdriver;
         }
 
-
         public void MakeMainPageScreenshot()
         {
             Screenshot screen = ((ITakesScreenshot)_webdriver).GetScreenshot();
@@ -57,7 +56,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         }
 
 
-        public void GetTextFromScreenshot()
+        public string GetTextFromScreenshot()
         {
             var Ocr = new IronTesseract();
             using (var Input = new OcrInput())
@@ -65,8 +64,15 @@ namespace SpiceJetElementsInteractionTests1.PageObject
                 var ContentArea = new CropRectangle(x: 1000 , y: 400, height: 180, width: 230);
                 Input.AddImage("Image.png", ContentArea);
                 var Result = Ocr.Read(Input);
-                Console.WriteLine(Result.Text);
+                string textFromOcr = Result.Text;
+                Console.WriteLine(textFromOcr);
+                return textFromOcr;
             }
+        }
+
+        public void TextFromImageExist()
+        {
+            string expectedTextFromImage = "FREE PRIORITY CHECK-IN, BOARDING";
         }
 
         public FlightsTabPageObject randomAirportFromArr()

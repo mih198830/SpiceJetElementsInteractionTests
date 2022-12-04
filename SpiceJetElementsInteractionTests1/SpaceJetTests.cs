@@ -42,11 +42,12 @@ namespace SpiceJetElementsInteractionTests1
         public void CheckImageAndText()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
-
+            String expectedTextFromImage = "CHECK-IN, BOARDING";
+            
             flightsTab.MakeMainPageScreenshot();
             flightsTab.GetTextFromScreenshot();
+            Assert.That(flightsTab.GetTextFromScreenshot, Does.Contain(expectedTextFromImage));
 
-    
         }
 
         [Test]
