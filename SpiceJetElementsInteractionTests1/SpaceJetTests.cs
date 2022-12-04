@@ -116,95 +116,47 @@ namespace SpiceJetElementsInteractionTests1
 
 
         [Test]
-        [AllureTag("SpiceJet", "Search flight")]
-        [AllureSeverity(SeverityLevel.critical)]
-        [DisplayName("Check search flight process for newly loaded page")]
         public void SearchDefaultValues()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-                flightsTab.SearchButtonClick()
-            , "Click Search button from Flights Tab Page");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-                flightsTab.DismisButtonPresent()
-            , "Check that Error message with expected text is present as an error");
+            flightsTab.SearchButtonClick();
+            flightsTab.DismisButtonPresent();
         }
 
         [Test]
-        [AllureTag("SpiceJet", "Link Click")]
-        [AllureSeverity(SeverityLevel.critical)]
-        [DisplayName("Corporate page elements checks")]
         public void ClickLink()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-                flightsTab.CovidLinkClick()
-            , "Click Covid-19 link from main page");
+            flightsTab.CovidLinkClick();
         }
 
 
         [Test]
-        [AllureTag("SpiceJet", "Check In Tab")]
-        [AllureSeverity(SeverityLevel.normal)]
-        [DisplayName("Check In Tab field fill in with random data")]
-
         public void CheckInTabFieldsCheck()
         {
 
             var flightsTab = new FlightsTabPageObject(_webDriver);
             var checkInTab = new CheckInPageObject(_webDriver);
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.CheckInTabClick()
-            , "Click Check In Tab field");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            checkInTab.SendRandomEmail()
-            , "Fill in Email field with random email data");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            checkInTab.ClearEmailField()
-            , "Clear email printed email in field");
+            flightsTab.CheckInTabClick();
+            checkInTab.SendRandomEmail();
+            checkInTab.ClearEmailField();
         }
 
         [Test]
-        [AllureTag("SpiceJet", "Login")]
-        [AllureSeverity(SeverityLevel.critical)]
-        [DisplayName("Login with random email and assert error text is present")]
-
         public void LoginWithEmptyData()
         {
             var loginTab = new LoginPageObject(_webDriver);
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            loginTab.LoginButtonFromMainPageClick()
-            , "Click Login button from main page");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            loginTab.LoginMenuRandomPhoneNumber()
-            , "Send Random Phone Number and Assert that error text is present");
+            loginTab.LoginButtonFromMainPageClick();
+            loginTab.LoginMenuRandomPhoneNumber();
         }
 
         [Test]
-        [AllureTag("SpiceJet", "Registration")]
-        [AllureSeverity(SeverityLevel.critical)]
-        [DisplayName("Registration page opens in a new window")]
-
         public void RegistrationPageOpens()
         {
             var signUp = new FlightsTabPageObject(_webDriver);
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            signUp.SignUpClick()
-            , "Click SignUp button from main page");
-
-
+            signUp.SignUpClick();
             var browserTabs = _webDriver.WindowHandles;
             _webDriver.SwitchTo().Window(browserTabs[1]);
-            Thread.Sleep(2000);
             String CurrentUrl = _webDriver.Url;
             Assert.That(CurrentUrl, Is.EqualTo("https://spiceclub.spicejet.com/signup"));
         }
