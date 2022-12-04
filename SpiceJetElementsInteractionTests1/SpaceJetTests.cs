@@ -36,74 +36,37 @@ namespace SpiceJetElementsInteractionTests1
         }
 
         [Test]
-        [AllureTag("SpiceJet", "Image")]
-        [AllureSeverity(SeverityLevel.normal)]
-        [DisplayName("Check if image contains text")]
         public void CheckImageAndText()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
-            String expectedTextFromImage = "CHECK-IN, BOARDING";
-            
+            String expectedTextFromImage = "on hotel";
             flightsTab.MakeMainPageScreenshot();
             flightsTab.GetTextFromScreenshot();
             Assert.That(flightsTab.GetTextFromScreenshot, Does.Contain(expectedTextFromImage));
-
         }
 
         [Test]
-        [AllureTag("SpiceJet")]
-        [AllureSeverity(SeverityLevel.normal)]
-        [DisplayName("Search flight for blank empty destination field")]
         public void CheckEmptyDestinationField()
         {
             String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
             String title = _webDriver.Title;
             var flightsTab = new FlightsTabPageObject(_webDriver);
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.SearchFlightClick()
-            , "Click Search Flight Button");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.DestinationCityPopUpDisplayed()
-            , "");
+            flightsTab.SearchFlightClick();
+            flightsTab.DestinationCityPopUpDisplayed();
 
         }
 
         [Test]
-        [AllureTag("SpiceJet", "From Delhi to Chennai")]
-        [AllureSeverity(SeverityLevel.normal)]
-        [DisplayName("Select a flight that starts post 12pm with cheapest fare from today until the next 3 days")]
         public void CheapestFareFromTodayUntilNextThreeDays()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
             var flightSearchTab = new FlightSearchPageObject(_webDriver);
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.FlightsTabClick()
-            , "Click to Flights tab menu");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.FromFieldClick()
-            , "Click airport selection From");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.DelhiAirportClick()
-            , "Click Delhi as an airport flying From");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.ChennaiAirportClick()
-            , "Click Chennai as an airport flying To");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.FromDatePlusOneDay()
-            , "Select From date as tomorrow");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.SearchFlightClick()
-            , "Search flight button click");
-
-
+            flightsTab.FlightsTabClick();
+            flightsTab.FromFieldClick();
+            flightsTab.DelhiAirportClick();
+            flightsTab.ChennaiAirportClick();
+            flightsTab.FromDatePlusOneDay();
+            flightsTab.SearchFlightClick();
             var firstPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 1);
             string secondPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 2);
             string thirdPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 3);
@@ -114,105 +77,41 @@ namespace SpiceJetElementsInteractionTests1
 
 
         [Test]
-        [AllureTag("SpiceJet", "Flights Tab")]
-        [AllureSeverity(SeverityLevel.critical)]
-        [DisplayName("Check all elements on Flights Tab are interactable")]
         public void FlightsPageElementsCheck()
         {
             var checkInTab = new CheckInPageObject(_webDriver);
             var flightsTab = new FlightsTabPageObject(_webDriver);
             var flightSearchTab = new FlightSearchPageObject(_webDriver);
             var signUpLink = new SightUpPageObject(_webDriver);
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.FlightsTabClick()
-            , "Click to Flights tab menu");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.OneWayButtonClickAssert()
-            , "Assert that One Way radio-button is clicked");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.RoundTripRadioButtonClick()
-            , "Click Round Trip radio-button");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.FromFieldClick()
-            , "Click Flying From field");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.randomAirportFromArr()
-            , "Select random airport as flying from place");
-
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.randomAirportToArr()
-            , "Select random airport as flying to place");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.FromDateSelect()
-            , "Select random date From");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.ToDateSelect()
-            , "Select random date To");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.NumberOfTravellersDropDownClick()
-            , "Number of Travellers drop-down menu click");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.NumberOfAdultsAddOne()
-            , "Number of Adults add one click");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.NumberOfAdultsUptToSevenClick()
-            , "Number of Adults add 6 more");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.CurrencyClick()
-            , "Currency drop-down menu click");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.UsdCurrencyClickAndAssert()
-            , "Assert that currency USD is checked");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightsTab.SearchFlightClick()
-            , "Click Search flight button");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            flightSearchTab.SignUpButtonClick()
-            , "Click Sign Up button");
+            flightsTab.FlightsTabClick();
+            flightsTab.OneWayButtonClickAssert();
+            flightsTab.RoundTripRadioButtonClick();
+            flightsTab.FromFieldClick();
+            flightsTab.randomAirportFromArr();
+            flightsTab.randomAirportToArr();
+            flightsTab.FromDateSelect();
+            flightsTab.ToDateSelect();
+            flightsTab.NumberOfTravellersDropDownClick();
+            flightsTab.NumberOfAdultsAddOne();
+            flightsTab.NumberOfAdultsUptToSevenClick();
+            flightsTab.CurrencyClick();
+            flightsTab.UsdCurrencyClickAndAssert();
+            flightsTab.SearchFlightClick();
+            flightSearchTab.SignUpButtonClick();
 
             var browserTabs = _webDriver.WindowHandles;
             _webDriver.SwitchTo().Window(browserTabs[1]);
             signUpLink.FlightsLiClick();
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            signUpLink.PartnersLinkClick()
-            , "Click Partners button");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            signUpLink.CreditCardsLinkClick()
-            , "Click Credit Cards button");
+            signUpLink.PartnersLinkClick();
+            signUpLink.CreditCardsLinkClick();
         }
 
         [Test]
-        [AllureTag("SpiceJet", "Manage Booking Tab")]
-        [AllureSeverity(SeverityLevel.normal)]
-        [DisplayName("Check if Manage Booking Tab is opened")]
         public void ManageBookingTabCheck()
         {
             var manageBookingTab = new ManageBookingPageObject(_webDriver);
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            manageBookingTab.ManageBookingLinkClick()
-            , "Open Manage Bookin Tab");
-
-            AllureLifecycle.Instance.WrapInStep(() =>
-            manageBookingTab.ViewChangeAssistButtonAssertIsNotNull()
-            , "Assert that button 'View Change Assist is visible");
+            manageBookingTab.ManageBookingLinkClick();
+            manageBookingTab.ViewChangeAssistButtonAssertIsNotNull();
         }
 
 

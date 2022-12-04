@@ -61,7 +61,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             var Ocr = new IronTesseract();
             using (var Input = new OcrInput())
             {
-                var ContentArea = new CropRectangle(x: 1000 , y: 400, height: 180, width: 230);
+                var ContentArea = new CropRectangle(x: 1100, y: 300, height: 180, width: 230);
                 Input.AddImage("Image.png", ContentArea);
                 var Result = Ocr.Read(Input);
                 string textFromOcr = Result.Text;
@@ -70,10 +70,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             }
         }
 
-        public void TextFromImageExist()
-        {
-            string expectedTextFromImage = "FREE PRIORITY CHECK-IN, BOARDING";
-        }
+ 
 
         public FlightsTabPageObject randomAirportFromArr()
         {
@@ -107,8 +104,8 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         public FlightsTabPageObject ToDateSelect()
         {
-            DateTime dateForMonthSelectionTo = DateTime.Now.AddDays(35);
-            DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(7);
+            DateTime dateForMonthSelectionTo = DateTime.Now.AddDays(4);
+            DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(4);
             string monthNameTo = dateForMonthSelectionTo.ToString("MMMM");
             string dateTo = dateForDateSelectionFrom.ToString("%d");
             _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthNameTo}-2022']//div[@data-testid='undefined-calendar-day-{dateTo}']")).Click();
