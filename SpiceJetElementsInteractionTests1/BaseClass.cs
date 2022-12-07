@@ -3,10 +3,6 @@ using OpenQA.Selenium.Chrome;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using NUnit.Framework;
-using Allure.Commons;
-using OpenQA.Selenium.Firefox;
-using NUnit.Allure.Core;
-using SpiceJetElementsInteractionTests1.PageObject;
 
 namespace SpiceJetElementsInteractionTests1
 {

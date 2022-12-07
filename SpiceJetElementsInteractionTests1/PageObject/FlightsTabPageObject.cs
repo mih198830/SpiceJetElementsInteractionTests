@@ -16,7 +16,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
     class FlightsTabPageObject
     {
         private IWebDriver _webdriver;
-        private IWebElement MainPageBackGroundPickture => _webdriver.FindElement(By.XPath("//img[@src='https://d3pvfs0dgh4r2q.cloudfront.net/Desktop/FestiveGiftbanner.jpg']"));
         private readonly By _covidInformationLink = By.XPath("//div[text()='COVID-19 Information']");
         private readonly By _checkInTab = By.XPath("//div[@data-testid='check-in-horizontal-nav-tabs']");
         private readonly By _roundTripRadioButton = By.XPath("//div[@data-testid='round-trip-radio-button']");
@@ -69,8 +68,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
                 return textFromOcr;
             }
         }
-
- 
 
         public FlightsTabPageObject randomAirportFromArr()
         {

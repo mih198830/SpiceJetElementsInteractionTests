@@ -1,11 +1,6 @@
-using Allure.Commons;
-using NUnit.Allure.Attributes;
-using NUnit.Allure.Core;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
-using OpenQA.Selenium;
 using SpiceJetElementsInteractionTests1.PageObject;
-using System.ComponentModel;
 
 //Scenarios on the flight app https://www.spicejet.com/
 //Could you automate dates - Valid, in valid, same date with different time
@@ -13,26 +8,15 @@ using System.ComponentModel;
 
 namespace SpiceJetElementsInteractionTests1
 {
-    [TestFixture(Author = "Mikhail Matskevich", Description = "Flight service SpiceJet.com tests")]
-    [AllureNUnit(true)]
-    [AllureLink("https://github.com/mih198830/SpiceJetElementsInteractionTests")]
-    [AllureLink("https://www.spicejet.com/")]
-    [AllureFeature("Core")]
     public class Tests : BaseClass
     {
 
         [Test]
-        [AllureTag("SpiceJet", "Title")]
-        [AllureSeverity(SeverityLevel.normal)]
-        [DisplayName("Check if page title is equal to expected text")]
         public void CheckPageTitleValue()
         {
             String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
             String title = _webDriver.Title;
-            AllureLifecycle.Instance.WrapInStep(() =>
-                Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching")
-            , "Check that page title is matching expected text");
-
+            Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching");
         }
 
         [Test]
