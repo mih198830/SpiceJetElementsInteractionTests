@@ -25,11 +25,11 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             _webdriver = webdriver;
         }        
 
-        public string getValueFromTimeOfFlight()
-        {
-            string valueTime = _valueOfFlightTime.GetCssValue(string ;
-            return valueTime;
-        }
+        //public string getValueFromTimeOfFlight()
+        //{
+        //    string valueTime = _valueOfFlightTime.GetCssValue(string ;
+        //    return valueTime;
+        //}
 
         public string threeDaysLowestPriceSelect(int monthsFromToday, int daysFromToday)
         {
