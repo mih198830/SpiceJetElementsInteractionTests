@@ -10,14 +10,14 @@ namespace SpiceJetElementsInteractionTests1
 {
     public class Tests : BaseClass
     {
-
-        [Test]
-        public void CheckPageTitleValue()
-        {
-            String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
-            String title = _webDriver.Title;
-            Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching");
-        }
+        //[Test]
+        
+        //public void CheckPageTitleValue()
+        //{
+            //String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
+            //String title = _webDriver.Title;
+            //Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching");
+        //}
 
         [Test]
         public void CheckImageAndText()
