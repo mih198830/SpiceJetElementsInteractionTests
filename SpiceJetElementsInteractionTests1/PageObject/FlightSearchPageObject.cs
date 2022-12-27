@@ -48,7 +48,6 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         public void getValueFromTimeOfFlight()
         {
             bool a = getTime[0].Displayed;
-            //String[] allTextForTime = new String[getTime[0]];
             //String[] allTextForTime = new String[getTime.Count];
             //int i = 0;
             //foreach (IWebElement element in getTime)
