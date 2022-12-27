@@ -1,6 +1,25 @@
 ﻿using OpenQA.Selenium;
 using System.Dynamic;
 using IronOcr;
+using static Akka.IO.Tcp;
+
+//first simply we can just check the time of lowest flight we selected , if it's past 12 then nothing to change
+//if not
+//get all flights from day1 which past 12 - get all amount  - find the lowest and store it in varaiable
+//get all flights from day2 which past 12 - get all amount  - find the lowest and store it in varaiable
+//get all flights from day3 which past 12 - get all amount  - find the lowest and store it in varaiable
+//compare all three varaibale , pick the lowest and select flight
+
+//*[text()='Flight Details']//preceding::div[2]
+
+//found the shortest to get time
+//all time in that page
+//get text in that xpath
+//*[text()='12:45']//following::div[@data-testid='spicesaver-flight-select-radio-button-1']//following::div[2]
+//pass that time
+//above will get amount
+//to pass those 6 texts times instead 12:45, in the example, right?
+
 
 namespace SpiceJetElementsInteractionTests1.PageObject
 {
@@ -11,25 +30,32 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _searchAgainButton = By.XPath("//*[@data-testid='home-page-flight-cta']");
         private readonly By _signUpButton = By.XPath("//div[text()='Signup']");
         private IWebElement _continueButton => _webdriver.FindElement(By.Id("replacedbutton"));
-        private IWebElement _valueOfFlightTime => _webdriver.FindElement(By.CssSelector("body > div:nth-child(8) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"));
 
         private IWebElement getAmount(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//following::div[1]//div[2]"));
 
         private IWebElement ClickFlight(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//ancestor::div[@data-testid='lowfare-calendar-dateId']"));
+        private IList<IWebElement> getTime => _webdriver.FindElements(By.XPath("//div[text()='Flight Details']//preceding::div[2]"));
 
 
-        
 
         public FlightSearchPageObject(IWebDriver webdriver)
         {
             _webdriver = webdriver;
-        }        
+        }
 
-        //public string getValueFromTimeOfFlight()
-        //{
-        //    string valueTime = _valueOfFlightTime.GetCssValue(string ;
-        //    return valueTime;
-        //}
+        
+
+        public void getValueFromTimeOfFlight()
+        {
+            bool a = getTime[0].Displayed;
+            //String[] allTextForTime = new String[getTime[0]];
+            //String[] allTextForTime = new String[getTime.Count];
+            //int i = 0;
+            //foreach (IWebElement element in getTime)
+            //{
+                //allTextForTime[i++] = element.Text;
+            //}
+        }
 
         public string threeDaysLowestPriceSelect(int monthsFromToday, int daysFromToday)
         {

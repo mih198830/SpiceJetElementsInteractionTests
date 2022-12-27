@@ -42,6 +42,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _chennaiAirport = By.XPath("//div[text()='MAA']");
         private readonly By _destinationCityPopUp = By.XPath("//div[text()='Destination city cannot be empty']");
 
+
         public FlightsTabPageObject(IWebDriver webdriver)
         {
             _webdriver = webdriver;
@@ -60,7 +61,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             var Ocr = new IronTesseract();
             using (var Input = new OcrInput())
             {
-                var ContentArea = new CropRectangle(x: 1100, y: 300, height: 180, width: 230);
+                var ContentArea = new IronSoftware.Drawing.CropRectangle(x: 1100, y: 300, height: 180, width: 230);
                 Input.AddImage("Image.png", ContentArea);
                 var Result = Ocr.Read(Input);
                 string textFromOcr = Result.Text;

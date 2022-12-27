@@ -55,6 +55,7 @@ namespace SpiceJetElementsInteractionTests1
             string secondPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 2);
             string thirdPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 3);
             var getLowestPriceWithDate = flightSearchTab.smallestPriceFromThreeDays(firstPrice, secondPrice, thirdPrice);
+            flightSearchTab.getValueFromTimeOfFlight();
             flightSearchTab.SelectLowFlight(getLowestPriceWithDate);
         }
 
