@@ -96,7 +96,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(1);
             string monthName = dateForMonthSelection.ToString("MMMM");
             string dateFrom = dateForDateSelectionFrom.ToString("%d");
-            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthName}-2022']//div[@data-testid='undefined-calendar-day-{dateFrom}']")).Click();
+            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthName}-2023']//div[@data-testid='undefined-calendar-day-{dateFrom}']")).Click();
             return new FlightsTabPageObject(_webdriver);
         }
 
@@ -106,7 +106,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(4);
             string monthNameTo = dateForMonthSelectionTo.ToString("MMMM");
             string dateTo = dateForDateSelectionFrom.ToString("%d");
-            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthNameTo}-2022']//div[@data-testid='undefined-calendar-day-{dateTo}']")).Click();
+            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthNameTo}-2023']//div[@data-testid='undefined-calendar-day-{dateTo}']")).Click();
             return new FlightsTabPageObject(_webdriver);
         }
 
@@ -116,7 +116,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(1);
             string monthName = dateForMonthSelection.ToString("MMMM");
             string dateFrom = dateForDateSelectionFrom.ToString("%d");
-            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthName}-2022']//div[@data-testid='undefined-calendar-day-{dateFrom}']")).Click();
+            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthName}-2023']//div[@data-testid='undefined-calendar-day-{dateFrom}']")).Click();
             return new FlightsTabPageObject(_webdriver);
         }
 
@@ -126,7 +126,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             DateTime dateForDateSelectionFrom = DateTime.Now.AddDays(1);
             string monthNameTo = dateForMonthSelectionTo.ToString("MMMM");
             string dateTo = dateForDateSelectionFrom.ToString("%d");
-            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthNameTo}-2022']//div[@data-testid='undefined-calendar-day-{dateTo}']")).Click();
+            _webdriver.FindElement(By.XPath($"//div[@data-testid='undefined-month-{monthNameTo}-2023']//div[@data-testid='undefined-calendar-day-{dateTo}']")).Click();
             return new FlightsTabPageObject(_webdriver);
         }
 

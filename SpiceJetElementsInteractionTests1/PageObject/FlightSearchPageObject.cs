@@ -2,6 +2,7 @@
 using System.Dynamic;
 using IronOcr;
 using static Akka.IO.Tcp;
+using OpenQA.Selenium.Support.UI;
 
 //first simply we can just check the time of lowest flight we selected , if it's past 12 then nothing to change
 //if not
@@ -35,7 +36,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         private IWebElement ClickFlight(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//ancestor::div[@data-testid='lowfare-calendar-dateId']"));
         private IList<IWebElement> getTime => _webdriver.FindElements(By.XPath("//div[text()='Flight Details']//preceding::div[2]"));
-
+        private IWebElement time(string getValueFromTimeOfFlight) => _webdriver.FindElement(By.XPath("*[text()='{getValueFromTimeOfFlight}']//following::div[@data-testid='spicesaver-flight-select-radio-button-1']//following::div[2]"));
 
 
         public FlightSearchPageObject(IWebDriver webdriver)
@@ -43,17 +44,17 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             _webdriver = webdriver;
         }
 
-        
 
-        public void getValueFromTimeOfFlight()
+        public async void getValueFromTimeOfFlight()
         {
-            bool a = getTime[0].Displayed;
-            //String[] allTextForTime = new String[getTime.Count];
-            //int i = 0;
-            //foreach (IWebElement element in getTime)
-            //{
-                //allTextForTime[i++] = element.Text;
-            //}
+            WebDriverWait wait = new WebDriverWait(_webdriver, TimeSpan.FromSeconds(10));
+            wait.Until(x => x.FindElements(By.XPath("//div[text()='Flight Details']//preceding::div[2]")));
+            String[] allTextForTime = new String[getTime.Count];
+            int i = 0;
+            foreach (IWebElement element in getTime)
+            {
+                allTextForTime[i++] = element.Text;
+            }
         }
 
         public string threeDaysLowestPriceSelect(int monthsFromToday, int daysFromToday)
