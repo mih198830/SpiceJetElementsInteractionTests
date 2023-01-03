@@ -3,6 +3,7 @@ using System.Dynamic;
 using IronOcr;
 using static Akka.IO.Tcp;
 using OpenQA.Selenium.Support.UI;
+using AngleSharp.Dom;
 
 //first simply we can just check the time of lowest flight we selected , if it's past 12 then nothing to change
 //if not
@@ -36,7 +37,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         private IWebElement ClickFlight(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//ancestor::div[@data-testid='lowfare-calendar-dateId']"));
         private IList<IWebElement> getTime => _webdriver.FindElements(By.XPath("//div[text()='Flight Details']//preceding::div[2]"));
-        private IWebElement time(string getValueFromTimeOfFlight) => _webdriver.FindElement(By.XPath("*[text()='{getValueFromTimeOfFlight}']//following::div[@data-testid='spicesaver-flight-select-radio-button-1']//following::div[2]"));
+        private IWebElement amountWithTime(string getValueFromTimeOfFlight) => _webdriver.FindElement(By.XPath($"*[text()='{getValueFromTimeOfFlight}']//following::div[@data-testid='spicesaver-flight-select-radio-button-1']//following::div[2]"));
 
 
         public FlightSearchPageObject(IWebDriver webdriver)
@@ -53,9 +54,16 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             int i = 0;
             foreach (IWebElement element in getTime)
             {
-                allTextForTime[i++] = element.Text;
+                allTextForTime[i++] += element.Text;
             }
         }
+
+        public void getPriceFromFlight()
+        {
+            
+        }
+
+
 
         public string threeDaysLowestPriceSelect(int monthsFromToday, int daysFromToday)
         {
@@ -78,6 +86,8 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             var getDateText = text.Split(" ")[1];
             return getDateText;
         }
+
+
         public string smallestPriceFromThreeDays(string numberOne, string numberTwo, string numberThree)
         {
             var getNumberOne = int.Parse(getAmountAlone(numberOne));

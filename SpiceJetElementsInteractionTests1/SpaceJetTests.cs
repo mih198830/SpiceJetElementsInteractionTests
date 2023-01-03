@@ -51,11 +51,13 @@ namespace SpiceJetElementsInteractionTests1
             flightsTab.ChennaiAirportClick();
             flightsTab.FromDatePlusOneDay();
             flightsTab.SearchFlightClick();
+            flightSearchTab.getValueFromTimeOfFlight();
             var firstPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 1);
             string secondPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 2);
             string thirdPrice = flightSearchTab.threeDaysLowestPriceSelect(0, 3);
+
             var getLowestPriceWithDate = flightSearchTab.smallestPriceFromThreeDays(firstPrice, secondPrice, thirdPrice);
-            flightSearchTab.getValueFromTimeOfFlight();
+
             flightSearchTab.SelectLowFlight(getLowestPriceWithDate);
         }
 
