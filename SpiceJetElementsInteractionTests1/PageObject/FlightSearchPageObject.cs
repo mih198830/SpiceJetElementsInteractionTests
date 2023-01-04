@@ -4,6 +4,9 @@ using IronOcr;
 using static Akka.IO.Tcp;
 using OpenQA.Selenium.Support.UI;
 using AngleSharp.Dom;
+using System.Runtime.InteropServices;
+using System.Globalization;
+using Microsoft.VisualBasic;
 
 //first simply we can just check the time of lowest flight we selected , if it's past 12 then nothing to change
 //if not
@@ -46,21 +49,31 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         }
 
 
-        public async void getValueFromTimeOfFlight()
+        public async DateTime getValueFromTimeOfFlight()
         {
             WebDriverWait wait = new WebDriverWait(_webdriver, TimeSpan.FromSeconds(10));
             wait.Until(x => x.FindElements(By.XPath("//div[text()='Flight Details']//preceding::div[2]")));
             String[] allTextForTime = new String[getTime.Count];
             int i = 0;
+            DateTime t1 = DateTime.Parse(allTextForTime[i]);
+            DateTime t2 = DateTime.Parse("12:00");
             foreach (IWebElement element in getTime)
             {
-                allTextForTime[i++] += element.Text;
+                allTextForTime[i++] = element.Text;
+
+                if (t1.TimeOfDay > t2.TimeOfDay)
+                {
+                    Console.WriteLine(t1);
+                }
             }
+            return t1;
+        
         }
 
         public void getPriceFromFlight()
         {
-            
+            //amountWithTime().Click();
+
         }
 
 
