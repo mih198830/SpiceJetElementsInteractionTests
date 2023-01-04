@@ -40,7 +40,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         private IWebElement ClickFlight(string dateFrom, string monthName) => _webdriver.FindElement(By.XPath($"//div[@data-testid='lowfare-calendar-dateId']//div[contains(text(),'{dateFrom} {monthName}')]//ancestor::div[@data-testid='lowfare-calendar-dateId']"));
         private IList<IWebElement> getTime => _webdriver.FindElements(By.XPath("//div[text()='Flight Details']//preceding::div[2]"));
-        private IWebElement amountWithTime(string getValueFromTimeOfFlight) => _webdriver.FindElement(By.XPath($"*[text()='{getValueFromTimeOfFlight}']//following::div[@data-testid='spicesaver-flight-select-radio-button-1']//following::div[2]"));
+        private IWebElement amountWithTime(string t1) => _webdriver.FindElement(By.XPath($"*[text()='{t1}']//following::div[@data-testid='spicesaver-flight-select-radio-button-1']//following::div[2]"));
 
 
         public FlightSearchPageObject(IWebDriver webdriver)
@@ -63,16 +63,16 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
                 if (t1.TimeOfDay > t2.TimeOfDay)
                 {
-                    Console.WriteLine(t1);
+                    return t1;
                 }
             }
-            return t1;
+
         
         }
 
         public void getPriceFromFlight()
         {
-            //amountWithTime().Click();
+         
 
         }
 
