@@ -49,7 +49,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         }
 
 
-        public async DateTime getValueFromTimeOfFlight()
+        public async void getValueFromTimeOfFlight()
         {
             WebDriverWait wait = new WebDriverWait(_webdriver, TimeSpan.FromSeconds(10));
             wait.Until(x => x.FindElements(By.XPath("//div[text()='Flight Details']//preceding::div[2]")));
@@ -63,7 +63,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
                 if (t1.TimeOfDay > t2.TimeOfDay)
                 {
-                    return t1;
+                    
                 }
             }
 
