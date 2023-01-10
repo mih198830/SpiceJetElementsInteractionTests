@@ -61,14 +61,28 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             {
                 allTextForTime[i++] = element.Text;
 
-                if (t1.TimeOfDay > t2.TimeOfDay)
-                {
-                    
-                }
             }
-
-        
+            //    var lowestamount = 0;
+            //    var newamount;
+            //    for ()
+            //    {
+            //        if (t1.TimeOfDay > t2.TimeOfDay) && (lowestamount == 0);
+            //        {
+            //            private IWebElement lowestAmount(string t1) => _webdriver.FindElement(By.XPath($"*[text()='{t1}']//following::div[@data-testid='spicesaver-flight-select-radio-button-1']//following::div[2]"));
+            //        }
+            //        else
+            //        {
+            //            xpath to get amount, store this as new amount
+            //        }
+            //        if (lowestamount > newamount)
+            //        {
+            //            lowestamount = newamount;
+            //        }
+            //    }
+            //    return lowestAmount;
+            //}
         }
+
 
         public void getPriceFromFlight()
         {
