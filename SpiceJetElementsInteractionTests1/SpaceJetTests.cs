@@ -37,7 +37,6 @@ namespace SpiceJetElementsInteractionTests1
             var flightsTab = new FlightsTabPageObject(_webDriver);
             flightsTab.SearchFlightClick();
             flightsTab.DestinationCityPopUpDisplayed();
-
         }
 
         [Test]
