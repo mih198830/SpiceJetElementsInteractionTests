@@ -11,23 +11,17 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
     {
 
         [When(@"I click '([^']*)' CTA")]
-        public void WhenIClickCTA()
+        public void WhenIClickCTA(string a)
         {
-            String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
-            String title = _webDriver.Title;
             var flightsTab = new FlightsTabPageObject(_webDriver);
-
             flightsTab.SearchFlightClick();
-            
-            throw new PendingStepException();
         }
 
         [Then(@"I see '([^']*)' pop up message appear")]
-        public void ThenISeePopUpMessageAppear(string p0)
+        public void ThenISeePopUpMessageAppear(string b)
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
             flightsTab.DestinationCityPopUpDisplayed();
-            throw new PendingStepException();
         }
     }
 }
