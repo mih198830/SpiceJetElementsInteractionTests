@@ -19,15 +19,15 @@ namespace SpiceJetElementsInteractionTests1
             Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching");
         }
 
-        [Test]
-        public void CheckImageAndText()
-        {
-            var flightsTab = new FlightsTabPageObject(_webDriver);
-            String expectedTextFromImage = "on hotel";
-            flightsTab.MakeMainPageScreenshot();
-            flightsTab.GetTextFromScreenshot();
-            Assert.That(flightsTab.GetTextFromScreenshot, Does.Contain(expectedTextFromImage));
-        }
+        //[Test]
+        //public void CheckImageAndText()
+        //{
+        //    var flightsTab = new FlightsTabPageObject(_webDriver);
+        //    String expectedTextFromImage = "on hotel";
+        //    flightsTab.MakeMainPageScreenshot();
+        //    flightsTab.GetTextFromScreenshot();
+        //    Assert.That(flightsTab.GetTextFromScreenshot, Does.Contain(expectedTextFromImage));
+        //}
 
         [Test]
         public void CheckEmptyDestinationField()

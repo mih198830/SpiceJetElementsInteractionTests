@@ -13,7 +13,7 @@ using WebDriverManager;
 
 namespace SpiceJetElementsInteractionTests1.PageObject
 {
-    class FlightsTabPageObject
+    public class FlightsTabPageObject
     {
         private IWebDriver _webdriver;
         private readonly By _covidInformationLink = By.XPath("//div[text()='COVID-19 Information']");
@@ -46,6 +46,10 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         public FlightsTabPageObject(IWebDriver webdriver)
         {
             _webdriver = webdriver;
+        }
+
+        public FlightsTabPageObject(object webDriver)
+        {
         }
 
         public void MakeMainPageScreenshot()

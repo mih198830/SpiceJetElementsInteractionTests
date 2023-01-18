@@ -9,12 +9,14 @@ using TechTalk.SpecFlow;
 
 namespace SpiceJetElementsInteractionTests1
 {
+    [Binding]
     public class BaseClass
     {
         protected IWebDriver _webDriver;
         string url = "https://www.spicejet.com/";
 
         [SetUp]
+
         [BeforeScenario]
         protected void Setup() {
             
@@ -29,6 +31,7 @@ namespace SpiceJetElementsInteractionTests1
         }
 
         [TearDown]
+        [AfterScenario]
         protected void OneTimeAfter()
         {
             _webDriver.Quit();

@@ -2,7 +2,7 @@
 
 namespace SpiceJetElementsInteractionTests1.PageObject
 {
-    class CheckInPageObject
+    public class CheckInPageObject
     {
         
         private IWebDriver _webDriver;
