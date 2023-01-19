@@ -40,6 +40,7 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
             Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching");
         }
 
+
         [When(@"I click '([^']*)'")]
         public void WhenIClick(string p0)
         {

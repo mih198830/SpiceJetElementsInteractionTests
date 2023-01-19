@@ -75,14 +75,6 @@ namespace SpiceJetElementsInteractionTests1
             signUpLink.CreditCardsLinkClick();
         }
 
-        [Test]
-        public void ManageBookingTabCheck()
-        {
-            var manageBookingTab = new ManageBookingPageObject(_webDriver);
-            manageBookingTab.ManageBookingLinkClick();
-            manageBookingTab.ViewChangeAssistButtonAssertIsNotNull();
-        }
-
 
         [Test]
         public void SearchDefaultValues()
