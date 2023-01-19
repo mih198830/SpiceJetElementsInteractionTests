@@ -12,32 +12,15 @@ namespace SpiceJetElementsInteractionTests1
     {
 
         [Test]
-        public void CheckPageTitleValue()
+        public void CheckImageAndText()
         {
-            String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
-            String title = _webDriver.Title;
-            Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching");
-        }
-
-        //[Test]
-        //public void CheckImageAndText()
-        //{
-        //    var flightsTab = new FlightsTabPageObject(_webDriver);
-        //    String expectedTextFromImage = "on hotel";
-        //    flightsTab.MakeMainPageScreenshot();
-        //    flightsTab.GetTextFromScreenshot();
-        //    Assert.That(flightsTab.GetTextFromScreenshot, Does.Contain(expectedTextFromImage));
-        //}
-
-        [Test]
-        public void CheckEmptyDestinationField()
-        {
-            String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
-            String title = _webDriver.Title;
             var flightsTab = new FlightsTabPageObject(_webDriver);
-            flightsTab.SearchFlightClick();
-            flightsTab.DestinationCityPopUpDisplayed();
+            String expectedTextFromImage = "on hotel";
+            flightsTab.MakeMainPageScreenshot();
+            flightsTab.GetTextFromScreenshot();
+            Assert.That(flightsTab.GetTextFromScreenshot, Does.Contain(expectedTextFromImage));
         }
+
 
         [Test]
         public void CheapestFareFromTodayUntilNextThreeDays()

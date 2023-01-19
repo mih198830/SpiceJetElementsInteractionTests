@@ -6,6 +6,7 @@ using NUnit.Framework;
 using OpenQA.Selenium.Firefox;
 using System.Reflection;
 using TechTalk.SpecFlow;
+using SpiceJetElementsInteractionTests1.PageObject;
 
 namespace SpiceJetElementsInteractionTests1
 {
@@ -16,7 +17,6 @@ namespace SpiceJetElementsInteractionTests1
         string url = "https://www.spicejet.com/";
 
         [SetUp]
-
         [BeforeScenario]
         protected void Setup() {
             
