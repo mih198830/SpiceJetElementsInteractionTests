@@ -76,13 +76,5 @@ namespace SpiceJetElementsInteractionTests1
         }
 
 
-        [Test]
-        public void LoginWithEmptyData()
-        {
-            var loginTab = new LoginPageObject(_webDriver);
-            loginTab.LoginButtonFromMainPageClick();
-            loginTab.LoginMenuRandomPhoneNumber();
-        }
-
     }
 }

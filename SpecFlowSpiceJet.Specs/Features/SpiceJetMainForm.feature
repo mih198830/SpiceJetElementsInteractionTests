@@ -64,3 +64,12 @@ Scenario: Check that registration page opens in new window
 	When I click sign-up link
 	Then Sign-up link opens in a new tab
 	
+
+@SpiceJet
+@Test
+@FrontEnd
+
+Scenario: Try to login using random phone
+	When I click login button
+	When I Print randomly generated phone number to phone field and click login
+	Then Validation message about non existing phone number appear

@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 
 namespace SpiceJetElementsInteractionTests1.PageObject
 {
-    class LoginPageObject
+    public class LoginPageObject
     {
         private IWebDriver _webdriver;
         private readonly By _loginButtonFromMainPage = By.XPath("//div[text()='Login']");

@@ -131,6 +131,28 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
             Assert.That(CurrentUrl, Is.EqualTo("https://spiceclub.spicejet.com/signup"));
         }
 
+        [When(@"I click login button")]
+        public void WhenIClickLoginButton()
+        {
+            var loginTab = new LoginPageObject(_webDriver);
+            loginTab.LoginButtonFromMainPageClick();
+            
+        }
+
+        [When(@"I Print randomly generated phone number to phone field and click login")]
+        public void WhenIPrintRandomlyGeneratedPhoneNumberToPhoneFieldAndClickLogin()
+        {
+            var loginTab = new LoginPageObject(_webDriver);
+            loginTab.LoginMenuRandomPhoneNumber();
+        }
+
+        [Then(@"Validation message about non existing phone number appear")]
+        public void ThenValidationMessageAboutNonExistingPhoneNumberAppear()
+        {
+
+        }
+
+
     }
 }
 
