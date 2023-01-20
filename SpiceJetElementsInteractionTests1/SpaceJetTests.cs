@@ -76,18 +76,6 @@ namespace SpiceJetElementsInteractionTests1
         }
 
 
-
-        [Test]
-        public void CheckInTabFieldsCheck()
-        {
-
-            var flightsTab = new FlightsTabPageObject(_webDriver);
-            var checkInTab = new CheckInPageObject(_webDriver);
-            flightsTab.CheckInTabClick();
-            checkInTab.SendRandomEmail();
-            checkInTab.ClearEmailField();
-        }
-
         [Test]
         public void LoginWithEmptyData()
         {

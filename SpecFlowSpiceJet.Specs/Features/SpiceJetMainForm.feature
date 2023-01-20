@@ -43,3 +43,15 @@ Scenario: Search default values and Dismiss button is present
 Scenario: Covid link is clickable 
 	When I click 'COVID' link
 	Then Link opens
+
+
+@SpiceJet
+@Test
+@FrontEnd
+
+Scenario: 'CheckIn' TabFields Check
+	When I click 'Check-in' tab
+	And I print random email address in email field
+	And Clear printed text
+	Then Text field email is cleared
+	

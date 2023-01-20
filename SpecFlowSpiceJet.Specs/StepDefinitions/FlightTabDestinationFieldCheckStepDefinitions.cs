@@ -83,6 +83,37 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
             
         }
 
+        [When(@"I click '([^']*)' tab")]
+        public void WhenIClickTab(string p0)
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            
+            flightsTab.CheckInTabClick();
+            
+            
+        }
+
+        [When(@"I print random email address in email field")]
+        public void WhenIPrintRandomEmailAddressInEmailField()
+        {
+            var checkInTab = new CheckInPageObject(_webDriver);
+            checkInTab.SendRandomEmail();
+        }
+
+        [When(@"Clear printed text")]
+        public void WhenClearPrintedText()
+        {
+            var checkInTab = new CheckInPageObject(_webDriver);
+            checkInTab.ClearEmailField();
+        }
+
+        [Then(@"Text field email is cleared")]
+        public void ThenTextFieldEmailIsCleared()
+        {
+            
+        }
+
+
     }
 }
 
