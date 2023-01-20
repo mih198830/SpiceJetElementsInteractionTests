@@ -5,8 +5,8 @@
 @FrontEnd
 
 Scenario: Leave destination field empty and book flight
-	When I click 'Search flight' CTA
-	Then I see 'Destination can not be empty' pop up message appear
+	When I click Search flight CTA
+	Then I see Destination can not be empty pop up message appear
 
 
 @SpiceJet
@@ -23,8 +23,8 @@ Scenario: Compare page title
 @FrontEnd
 
 Scenario: Check Manage Booking tab 
-	When I click 'Manage booking link'
-	Then I check 'View change assist' button is no null
+	When I click Manage booking link
+	Then I check View change assist button is no null
 
 
 @SpiceJet
@@ -32,8 +32,8 @@ Scenario: Check Manage Booking tab
 @FrontEnd
 
 Scenario: Search default values and Dismiss button is present 
-	When I click 'Search' button
-	Then I check that 'DISMISS' button is present
+	When I click Search button
+	Then I check that DISMISS button is present
 
 
 @SpiceJet
@@ -41,7 +41,7 @@ Scenario: Search default values and Dismiss button is present
 @FrontEnd
 
 Scenario: Covid link is clickable 
-	When I click 'COVID' link
+	When I click COVID link
 	Then Link opens
 
 
@@ -50,8 +50,17 @@ Scenario: Covid link is clickable
 @FrontEnd
 
 Scenario: 'CheckIn' TabFields Check
-	When I click 'Check-in' tab
+	When I click Check-in tab
 	And I print random email address in email field
 	And Clear printed text
 	Then Text field email is cleared
+	
+
+@SpiceJet
+@Test
+@FrontEnd
+
+Scenario: Check that registration page opens in new window
+	When I click sign-up link
+	Then Sign-up link opens in a new tab
 	

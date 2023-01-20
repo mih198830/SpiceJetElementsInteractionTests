@@ -12,15 +12,15 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
     {
         String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
 
-        [When(@"I click '([^']*)' CTA")]
-        public void WhenIClickCTA(string a)
+        [When(@"I click Search flight CTA")]
+        public void WhenIClickCTA()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
             flightsTab.SearchFlightClick();
         }
 
-        [Then(@"I see '([^']*)' pop up message appear")]
-        public void ThenISeePopUpMessageAppear(string b)
+        [Then(@"I see Destination can not be empty pop up message appear")]
+        public void ThenISeePopUpMessageAppear()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
             flightsTab.DestinationCityPopUpDisplayed();
@@ -39,43 +39,46 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
             String title = _webDriver.Title;
             Assert.That(title.Contains(expectedTitle), Is.EqualTo(true), "Title is not matching");
         }
+        
 
 
-        [When(@"I click '([^']*)'")]
-        public void WhenIClick(string p0)
+        [When(@"I click Manage booking link")]
+        public void WhenIClick()
         {
             var manageBookingTab = new ManageBookingPageObject(_webDriver);
             manageBookingTab.ManageBookingLinkClick();
         }
 
-        [Then(@"I check '([^']*)' button is no null")]
-        public void ThenICheckButtonIsNoNull(string p0)
+        [Then(@"I check View change assist button is no null")]
+        public void ThenICheckButtonIsNoNull()
         {
             var manageBookingTab = new ManageBookingPageObject(_webDriver);
             manageBookingTab.ViewChangeAssistButtonAssertIsNotNull();
         }
 
-        [When(@"I click '([^']*)' button")]
-        public void WhenIClickButton(string search)
+        [When(@"I click Search button")]
+        public void WhenIClickButton()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
             flightsTab.SearchButtonClick();
             flightsTab.DismisButtonPresent();
         }
+        
 
-        [Then(@"I check that '([^']*)' button is present")]
-        public void ThenICheckThatButtonIsPresent(string dISMISS)
+        [Then(@"I check that DISMISS button is present")]
+        public void ThenICheckThatButtonIsPresent()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
             flightsTab.DismisButtonPresent();
         }
 
-        [When(@"I click '([^']*)' link")]
-        public void WhenIClickLink(string cOVID)
+        [When(@"I click COVID link")]
+        public void WhenIClickCOVIDLink()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
             flightsTab.CovidLinkClick();
         }
+
 
         [Then(@"Link opens")]
         public void ThenLinkOpens()
@@ -83,15 +86,13 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
             
         }
 
-        [When(@"I click '([^']*)' tab")]
-        public void WhenIClickTab(string p0)
+        [When(@"I click Check-in tab")]
+        public void WhenIClickCheck_InTab()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);
-            
             flightsTab.CheckInTabClick();
-            
-            
         }
+
 
         [When(@"I print random email address in email field")]
         public void WhenIPrintRandomEmailAddressInEmailField()
@@ -113,6 +114,22 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
             
         }
 
+        [When(@"I click sign-up link")]
+        public void WhenIClickSign_UpLink()
+        {
+            var signUp = new FlightsTabPageObject(_webDriver);
+            signUp.SignUpClick();
+            
+        }
+
+        [Then(@"Sign-up link opens in a new tab")]
+        public void ThenSign_UpLinkOpensInANewTab()
+        {
+            var browserTabs = _webDriver.WindowHandles;
+            _webDriver.SwitchTo().Window(browserTabs[1]);
+            String CurrentUrl = _webDriver.Url;
+            Assert.That(CurrentUrl, Is.EqualTo("https://spiceclub.spicejet.com/signup"));
+        }
 
     }
 }

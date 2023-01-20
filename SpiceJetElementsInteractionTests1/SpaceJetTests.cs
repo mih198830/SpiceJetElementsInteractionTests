@@ -84,15 +84,5 @@ namespace SpiceJetElementsInteractionTests1
             loginTab.LoginMenuRandomPhoneNumber();
         }
 
-        [Test]
-        public void RegistrationPageOpens()
-        {
-            var signUp = new FlightsTabPageObject(_webDriver);
-            signUp.SignUpClick();
-            var browserTabs = _webDriver.WindowHandles;
-            _webDriver.SwitchTo().Window(browserTabs[1]);
-            String CurrentUrl = _webDriver.Url;
-            Assert.That(CurrentUrl, Is.EqualTo("https://spiceclub.spicejet.com/signup"));
-        }
     }
 }
