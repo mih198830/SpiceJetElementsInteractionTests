@@ -55,6 +55,34 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
             manageBookingTab.ViewChangeAssistButtonAssertIsNotNull();
         }
 
+        [When(@"I click '([^']*)' button")]
+        public void WhenIClickButton(string search)
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.SearchButtonClick();
+            flightsTab.DismisButtonPresent();
+        }
+
+        [Then(@"I check that '([^']*)' button is present")]
+        public void ThenICheckThatButtonIsPresent(string dISMISS)
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.DismisButtonPresent();
+        }
+
+        [When(@"I click '([^']*)' link")]
+        public void WhenIClickLink(string cOVID)
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.CovidLinkClick();
+        }
+
+        [Then(@"Link opens")]
+        public void ThenLinkOpens()
+        {
+            
+        }
+
     }
 }
 

@@ -76,21 +76,6 @@ namespace SpiceJetElementsInteractionTests1
         }
 
 
-        [Test]
-        public void SearchDefaultValues()
-        {
-            var flightsTab = new FlightsTabPageObject(_webDriver);
-            flightsTab.SearchButtonClick();
-            flightsTab.DismisButtonPresent();
-        }
-
-        [Test]
-        public void ClickLink()
-        {
-            var flightsTab = new FlightsTabPageObject(_webDriver);
-            flightsTab.CovidLinkClick();
-        }
-
 
         [Test]
         public void CheckInTabFieldsCheck()
