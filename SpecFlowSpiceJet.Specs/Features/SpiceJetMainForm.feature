@@ -9,6 +9,33 @@ Scenario: Leave destination field empty and book flight
 	Then I see Destination can not be empty pop up message appear
 
 
+
+@SpiceJet
+@Test
+@FrontEnd
+
+Scenario: Check that all elements are clickable
+	When I click Flights Tab 
+	And I click One way radio button 
+	And I click round trip radio button
+	And I click From field
+	And I select random from Airport
+	And I select random to Airport
+	And I select random From date
+	And I select random To date
+	And I click Nuber of travallers dropdown
+	And I add one more adult passanger
+	And I add 6 more adults
+	And I click currency
+	And I check that USD currency is selected
+	And I click Search flight CTA
+	And I click sign-up link
+	And I click flights link
+	And I click partners link
+	And I click Credit Cards link
+	Then I see Credit card link is opened as last opened link
+			
+
 @SpiceJet
 @Test
 @FrontEnd

@@ -28,7 +28,7 @@ using Microsoft.VisualBasic;
 
 namespace SpiceJetElementsInteractionTests1.PageObject
 {
-    class FlightSearchPageObject
+    public class FlightSearchPageObject
     {
         private IWebDriver _webdriver;
         private readonly By _modifySearchButton = By.XPath("//span[@dir='auto']//div[@data-focusable='true']");

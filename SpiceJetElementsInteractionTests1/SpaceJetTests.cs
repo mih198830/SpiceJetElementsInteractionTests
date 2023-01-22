@@ -41,7 +41,8 @@ namespace SpiceJetElementsInteractionTests1
             var flightsTab = new FlightsTabPageObject(_webDriver);
             var flightSearchTab = new FlightSearchPageObject(_webDriver);
             var signUpLink = new SightUpPageObject(_webDriver);
-            flightsTab.FlightsTabClick();
+
+
             flightsTab.OneWayButtonClickAssert();
             flightsTab.RoundTripRadioButtonClick();
             flightsTab.FromFieldClick();

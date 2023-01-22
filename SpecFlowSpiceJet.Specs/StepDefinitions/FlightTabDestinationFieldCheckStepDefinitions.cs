@@ -175,6 +175,39 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
             Assert.That(flightsTab.GetTextFromScreenshot, Does.Contain(expectedTextFromImage));
         }
 
+        [When(@"I click Flights Tab")]
+        public void WhenIClickFlightsTab()
+        {
+            var checkInTab = new CheckInPageObject(_webDriver);
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            var flightSearchTab = new FlightSearchPageObject(_webDriver);
+            var signUpLink = new SightUpPageObject(_webDriver);
+            flightsTab.FlightsTabClick();
+        }
+
+        [When(@"I click One way radio button")]
+        public void WhenIClickOneWayRadioButton()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.OneWayButtonClickAssert();
+        }
+
+        [When(@"I click round trip radio button")]
+        public void WhenIClickRoundTripRadioButton()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.RoundTripRadioButtonClick();
+        }
+
+        [When(@"I click From field")]
+        public void WhenIClickFromField()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.FromFieldClick();
+        }
+
+
+
 
 
 

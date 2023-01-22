@@ -3,7 +3,7 @@ using OpenQA.Selenium.Interactions;
 
 namespace SpiceJetElementsInteractionTests1.PageObject
 {
-    class SightUpPageObject
+    public class SightUpPageObject
     {
         private IWebDriver _webDriver;
         private readonly By _addonsLi = By.XPath("(//a[normalize-space()='Add-ons'])[2]");
