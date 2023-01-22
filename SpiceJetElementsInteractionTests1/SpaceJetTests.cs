@@ -12,17 +12,6 @@ namespace SpiceJetElementsInteractionTests1
     {
 
         [Test]
-        public void CheckImageAndText()
-        {
-            var flightsTab = new FlightsTabPageObject(_webDriver);
-            String expectedTextFromImage = "on hotel";
-            flightsTab.MakeMainPageScreenshot();
-            flightsTab.GetTextFromScreenshot();
-            Assert.That(flightsTab.GetTextFromScreenshot, Does.Contain(expectedTextFromImage));
-        }
-
-
-        [Test]
         public void CheapestFareFromTodayUntilNextThreeDays()
         {
             var flightsTab = new FlightsTabPageObject(_webDriver);

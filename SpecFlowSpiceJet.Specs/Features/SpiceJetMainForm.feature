@@ -73,3 +73,13 @@ Scenario: Try to login using random phone
 	When I click login button
 	When I Print randomly generated phone number to phone field and click login
 	Then Validation message about non existing phone number appear
+
+
+@SpiceJet
+@Test
+@FrontEnd
+
+Scenario: OCR text recognition 
+	When I make page screenshot and save it locally as png
+	And Get text from this screenshot
+	Then I compare text with expected text

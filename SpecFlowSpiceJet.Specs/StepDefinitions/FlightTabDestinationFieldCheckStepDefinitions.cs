@@ -152,6 +152,31 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
 
         }
 
+        [When(@"I make page screenshot and save it locally as png")]
+        public void WhenIMakePageScreenshotAndSaveItLocallyAsPng()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            
+            flightsTab.MakeMainPageScreenshot();
+        }
+
+        [When(@"Get text from this screenshot")]
+        public void WhenGetTextFromThisScreenshot()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.GetTextFromScreenshot();
+        }
+
+        [Then(@"I compare text with expected text")]
+        public void ThenICompareTextWithExpectedText()
+        {
+            String expectedTextFromImage = "on hotel";
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            Assert.That(flightsTab.GetTextFromScreenshot, Does.Contain(expectedTextFromImage));
+        }
+
+
+
 
     }
 }
