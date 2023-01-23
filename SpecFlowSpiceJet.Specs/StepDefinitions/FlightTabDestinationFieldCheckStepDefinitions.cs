@@ -292,6 +292,11 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
             signUpLink.CreditCardsLinkClick();
         }
 
+        [Then(@"I see Credit card link is opened as last opened link")]
+        public void ThenISeeCreditCardLinkIsOpenedAsLastOpenedLink()
+        {
+            
+        }
 
 
     }
