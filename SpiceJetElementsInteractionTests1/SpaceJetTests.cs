@@ -37,32 +37,31 @@ namespace SpiceJetElementsInteractionTests1
         [Test]
         public void FlightsPageElementsCheck()
         {
-            var checkInTab = new CheckInPageObject(_webDriver);
             var flightsTab = new FlightsTabPageObject(_webDriver);
             var flightSearchTab = new FlightSearchPageObject(_webDriver);
             var signUpLink = new SightUpPageObject(_webDriver);
 
 
-            flightsTab.OneWayButtonClickAssert();
-            flightsTab.RoundTripRadioButtonClick();
-            flightsTab.FromFieldClick();
-            flightsTab.randomAirportFromArr();
-            flightsTab.randomAirportToArr();
-            flightsTab.FromDateSelect();
-            flightsTab.ToDateSelect();
-            flightsTab.NumberOfTravellersDropDownClick();
-            flightsTab.NumberOfAdultsAddOne();
-            flightsTab.NumberOfAdultsUptToSevenClick();
-            flightsTab.CurrencyClick();
-            flightsTab.UsdCurrencyClickAndAssert();
-            flightsTab.SearchFlightClick();
+            flightsTab.OneWayButtonClickAssert()
+                       .RoundTripRadioButtonClick()
+                       .FromFieldClick()
+                       .randomAirportFromArr()
+                       .randomAirportToArr()
+                       .FromDateSelect()
+                       .ToDateSelect()
+                       .NumberOfTravellersDropDownClick()
+                       .NumberOfAdultsAddOne()
+                       .NumberOfAdultsUptToSevenClick()
+                       .CurrencyClick()
+                       .UsdCurrencyClickAndAssert()
+                       .SearchFlightClick();
             flightSearchTab.SignUpButtonClick();
 
             var browserTabs = _webDriver.WindowHandles;
             _webDriver.SwitchTo().Window(browserTabs[1]);
-            signUpLink.FlightsLiClick();
-            signUpLink.PartnersLinkClick();
-            signUpLink.CreditCardsLinkClick();
+            signUpLink.FlightsLiClick()
+                       .PartnersLinkClick()
+                       .CreditCardsLinkClick();
         }
 
 

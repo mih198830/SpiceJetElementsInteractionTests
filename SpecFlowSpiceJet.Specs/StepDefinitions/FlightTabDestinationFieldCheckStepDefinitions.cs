@@ -206,8 +206,91 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
             flightsTab.FromFieldClick();
         }
 
+        [When(@"I select random from Airport")]
+        public void WhenISelectRandomFromAirport()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.randomAirportFromArr();
+        }
 
+        [When(@"I select random to Airport")]
+        public void WhenISelectRandomToAirport()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.randomAirportToArr();
+        }
 
+        [When(@"I select random From date")]
+        public void WhenISelectRandomFromDate()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.FromDateSelect();
+        }
+
+        [When(@"I select random To date")]
+        public void WhenISelectRandomToDate()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.ToDateSelect();
+        }
+
+        [When(@"I click Nuber of travallers dropdown")]
+        public void WhenIClickNuberOfTravallersDropdown()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.NumberOfTravellersDropDownClick();
+        }
+
+        [When(@"I add one more adult passanger")]
+        public void WhenIAddOneMoreAdultPassanger()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.NumberOfAdultsAddOne();
+        }
+
+        [When(@"I add (.*) more adults")]
+        public void WhenIAddMoreAdults(int p0)
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.NumberOfAdultsUptToSevenClick();
+        }
+
+        [When(@"I click currency")]
+        public void WhenIClickCurrency()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.CurrencyClick();
+        }
+
+        [When(@"I check that USD currency is selected")]
+        public void WhenICheckThatUSDCurrencyIsSelected()
+        {
+            var flightsTab = new FlightsTabPageObject(_webDriver);
+            flightsTab.UsdCurrencyClickAndAssert();
+        }
+
+        [When(@"I click flights link")]
+        public void WhenIClickFlightsLink()
+        {
+            var signUpLink = new SightUpPageObject(_webDriver);
+            var browserTabs = _webDriver.WindowHandles;
+            _webDriver.SwitchTo().Window(browserTabs[1]);
+            signUpLink.FlightsLiClick();
+        }
+
+        [When(@"I click partners link")]
+        public void WhenIClickPartnersLink()
+        {
+            var signUpLink = new SightUpPageObject(_webDriver);
+            signUpLink.PartnersLinkClick();
+        }
+
+        [When(@"I click Credit Cards link")]
+        public void WhenIClickCreditCardsLink()
+        {
+            var signUpLink = new SightUpPageObject(_webDriver);
+            signUpLink.CreditCardsLinkClick();
+        }
 
 
 
