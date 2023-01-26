@@ -8,23 +8,6 @@ using System.Runtime.InteropServices;
 using System.Globalization;
 using Microsoft.VisualBasic;
 
-//first simply we can just check the time of lowest flight we selected , if it's past 12 then nothing to change
-//if not
-//get all flights from day1 which past 12 - get all amount  - find the lowest and store it in varaiable
-//get all flights from day2 which past 12 - get all amount  - find the lowest and store it in varaiable
-//get all flights from day3 which past 12 - get all amount  - find the lowest and store it in varaiable
-//compare all three varaibale , pick the lowest and select flight
-
-//*[text()='Flight Details']//preceding::div[2]
-
-//found the shortest to get time
-//all time in that page
-//get text in that xpath
-//*[text()='12:45']//following::div[@data-testid='spicesaver-flight-select-radio-button-1']//following::div[2]
-//pass that time
-//above will get amount
-//to pass those 6 texts times instead 12:45, in the example, right?
-
 
 namespace SpiceJetElementsInteractionTests1.PageObject
 {
@@ -132,7 +115,11 @@ namespace SpiceJetElementsInteractionTests1.PageObject
             {
                 return getNumberOne + " " + getDateAlone(numberOne);
             }
+
+
         }
+
+
         public void SelectLowFlight(string priceWithDate)
         {
             var getDateAlone = priceWithDate.Split(" ");

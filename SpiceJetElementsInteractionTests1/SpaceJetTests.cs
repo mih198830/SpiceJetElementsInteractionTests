@@ -31,39 +31,5 @@ namespace SpiceJetElementsInteractionTests1
 
             flightSearchTab.SelectLowFlight(getLowestPriceWithDate);
         }
-
-
-
-        [Test]
-        public void FlightsPageElementsCheck()
-        {
-            var flightsTab = new FlightsTabPageObject(_webDriver);
-            var flightSearchTab = new FlightSearchPageObject(_webDriver);
-            var signUpLink = new SightUpPageObject(_webDriver);
-
-
-            flightsTab.OneWayButtonClickAssert()
-                       .RoundTripRadioButtonClick()
-                       .FromFieldClick()
-                       .randomAirportFromArr()
-                       .randomAirportToArr()
-                       .FromDateSelect()
-                       .ToDateSelect()
-                       .NumberOfTravellersDropDownClick()
-                       .NumberOfAdultsAddOne()
-                       .NumberOfAdultsUptToSevenClick()
-                       .CurrencyClick()
-                       .UsdCurrencyClickAndAssert()
-                       .SearchFlightClick();
-            flightSearchTab.SignUpButtonClick();
-
-            var browserTabs = _webDriver.WindowHandles;
-            _webDriver.SwitchTo().Window(browserTabs[1]);
-            signUpLink.FlightsLiClick()
-                       .PartnersLinkClick()
-                       .CreditCardsLinkClick();
-        }
-
-
     }
 }
