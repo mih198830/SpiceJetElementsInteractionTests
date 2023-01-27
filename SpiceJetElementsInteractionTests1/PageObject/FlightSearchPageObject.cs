@@ -1,12 +1,5 @@
 ﻿using OpenQA.Selenium;
-using System.Dynamic;
-using IronOcr;
-using static Akka.IO.Tcp;
 using OpenQA.Selenium.Support.UI;
-using AngleSharp.Dom;
-using System.Runtime.InteropServices;
-using System.Globalization;
-using Microsoft.VisualBasic;
 
 
 namespace SpiceJetElementsInteractionTests1.PageObject

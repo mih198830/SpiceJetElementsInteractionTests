@@ -1,15 +1,6 @@
-﻿using Akka.IO;
-using Akka.Util;
-using Bogus;
-using Bogus.DataSets;
-using IronOcr;
-using Microsoft.VisualBasic;
+﻿using HtmlAgilityPack;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 using OpenQA.Selenium;
-using System;
-using System.Globalization;
-using WebDriverManager;
 
 namespace SpiceJetElementsInteractionTests1.PageObject
 {
@@ -60,18 +51,16 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         }
 
 
-        public string GetTextFromScreenshot()
+        public FlightsTabPageObject GetTextFromScreenshot()
         {
-            var Ocr = new IronTesseract();
-            using (var Input = new OcrInput())
-            {
-                var ContentArea = new IronSoftware.Drawing.CropRectangle(x: 1100, y: 300, height: 180, width: 230);
-                Input.AddImage("Image.png", ContentArea);
-                var Result = Ocr.Read(Input);
-                string textFromOcr = Result.Text;
-                Console.WriteLine(textFromOcr);
-                return textFromOcr;
-            }
+            var html = "https://www.spicejet.com/";
+
+            HtmlWeb web = new HtmlWeb();
+            var htmlDoc = web.Load(html);
+            var node = htmlDoc.DocumentNode.SelectSingleNode("//div[contains(@class, 'carousel-img')]")
+            .Attributes["src"].Value;
+            Console.WriteLine(node);
+            return new FlightsTabPageObject(_webdriver);
         }
 
         public FlightsTabPageObject randomAirportFromArr()
