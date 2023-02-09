@@ -34,6 +34,7 @@ namespace SpiceJetElementsInteractionTests1.PageObject
         private readonly By _destinationCityPopUp = By.XPath("//div[text()='Destination city cannot be empty']");
 
 
+
         public FlightsTabPageObject(IWebDriver webdriver)
         {
             _webdriver = webdriver;
@@ -45,9 +46,10 @@ namespace SpiceJetElementsInteractionTests1.PageObject
 
         public void MakeMainPageScreenshot()
         {
+
             Screenshot screen = ((ITakesScreenshot)_webdriver).GetScreenshot();
-            screen.SaveAsFile("C://Users//m.matskevich//source//repos//mih198830//SpiceJetElementsInteractionTests//SpiceJetElementsInteractionTests1//bin//Debug//net6.0//Image.png",
-            ScreenshotImageFormat.Png);
+            //File file = nameof.getScreenshotAs(Output.Type)
+            //screen.SaveAsFile("./screen.png", ScreenshotImageFormat.Png);
         }
 
 

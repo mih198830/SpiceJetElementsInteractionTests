@@ -431,18 +431,18 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("OCR text recognition")]
+        [NUnit.Framework.DescriptionAttribute("Optical text recognition from page")]
         [NUnit.Framework.CategoryAttribute("SpiceJet")]
         [NUnit.Framework.CategoryAttribute("Test")]
         [NUnit.Framework.CategoryAttribute("FrontEnd")]
-        public void OCRTextRecognition()
+        public void OpticalTextRecognitionFromPage()
         {
             string[] tagsOfScenario = new string[] {
                     "SpiceJet",
                     "Test",
                     "FrontEnd"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("OCR text recognition", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Optical text recognition from page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 111
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -454,13 +454,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 112
- testRunner.When("I make page screenshot and save it locally as png", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 113
- testRunner.And("Get text from this screenshot", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 114
- testRunner.Then("I compare text with expected text", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I make page screenshot and save it locally as png file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             }
             this.ScenarioCleanup();

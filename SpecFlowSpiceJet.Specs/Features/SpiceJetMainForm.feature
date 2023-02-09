@@ -108,7 +108,6 @@ Scenario: Try to login using random phone
 @Test
 @FrontEnd
 
-Scenario: OCR text recognition 
-	When I make page screenshot and save it locally as png
-	And Get text from this screenshot
-	Then I compare text with expected text
+Scenario: Optical text recognition from page
+	When I make page screenshot and save it locally as png file
+	

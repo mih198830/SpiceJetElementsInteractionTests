@@ -1,6 +1,10 @@
+using Newtonsoft.Json;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using SpiceJetElementsInteractionTests1.PageObject;
+using System.Net;
+using System;
+using System.IO;
 
 //Scenarios on the flight app https://www.spicejet.com/
 //Could you automate dates - Valid, in valid, same date with different time
@@ -31,5 +35,25 @@ namespace SpiceJetElementsInteractionTests1
 
             flightSearchTab.SelectLowFlight(getLowestPriceWithDate);
         }
+
+        [Test]
+        public void searchEmptyDataViaApi()
+        {
+            string html;
+            string url = "https://www.spicejet.com/api/v1/search/getStationDetails?getAllCities=true&getPopular=true";
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+            httpWebRequest.Method = "GET";
+            HttpWebResponse response = (HttpWebResponse)httpWebRequest.GetResponse();
+            Stream stream = response.GetResponseStream();
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+
+            var resp = JsonConvert.DeserializeObject<SingleUserResponseObject>(html);
+            Assert.IsTrue(resp.data.id.Equals(2));
+        }
+
     }
+
 }

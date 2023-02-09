@@ -4,6 +4,11 @@ using TechTalk.SpecFlow;
 using SpiceJetElementsInteractionTests1.PageObject;
 using OpenQA.Selenium;
 using NUnit.Framework;
+using Tesseract;
+using System;
+using System.IO;
+using System.Net.Http;
+using HtmlAgilityPack;
 
 
 //livingdoc feature-folder C:\Users\m.matskevich\source\repos\mih198830\SpiceJetElementsInteractionTests\SpecFlowSpiceJet.Specs -t "C:\Users\m.matskevich\source\repos\mih198830\SpiceJetElementsInteractionTests\SpecFlowSpiceJet.Specs\bin\Debug\net6.0\TestExecution.json"
@@ -152,16 +157,31 @@ namespace SpecFlowSpiceJet.Specs.StepDefinitions
         [Then(@"Validation message about non existing phone number appear")]
         public void ThenValidationMessageAboutNonExistingPhoneNumberAppear()
         {
-
+            
         }
 
-        [When(@"I make page screenshot and save it locally as png")]
+
+
+
+        [When(@"I make page screenshot and save it locally as png file")]
         public void WhenIMakePageScreenshotAndSaveItLocallyAsPng()
         {
-            var flightsTab = new FlightsTabPageObject(_webDriver);
-            
-            flightsTab.MakeMainPageScreenshot();
+
+            var web = new HtmlWeb();
+            var document = web.Load("https://www.spicejet.com/");
+
+            var img = document.DocumentNode.SelectSingleNode("//img");
+            var src = img.Attributes["src"].Value;
+
+            Console.WriteLine(src);
         }
+
+        [Then(@"Do nothing")]
+        public void ThenDoNothing()
+        {
+            throw new PendingStepException();
+        }
+
 
         [When(@"Get text from this screenshot")]
         public void WhenGetTextFromThisScreenshot()
