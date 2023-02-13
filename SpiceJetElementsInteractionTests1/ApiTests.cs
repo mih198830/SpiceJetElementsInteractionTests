@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using NUnit.Framework;
+using RestSharp;
 using SpiceJetElementsInteractionTests1.PageObject;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using RestSharp;
 
 namespace SpiceJetElementsInteractionTests1
 {
@@ -32,7 +34,22 @@ namespace SpiceJetElementsInteractionTests1
                 Assert.IsTrue(resp.status.Equals("SUCCESS"));
             }
 
+            [Test]
+            public void StatusCodeTest()
+            {
+                // arrange
+                RestClient client = new RestClient("http://api.zippopotam.us");
+                RestRequest request = new RestRequest("nl/3825", Method.Get);
+
+                // act
+                IRestResponse response = client.Execute(request);
+
+                // assert
+                Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            }
         }
+
+
 
     }
 
